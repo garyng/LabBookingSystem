@@ -19,6 +19,12 @@
     <Filter Include="Source Files\imgui">
       <UniqueIdentifier>{6961be51-70c3-4997-ab26-6bf0bab960a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\services">
+      <UniqueIdentifier>{b62240f0-a563-4a30-9fcd-b3ba6db29824}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\views">
+      <UniqueIdentifier>{58f65268-66dd-41ab-91ab-41c954cf05e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -42,6 +48,15 @@
     <ClCompile Include="App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_custom.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="views\LoginView.cpp">
+      <Filter>Source Files\views</Filter>
+    </ClCompile>
+    <ClCompile Include="views\ViewBase.cpp">
+      <Filter>Source Files\views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
@@ -64,6 +79,15 @@
     </ClInclude>
     <ClInclude Include="App.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="views\LoginView.h">
+      <Filter>Source Files\views</Filter>
+    </ClInclude>
+    <ClInclude Include="views\ViewBase.h">
+      <Filter>Source Files\views</Filter>
+    </ClInclude>
+    <ClInclude Include="services\NavigationService.h">
+      <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

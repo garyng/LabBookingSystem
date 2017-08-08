@@ -9,6 +9,10 @@
 
 using namespace std;
 
+App::App(const shared_ptr<NavigationService>& navigation): _navigation(navigation)
+{
+}
+
 void App::Start()
 {
 	Initialize();
@@ -55,6 +59,7 @@ void App::SetStyle() const
 	ImGuiStyle& style = ImGui::GetStyle();
 	style.WindowPadding = ImVec2(15, 15);
 	style.WindowRounding = 5.0f;
+	style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
 	style.FramePadding = ImVec2(5, 5);
 	style.FrameRounding = 4.0f;
 	style.ItemSpacing = ImVec2(12, 8);
@@ -99,4 +104,5 @@ void App::Render() const
 		ImGui::Text(to_string(f).c_str());
 		ImGui::End();
 	}
+	_navigation->RenderCurrent();
 }

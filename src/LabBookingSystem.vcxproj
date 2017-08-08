@@ -144,11 +144,14 @@
   <ItemGroup>
     <ClCompile Include="..\libs\gl3w\GL\gl3w.c" />
     <ClCompile Include="..\libs\imgui\imgui.cpp" />
+    <ClCompile Include="..\libs\imgui\imgui_custom.cpp" />
     <ClCompile Include="..\libs\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\libs\imgui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="views\LoginView.cpp" />
+    <ClCompile Include="views\ViewBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h" />
@@ -158,6 +161,9 @@
     <ClInclude Include="..\libs\imgui\imgui_impl_glfw_gl3.h" />
     <ClInclude Include="..\libs\imgui\imgui_internal.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="services\NavigationService.h" />
+    <ClInclude Include="views\LoginView.h" />
+    <ClInclude Include="views\ViewBase.h" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fontawesome-webfont.ttf">
