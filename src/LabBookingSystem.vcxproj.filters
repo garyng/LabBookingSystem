@@ -22,8 +22,11 @@
     <Filter Include="Source Files\services">
       <UniqueIdentifier>{b62240f0-a563-4a30-9fcd-b3ba6db29824}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\views">
-      <UniqueIdentifier>{58f65268-66dd-41ab-91ab-41c954cf05e3}</UniqueIdentifier>
+    <Filter Include="Source Files\login">
+      <UniqueIdentifier>{57f2b5d4-f3fe-44e9-be8e-402532fad6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\user">
+      <UniqueIdentifier>{cbbdd038-fc15-42cd-bde6-f560902a8472}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,11 +54,23 @@
     <ClCompile Include="..\libs\imgui\imgui_custom.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="views\LoginView.cpp">
-      <Filter>Source Files\views</Filter>
+    <ClCompile Include="login\LoginView.cpp">
+      <Filter>Source Files\login</Filter>
     </ClCompile>
-    <ClCompile Include="views\ViewBase.cpp">
-      <Filter>Source Files\views</Filter>
+    <ClCompile Include="user\UserView.cpp">
+      <Filter>Source Files\user</Filter>
+    </ClCompile>
+    <ClCompile Include="login\LoginViewModel.cpp">
+      <Filter>Source Files\login</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModelBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\UserViewModel.cpp">
+      <Filter>Source Files\user</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewBase.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,14 +95,26 @@
     <ClInclude Include="App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="views\LoginView.h">
-      <Filter>Source Files\views</Filter>
-    </ClInclude>
-    <ClInclude Include="views\ViewBase.h">
-      <Filter>Source Files\views</Filter>
-    </ClInclude>
     <ClInclude Include="services\NavigationService.h">
       <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="login\LoginView.h">
+      <Filter>Source Files\login</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserView.h">
+      <Filter>Source Files\user</Filter>
+    </ClInclude>
+    <ClInclude Include="login\LoginViewModel.h">
+      <Filter>Source Files\login</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserViewModel.h">
+      <Filter>Source Files\user</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModelBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewBase.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

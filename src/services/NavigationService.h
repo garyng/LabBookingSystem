@@ -2,31 +2,50 @@
 #include <map>
 #include <typeindex>
 #include <memory>
-#include "../views/ViewBase.h"
+#include <functional>
+#include "../ViewBase.h"
+
+class ViewModelBase;
 
 class NavigationService
 {
 private:
-	std::map<std::type_index, std::shared_ptr<ViewBase>> _views;
+
 	std::shared_ptr<ViewBase> _currentView;
+	std::map<std::type_index, std::pair<std::shared_ptr<ViewModelBase>, std::shared_ptr<ViewBase>>> _viewModelViewPair;
+
 public:
-	template <class TView>
-	typename std::enable_if<std::is_base_of<ViewBase, TView>::value, void>::type
-	Register(const std::shared_ptr<ViewBase>& view)
+	template <class TViewModel, class TView>
+	typename std::enable_if<std::is_base_of<ViewModelBase, TViewModel>::value &&
+	                        std::is_base_of<ViewBase, TView>::value,
+	                        void>::type
+	Register(const std::shared_ptr<ViewModelBase>& viewModel, const std::shared_ptr<ViewBase>& view)
 	{
-		std::type_index key = typeid(TView);
-		_views.insert({ key, view });
+		std::type_index key = typeid(TViewModel);
+		_viewModelViewPair.insert({key, {viewModel, view}});
 	}
 
-	template <class TView>
-	typename std::enable_if<std::is_base_of<ViewBase, TView>::value, void>::type
+
+	template <class TViewModel>
+	typename std::enable_if<std::is_base_of<ViewModelBase, TViewModel>::value, void>::type
 	NavigateTo()
 	{
-		std::type_index key = typeid(TView);
-		map<std::type_index, std::shared_ptr<ViewBase>>::iterator result = _views.find(key);
-		if (result != _views.end())
+		NavigateTo<TViewModel>([](std::shared_ptr<ViewModelBase> vm)
+			{
+			});
+	}
+
+	template <class TViewModel, class CallBack>
+	typename std::enable_if<std::is_base_of<ViewModelBase, TViewModel>::value, void>::type
+	NavigateTo(CallBack&& callBack)
+	{
+		std::type_index key = typeid(TViewModel);
+		std::map<std::type_index, std::pair<std::shared_ptr<ViewModelBase>, std::shared_ptr<ViewBase>>>::iterator result = _viewModelViewPair.find(key);
+		std::shared_ptr<ViewModelBase> viewModel = result->second.first;
+		callBack(std::static_pointer_cast<TViewModel>(viewModel));
+		if (result != _viewModelViewPair.end())
 		{
-			_currentView = result->second;
+			_currentView = result->second.second;
 		}
 	}
 
@@ -34,5 +53,12 @@ public:
 	{
 		_currentView->Render();
 	}
-};
 
+	void RenderAll() const
+	{
+		for (auto p :_viewModelViewPair)
+		{
+			p.second.second->Render();
+		}
+	}
+};

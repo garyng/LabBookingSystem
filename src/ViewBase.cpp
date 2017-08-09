@@ -1,5 +1,4 @@
 ﻿#include "ViewBase.h"
-#include "imgui.h"
 
 void ViewBase::Render()
 {

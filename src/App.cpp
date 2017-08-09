@@ -94,15 +94,6 @@ void App::Loop() const
 
 void App::Render() const
 {
-	{
-		ImGui::SetNextWindowPosCenter();
-		ImGui::Begin("Login", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
-		string a = "Hello World";
-		ImGui::Text("Hello World " ICON_FA_KEY);
-		static float f = 0.0f;
-		ImGui::SliderFloat("Float##slide", &f, 0.0f, 1.0f);
-		ImGui::Text(to_string(f).c_str());
-		ImGui::End();
-	}
-	_navigation->RenderCurrent();
+	//_navigation->RenderCurrent();
+	_navigation->RenderAll();
 }
