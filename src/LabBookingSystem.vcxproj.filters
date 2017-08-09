@@ -28,6 +28,9 @@
     <Filter Include="Source Files\user">
       <UniqueIdentifier>{cbbdd038-fc15-42cd-bde6-f560902a8472}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\admin">
+      <UniqueIdentifier>{64042e3c-3bd0-4c0d-addf-60f03a82a1e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -68,6 +71,12 @@
     </ClCompile>
     <ClCompile Include="user\UserViewModel.cpp">
       <Filter>Source Files\user</Filter>
+    </ClCompile>
+    <ClCompile Include="admin\AdminViewModel.cpp">
+      <Filter>Source Files\admin</Filter>
+    </ClCompile>
+    <ClCompile Include="admin\AdminView.cpp">
+      <Filter>Source Files\admin</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +124,12 @@
     </ClInclude>
     <ClInclude Include="ViewBase.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="admin\AdminViewModel.h">
+      <Filter>Source Files\admin</Filter>
+    </ClInclude>
+    <ClInclude Include="admin\AdminView.h">
+      <Filter>Source Files\admin</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

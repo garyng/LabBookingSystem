@@ -148,6 +148,8 @@
     <ClCompile Include="..\libs\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\libs\imgui\imgui_impl_glfw_gl3.cpp" />
+    <ClCompile Include="admin\AdminView.cpp" />
+    <ClCompile Include="admin\AdminViewModel.cpp" />
     <ClCompile Include="App.cpp" />
     <ClCompile Include="login\LoginView.cpp" />
     <ClCompile Include="login\LoginViewModel.cpp" />
@@ -163,6 +165,8 @@
     <ClInclude Include="..\libs\imgui\imgui.h" />
     <ClInclude Include="..\libs\imgui\imgui_impl_glfw_gl3.h" />
     <ClInclude Include="..\libs\imgui\imgui_internal.h" />
+    <ClInclude Include="admin\AdminView.h" />
+    <ClInclude Include="admin\AdminViewModel.h" />
     <ClInclude Include="App.h" />
     <ClInclude Include="login\LoginView.h" />
     <ClInclude Include="login\LoginViewModel.h" />
