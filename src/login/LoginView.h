@@ -1,15 +1,14 @@
 ﻿#pragma once
-#include "../ViewBase.h"
 #include <memory>
+#include "LoginViewModel.h"
+#include "../ViewBase.h"
 
-class LoginViewModel;
 
-class LoginView 
-	: public ViewBase
+class LoginView
+	: public ViewBase<LoginViewModel>
 {
-protected:
-	std::shared_ptr<LoginViewModel> _viewModel;
 public:
-	explicit LoginView(const std::shared_ptr<LoginViewModel>& loginViewModel);
+	explicit LoginView(const std::shared_ptr<LoginViewModel>& viewModel);
+
 	void Render() override;
 };

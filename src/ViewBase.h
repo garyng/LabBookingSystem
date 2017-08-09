@@ -1,9 +1,16 @@
-﻿#pragma once
-#include <imgui.h>
+#pragma once
+#include "ViewModelBase.h"
 
-class ViewBase
+template <class TViewModel,
+	std::enable_if_t<std::is_base_of<ViewModelBase, TViewModel>::value>* = nullptr>
+	class ViewBase
+	: public IView
 {
+protected:
+	std::shared_ptr<TViewModel> _viewModel;
 public:
-	virtual ~ViewBase() = default;
-	void virtual Render();
+	explicit ViewBase(const std::shared_ptr<TViewModel>& viewModel)
+		: _viewModel(viewModel)
+	{
+	}
 };

@@ -154,7 +154,6 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="user\UserView.cpp" />
     <ClCompile Include="user\UserViewModel.cpp" />
-    <ClCompile Include="ViewBase.cpp" />
     <ClCompile Include="ViewModelBase.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +169,7 @@
     <ClInclude Include="services\NavigationService.h" />
     <ClInclude Include="user\UserView.h" />
     <ClInclude Include="user\UserViewModel.h" />
+    <ClInclude Include="IView.h" />
     <ClInclude Include="ViewBase.h" />
     <ClInclude Include="ViewModelBase.h" />
   </ItemGroup>

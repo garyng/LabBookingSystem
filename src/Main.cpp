@@ -7,9 +7,8 @@
 #include "user/UserViewModel.h"
 
 using namespace std;
-
 int main(int argc, char* argv[])
-{		
+{
 	shared_ptr<NavigationService> navigation = make_shared<NavigationService>();
 
 	shared_ptr<LoginViewModel> loginViewModel = make_shared<LoginViewModel>(navigation);
@@ -17,7 +16,7 @@ int main(int argc, char* argv[])
 
 	shared_ptr<UserViewModel> userViewModel = make_shared<UserViewModel>(navigation);
 	shared_ptr<UserView> userView = make_shared<UserView>(userViewModel);
-	
+
 
 	navigation->Register<LoginViewModel, LoginView>(loginViewModel, loginView);
 	navigation->Register<UserViewModel, UserView>(userViewModel, userView);

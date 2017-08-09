@@ -4,7 +4,7 @@
 #include "../services/NavigationService.h"
 #include "LoginViewModel.h"
 
-LoginView::LoginView(const std::shared_ptr<LoginViewModel>& loginViewModel): _viewModel(loginViewModel)
+LoginView::LoginView(const std::shared_ptr<LoginViewModel>& viewModel): ViewBase<LoginViewModel>(viewModel)
 {
 }
 

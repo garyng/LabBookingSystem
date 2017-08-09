@@ -3,7 +3,7 @@
 #include "imgui.h"
 #include <IconsFontAwesome.h>
 
-UserView::UserView(const std::shared_ptr<UserViewModel>& viewModel): _viewModel(viewModel)
+UserView::UserView(const std::shared_ptr<UserViewModel>& viewModel): ViewBase<UserViewModel>(viewModel)
 {
 }
 

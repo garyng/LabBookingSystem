@@ -1,13 +1,11 @@
 ﻿#pragma once
-#include "../ViewBase.h"
 #include <memory>
 #include "UserViewModel.h"
+#include "../ViewBase.h"
 
 class UserView
-	: public ViewBase
+	: public ViewBase<UserViewModel>
 {
-protected:
-	std::shared_ptr<UserViewModel> _viewModel;
 public:
 	explicit UserView(const std::shared_ptr<UserViewModel>& viewModel);
 	void Render() override;

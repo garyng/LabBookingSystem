@@ -3,7 +3,7 @@
 #include <typeindex>
 #include <memory>
 #include <functional>
-#include "../ViewBase.h"
+#include "../IView.h"
 
 class ViewModelBase;
 
@@ -11,15 +11,15 @@ class NavigationService
 {
 private:
 
-	std::shared_ptr<ViewBase> _currentView;
-	std::map<std::type_index, std::pair<std::shared_ptr<ViewModelBase>, std::shared_ptr<ViewBase>>> _viewModelViewPair;
+	std::shared_ptr<IView> _currentView;
+	std::map<std::type_index, std::pair<std::shared_ptr<ViewModelBase>, std::shared_ptr<IView>>> _viewModelViewPair;
 
 public:
 	template <class TViewModel, class TView>
 	typename std::enable_if<std::is_base_of<ViewModelBase, TViewModel>::value &&
-	                        std::is_base_of<ViewBase, TView>::value,
+	                        std::is_base_of<IView, TView>::value,
 	                        void>::type
-	Register(const std::shared_ptr<ViewModelBase>& viewModel, const std::shared_ptr<ViewBase>& view)
+	Register(const std::shared_ptr<ViewModelBase>& viewModel, const std::shared_ptr<IView>& view)
 	{
 		std::type_index key = typeid(TViewModel);
 		_viewModelViewPair.insert({key, {viewModel, view}});
@@ -40,7 +40,7 @@ public:
 	NavigateTo(CallBack&& callBack)
 	{
 		std::type_index key = typeid(TViewModel);
-		std::map<std::type_index, std::pair<std::shared_ptr<ViewModelBase>, std::shared_ptr<ViewBase>>>::iterator result = _viewModelViewPair.find(key);
+		std::map<std::type_index, std::pair<std::shared_ptr<ViewModelBase>, std::shared_ptr<IView>>>::iterator result = _viewModelViewPair.find(key);
 		std::shared_ptr<ViewModelBase> viewModel = result->second.first;
 		callBack(std::static_pointer_cast<TViewModel>(viewModel));
 		if (result != _viewModelViewPair.end())
