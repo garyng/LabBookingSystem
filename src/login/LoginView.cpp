@@ -21,7 +21,7 @@ void LoginView::Render()
 	// todo: constantly push userid and password
 	// then you can generalize command model
 
-	if (ImGui::Button("Login"))
+	if (ImGui::RightAlignedButton("Login"))
 	{
 		_viewModel->LoginCommand(std::string(userIdBuffer), std::string(userPasswordBuffer));
 		// todo: if login failed then popup

@@ -12,7 +12,7 @@ void UserView::Render()
 	// user name?
 	std::string name("User (" + _viewModel->_userId + ")");
 	ImGui::BeginDefaultWindow(name.c_str());
-	ImGui::Button(ICON_MD_ADD " Request");
-	ImGui::Button(ICON_MD_EXIT_TO_APP " Logout");;
+	ImGui::Selectable(ICON_MD_ADD " Request");
+	ImGui::Selectable(ICON_MD_EXIT_TO_APP " Logout");
 	ImGui::End();
 }

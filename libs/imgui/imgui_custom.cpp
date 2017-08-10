@@ -2,10 +2,15 @@
 
 namespace ImGui
 {
-	void BeginDefaultWindow(const char* name)
+	bool BeginDefaultWindow(const char* name)
 	{
 		//SetNextWindowPosCenter();
-		Begin(name, nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
+		return Begin(name, nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
+	}
+
+	bool RightAlignedButton(const char* label)
+	{
+		return Button(label, ImVec2(-1, 0));
 	}
 }
 

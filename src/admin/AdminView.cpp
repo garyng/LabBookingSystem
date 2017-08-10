@@ -10,8 +10,8 @@ void AdminView::Render()
 {
 	std::string title("Admin");
 	ImGui::BeginDefaultWindow(title.c_str());
-	ImGui::Button(ICON_MD_ADD " Request");
-	ImGui::Button(ICON_MD_DONE " Review");
-	ImGui::Button(ICON_MD_EXIT_TO_APP " Log Out");
+	ImGui::Selectable(ICON_MD_ADD " Request");
+	ImGui::Selectable(ICON_MD_DONE " Review");
+	ImGui::Selectable(ICON_MD_EXIT_TO_APP " Log Out");
 	ImGui::End();
 }

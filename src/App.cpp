@@ -46,11 +46,13 @@ void App::LoadFonts() const
 {
 	ImGuiIO& io = ImGui::GetIO();
 	io.Fonts->Clear();
-	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 17);
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 17.0f);
+
 	ImFontConfig config;
+	config.GlyphOffset.y += 3;
 	config.MergeMode = true;
 	const ImWchar iconRange[] = {ICON_MIN_MD, ICON_MAX_MD, 0};
-	io.Fonts->AddFontFromFileTTF("Fonts/MaterialIcons-Regular.ttf", 17, &config, iconRange);
+	io.Fonts->AddFontFromFileTTF("Fonts/MaterialIcons-Regular.ttf", 17.0f, &config, iconRange);
 	io.Fonts->Build();
 }
 
@@ -96,4 +98,5 @@ void App::Render() const
 {
 	//_navigation->RenderCurrent();
 	_navigation->RenderAll();
+	ImGui::ShowStyleEditor();
 }
