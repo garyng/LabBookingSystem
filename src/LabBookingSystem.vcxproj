@@ -178,10 +178,6 @@
     <ClInclude Include="ViewModelBase.h" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\fontawesome-webfont.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>True</DeploymentContent>
-    </Content>
     <Content Include="fonts\Roboto-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>True</DeploymentContent>

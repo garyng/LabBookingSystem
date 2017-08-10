@@ -3,8 +3,8 @@
 #include <iostream>
 #include <GL/gl3w.h>
 #include <GLFW/glfw3.h>
-#include <IconsFontAwesome.h>
 #include <string>
+#include <IconsMaterialDesign.h>
 #include "App.h"
 
 using namespace std;
@@ -49,8 +49,8 @@ void App::LoadFonts() const
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 17);
 	ImFontConfig config;
 	config.MergeMode = true;
-	const ImWchar iconRange[] = {ICON_MIN_FA, ICON_MAX_FA, 0};
-	io.Fonts->AddFontFromFileTTF("Fonts/fontawesome-webfont.ttf", 17, &config, iconRange);
+	const ImWchar iconRange[] = {ICON_MIN_MD, ICON_MAX_MD, 0};
+	io.Fonts->AddFontFromFileTTF("Fonts/MaterialIcons-Regular.ttf", 17, &config, iconRange);
 	io.Fonts->Build();
 }
 
