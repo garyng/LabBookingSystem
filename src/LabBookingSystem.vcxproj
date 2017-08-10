@@ -186,6 +186,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>True</DeploymentContent>
     </Content>
+	<Content Include="fonts\MaterialIcons-Regular.ttf">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		<DeploymentContent>True</DeploymentContent>
+	</Content>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
