@@ -11,7 +11,7 @@ void UserView::Render()
 {
 	// user name?
 	std::string name("User (" + _viewModel->_userId + ")");
-	ImGui::BeginDefaultWindow(name.c_str());
+	ImGui::BeginDefaultCenteredWindow(name.c_str());
 	ImGui::Selectable(ICON_MD_ADD " Request");
 	ImGui::Selectable(ICON_MD_EXIT_TO_APP " Logout");
 	ImGui::End();

@@ -59,7 +59,7 @@ void App::LoadFonts() const
 void App::SetStyle() const
 {
 	ImGuiStyle& style = ImGui::GetStyle();
-	style.WindowPadding = ImVec2(15, 15);
+	style.WindowPadding = ImVec2(20, 20);
 	style.WindowRounding = 5.0f;
 	style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
 	style.FramePadding = ImVec2(5, 5);

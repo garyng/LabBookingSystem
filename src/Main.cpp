@@ -6,6 +6,8 @@
 #include "user/UserView.h"
 #include "user/UserViewModel.h"
 #include "admin/AdminView.h"
+#include "request/RequestViewModel.h"
+#include "request/RequestView.h"
 
 using namespace std;
 
@@ -35,6 +37,7 @@ int main(int argc, char* argv[])
 	MakeViewsAndViewModels<LoginView, LoginViewModel>(navigation);
 	MakeViewsAndViewModels<UserView, UserViewModel>(navigation);
 	MakeViewsAndViewModels<AdminView, AdminViewModel>(navigation);
+	MakeViewsAndViewModels<RequestView, RequestViewModel>(navigation);
 
 	navigation->NavigateTo<LoginViewModel>();
 

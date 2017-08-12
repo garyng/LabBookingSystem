@@ -10,7 +10,7 @@ LoginView::LoginView(const std::shared_ptr<LoginViewModel>& viewModel): ViewBase
 
 void LoginView::Render()
 {
-	ImGui::BeginDefaultWindow("Login");
+	ImGui::BeginDefaultCenteredWindow("Login");
 
 	static char userIdBuffer[255];
 	ImGui::InputText(ICON_MD_PERM_IDENTITY " User ID", userIdBuffer, 255);

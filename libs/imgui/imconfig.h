@@ -57,6 +57,7 @@ namespace ImGui
 */
 namespace ImGui
 {
-	bool BeginDefaultWindow(const char* name);
+	bool BeginDefaultCenteredWindow(const char* name);
+	bool BeginDefaultCenteredResizableWindow(const char* name);
 	bool RightAlignedButton(const char* label);
 }

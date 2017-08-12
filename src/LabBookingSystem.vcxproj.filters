@@ -31,6 +31,12 @@
     <Filter Include="Source Files\admin">
       <UniqueIdentifier>{64042e3c-3bd0-4c0d-addf-60f03a82a1e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\request">
+      <UniqueIdentifier>{dea76ca0-eddb-499f-b5a4-2f49fa211a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models">
+      <UniqueIdentifier>{009f70a7-4d09-4392-bbb9-20709277dd50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -77,6 +83,15 @@
     </ClCompile>
     <ClCompile Include="admin\AdminView.cpp">
       <Filter>Source Files\admin</Filter>
+    </ClCompile>
+    <ClCompile Include="request\RequestView.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\RequestViewModel.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="Request.cpp">
+      <Filter>Source Files\models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,10 +146,14 @@
     <ClInclude Include="admin\AdminView.h">
       <Filter>Source Files\admin</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="fonts\MaterialIcons-Regular.ttf">
-      <Filter>Source Files</Filter>
-    </Font>
+    <ClInclude Include="request\RequestView.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="request\RequestViewModel.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="Request.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ AdminView::AdminView(const std::shared_ptr<AdminViewModel>& viewModel) : ViewBas
 void AdminView::Render()
 {
 	std::string title("Admin");
-	ImGui::BeginDefaultWindow(title.c_str());
+	ImGui::BeginDefaultCenteredWindow(title.c_str());
 	ImGui::Selectable(ICON_MD_ADD " Request");
 	ImGui::Selectable(ICON_MD_DONE " Review");
 	ImGui::Selectable(ICON_MD_EXIT_TO_APP " Log Out");
