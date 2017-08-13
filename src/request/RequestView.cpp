@@ -3,6 +3,7 @@
 #include "imgui.h"
 #include <string>
 #include <IconsMaterialDesign.h>
+#include "imgui_internal.h"
 
 using namespace std;
 
@@ -26,9 +27,9 @@ void RequestView::Render()
 	static char buffer[1024];
 	ImGui::InputText(ICON_MD_SEARCH " Search", buffer, 1024);
 
-	ImGui::BeginChild("RequestsList", ImVec2(0, -ImGui::GetItemsLineHeightWithSpacing()));
+	ImGui::BeginChild("RequestsList", ImVec2(0, -2 * ImGui::GetItemsLineHeightWithSpacing()));
 	{
-		for (int i = 0; i < _viewModel->Requests.size(); i++)
+		for (size_t i = 0; i < _viewModel->Requests.size(); i++)
 		{
 			string label = "Request #" + to_string(_viewModel->Requests[i]->RequestId) + " " + _viewModel->Requests[i]->Status._to_string();
 			if (ImGui::Selectable(label.c_str(), selectedIndex == i))
@@ -39,11 +40,16 @@ void RequestView::Render()
 	}
 	ImGui::EndChild();
 
+	static int currentItem;
+	const char* items[] = {"Accepted", "Pending", "Rejected"};
+	ImGui::Combo("Filter By", &currentItem, items, IM_ARRAYSIZE(items));
+
 	ImGui::RightAlignedButton(ICON_MD_ADD " New Request");
+
 
 	ImGui::NextColumn();
 
-	ImGui::BeginChild("RequestView", ImVec2(0, -ImGui::GetItemsLineHeightWithSpacing()));
+	ImGui::BeginChild("RequestInfo", ImVec2(0, -ImGui::GetItemsLineHeightWithSpacing()));
 	{
 		string text = "Request #" + to_string(selectedIndex);
 		ImGui::Text(text.c_str());
@@ -52,7 +58,7 @@ void RequestView::Render()
 		ImGui::Text(text.c_str());
 	}
 	ImGui::EndChild();
-	ImGui::BeginChild("RequestViewButtons");
+	ImGui::BeginChild("RequestInfoFooter");
 	{
 		if (_viewModel->Requests[selectedIndex]->Status == +RequestStatus::Pending)
 		{

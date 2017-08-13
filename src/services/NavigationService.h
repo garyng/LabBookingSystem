@@ -56,7 +56,7 @@ public:
 
 	void RenderAll() const
 	{
-		for (auto p :_viewModelViewPair)
+		for (auto& p :_viewModelViewPair)
 		{
 			p.second.second->Render();
 		}
