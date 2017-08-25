@@ -111,6 +111,9 @@
     <ClCompile Include="logger\Logger.cpp">
       <Filter>Source Files\logger</Filter>
     </ClCompile>
+    <ClCompile Include="storage\LabStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
@@ -195,6 +198,9 @@
       <Filter>Source Files\logger</Filter>
     </ClInclude>
     <ClInclude Include="storage\IStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\LabStorage.h">
       <Filter>Source Files\storage</Filter>
     </ClInclude>
   </ItemGroup>
