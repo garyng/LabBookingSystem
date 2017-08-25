@@ -183,6 +183,8 @@
     <ClInclude Include="request\RequestView.h" />
     <ClInclude Include="request\RequestViewModel.h" />
     <ClInclude Include="services\NavigationService.h" />
+    <ClInclude Include="storage\IStorage.h" />
+    <ClInclude Include="storage\JsonStorage.h" />
     <ClInclude Include="user\UserView.h" />
     <ClInclude Include="user\UserViewModel.h" />
     <ClInclude Include="IView.h" />
