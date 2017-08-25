@@ -153,6 +153,7 @@
     <ClCompile Include="admin\AdminView.cpp" />
     <ClCompile Include="admin\AdminViewModel.cpp" />
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="logger\Logger.cpp" />
     <ClCompile Include="login\LoginView.cpp" />
     <ClCompile Include="login\LoginViewModel.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -173,6 +174,9 @@
     <ClInclude Include="admin\AdminView.h" />
     <ClInclude Include="admin\AdminViewModel.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="logger\ConsoleLogger.h" />
+    <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="logger\Logger.h" />
     <ClInclude Include="login\LoginView.h" />
     <ClInclude Include="login\LoginViewModel.h" />
     <ClInclude Include="Request.h" />
