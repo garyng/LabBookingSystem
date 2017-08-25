@@ -160,6 +160,7 @@
     <ClCompile Include="models\User.cpp" />
     <ClCompile Include="request\RequestView.cpp" />
     <ClCompile Include="request\RequestViewModel.cpp" />
+    <ClCompile Include="storage\UserStorage.cpp" />
     <ClCompile Include="user\UserView.cpp" />
     <ClCompile Include="user\UserViewModel.cpp" />
     <ClCompile Include="ViewModelBase.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="services\NavigationService.h" />
     <ClInclude Include="storage\IStorage.h" />
     <ClInclude Include="storage\JsonStorage.h" />
+    <ClInclude Include="storage\UserStorage.h" />
     <ClInclude Include="user\UserView.h" />
     <ClInclude Include="user\UserViewModel.h" />
     <ClInclude Include="IView.h" />

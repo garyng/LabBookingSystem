@@ -34,7 +34,7 @@ protected:
 	std::string virtual GetDataFilename() = 0;
 public:
 
-	void Load()
+	void Load() override
 	{
 		fs::path dataFilePath = ResolvePath(GetDataFilename());
 
@@ -60,7 +60,7 @@ public:
 		Log->Debug("Data loaded from \"" + dataFilePath.string() + "\"");
 	}
 
-	void Save()
+	void Save() override
 	{
 		fs::path dataFilePath = ResolvePath(GetDataFilename());
 		json json = _data;

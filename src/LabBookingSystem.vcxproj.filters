@@ -37,6 +37,12 @@
     <Filter Include="Source Files\models">
       <UniqueIdentifier>{009f70a7-4d09-4392-bbb9-20709277dd50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\storage">
+      <UniqueIdentifier>{4c6c61af-fac0-4e44-8dcc-73d6bb28a3e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logger">
+      <UniqueIdentifier>{237d1815-414b-43f5-8849-25c7efb2751e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -66,17 +72,11 @@
     <ClCompile Include="login\LoginView.cpp">
       <Filter>Source Files\login</Filter>
     </ClCompile>
-    <ClCompile Include="user\UserView.cpp">
-      <Filter>Source Files\user</Filter>
-    </ClCompile>
     <ClCompile Include="login\LoginViewModel.cpp">
       <Filter>Source Files\login</Filter>
     </ClCompile>
     <ClCompile Include="ViewModelBase.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="user\UserViewModel.cpp">
-      <Filter>Source Files\user</Filter>
     </ClCompile>
     <ClCompile Include="admin\AdminViewModel.cpp">
       <Filter>Source Files\admin</Filter>
@@ -90,8 +90,26 @@
     <ClCompile Include="request\RequestViewModel.cpp">
       <Filter>Source Files\request</Filter>
     </ClCompile>
-    <ClCompile Include="Request.cpp">
+    <ClCompile Include="user\UserView.cpp">
+      <Filter>Source Files\user</Filter>
+    </ClCompile>
+    <ClCompile Include="user\UserViewModel.cpp">
+      <Filter>Source Files\user</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Lab.cpp">
       <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Request.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\User.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\UserStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="logger\Logger.cpp">
+      <Filter>Source Files\logger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,14 +137,8 @@
     <ClInclude Include="login\LoginView.h">
       <Filter>Source Files\login</Filter>
     </ClInclude>
-    <ClInclude Include="user\UserView.h">
-      <Filter>Source Files\user</Filter>
-    </ClInclude>
     <ClInclude Include="login\LoginViewModel.h">
       <Filter>Source Files\login</Filter>
-    </ClInclude>
-    <ClInclude Include="user\UserViewModel.h">
-      <Filter>Source Files\user</Filter>
     </ClInclude>
     <ClInclude Include="App.h">
       <Filter>Source Files</Filter>
@@ -136,9 +148,6 @@
     </ClInclude>
     <ClInclude Include="IView.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewBase.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="admin\AdminViewModel.h">
       <Filter>Source Files\admin</Filter>
@@ -152,8 +161,41 @@
     <ClInclude Include="request\RequestViewModel.h">
       <Filter>Source Files\request</Filter>
     </ClInclude>
-    <ClInclude Include="Request.h">
+    <ClInclude Include="ViewBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserView.h">
+      <Filter>Source Files\user</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserViewModel.h">
+      <Filter>Source Files\user</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\JsonStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Lab.h">
       <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Request.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\User.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\UserStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\ILogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\ConsoleLogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\Logger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\IStorage.h">
+      <Filter>Source Files\storage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

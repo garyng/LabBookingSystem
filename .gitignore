@@ -313,3 +313,5 @@ obj/
 # End of https://www.gitignore.io/api/codeblocks
 
 src/imgui\.ini
+
+src/data/
