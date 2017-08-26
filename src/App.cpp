@@ -55,6 +55,7 @@ void App::LoadFonts() const
 	const ImWchar iconRange[] = {ICON_MIN_MD, ICON_MAX_MD, 0};
 	io.Fonts->AddFontFromFileTTF("Fonts/MaterialIcons-Regular.ttf", 17.0f, &config, iconRange);
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 25.0f);
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Bold.ttf", 17.0f);
 	io.Fonts->Build();
 }
 
