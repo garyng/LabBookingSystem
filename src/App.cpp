@@ -44,6 +44,7 @@ void App::Initialize()
 
 void App::LoadFonts() const
 {
+	// Font index is best retrieved via class AppFontIndex
 	ImGuiIO& io = ImGui::GetIO();
 	io.Fonts->Clear();
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 17.0f);
@@ -53,6 +54,7 @@ void App::LoadFonts() const
 	config.MergeMode = true;
 	const ImWchar iconRange[] = {ICON_MIN_MD, ICON_MAX_MD, 0};
 	io.Fonts->AddFontFromFileTTF("Fonts/MaterialIcons-Regular.ttf", 17.0f, &config, iconRange);
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 25.0f);
 	io.Fonts->Build();
 }
 

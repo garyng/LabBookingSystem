@@ -209,5 +209,8 @@
     <ClInclude Include="storage\RequestStorage.h">
       <Filter>Source Files\storage</Filter>
     </ClInclude>
+    <ClInclude Include="AppFontIndex.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
