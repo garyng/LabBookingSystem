@@ -152,6 +152,7 @@
     <ClCompile Include="admin\AdminView.cpp" />
     <ClCompile Include="admin\AdminViewModel.cpp" />
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="AppColors.cpp" />
     <ClCompile Include="AppFontIndex.cpp" />
     <ClCompile Include="logger\Logger.cpp" />
     <ClCompile Include="login\LoginView.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="admin\AdminView.h" />
     <ClInclude Include="admin\AdminViewModel.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="AppColors.h" />
     <ClInclude Include="AppFontIndex.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
     <ClInclude Include="logger\ILogger.h" />

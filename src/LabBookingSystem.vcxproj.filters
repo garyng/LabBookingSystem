@@ -117,6 +117,9 @@
     <ClCompile Include="storage\RequestStorage.cpp">
       <Filter>Source Files\storage</Filter>
     </ClCompile>
+    <ClCompile Include="AppColors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AppFontIndex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -211,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="storage\RequestStorage.h">
       <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="AppColors.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="AppFontIndex.h">
       <Filter>Source Files</Filter>
