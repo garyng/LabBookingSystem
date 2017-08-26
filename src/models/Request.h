@@ -3,7 +3,7 @@
 #include <enum.h>
 #include <json.hpp>
 
-BETTER_ENUM(RequestStatus, int, Pending, Accepted, Rejected);
+BETTER_ENUM(RequestStatus, int, Pending, Accepted, Rejected, Cancelled);
 
 class Request
 {
@@ -30,6 +30,9 @@ public:
 
 	RequestStatus Status() const { return RequestStatus::_from_string(_status.c_str()); }
 	void Status(RequestStatus value) { _status = value._to_string(); }
+	bool IsPending() const { return Status() == +RequestStatus::Pending; }
+	bool IsCancelled() const { return Status() == +RequestStatus::Cancelled; }
+	bool WasReviewed() const { return Status() == +RequestStatus::Accepted || Status() == +RequestStatus::Rejected; }
 
 	Request() = default;
 	Request(int id, const std::string& labId, const std::string& userId, const std::string& reviewerId, const RequestStatus& status);
