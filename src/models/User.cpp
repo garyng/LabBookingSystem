@@ -22,7 +22,6 @@ void to_json(nlohmann::json& json, const User& user)
 void from_json(const nlohmann::json& json, User& user)
 {
 	user.Id(json.at("Id").get<std::string>());
-
 	user.Name(json.at("Name").get<std::string>());
 	user.HashedPassword(json.at("HashedPassword").get<std::string>());
 	user.Role(UserRole::_from_string(

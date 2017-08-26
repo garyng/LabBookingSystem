@@ -156,8 +156,8 @@
     <ClCompile Include="login\LoginView.cpp" />
     <ClCompile Include="login\LoginViewModel.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Request.cpp" />
     <ClCompile Include="models\Lab.cpp" />
+    <ClCompile Include="models\Request.cpp" />
     <ClCompile Include="models\User.cpp" />
     <ClCompile Include="request\RequestView.cpp" />
     <ClCompile Include="request\RequestViewModel.cpp" />
@@ -182,19 +182,19 @@
     <ClInclude Include="logger\Logger.h" />
     <ClInclude Include="login\LoginView.h" />
     <ClInclude Include="login\LoginViewModel.h" />
-    <ClInclude Include="Request.h" />
     <ClInclude Include="models\Lab.h" />
+    <ClInclude Include="models\Request.h" />
     <ClInclude Include="models\User.h" />
     <ClInclude Include="request\RequestView.h" />
     <ClInclude Include="request\RequestViewModel.h" />
     <ClInclude Include="services\NavigationService.h" />
     <ClInclude Include="storage\IStorage.h" />
     <ClInclude Include="storage\JsonStorage.h" />
+    <ClInclude Include="IView.h" />
     <ClInclude Include="storage\LabStorage.h" />
     <ClInclude Include="storage\UserStorage.h" />
     <ClInclude Include="user\UserView.h" />
     <ClInclude Include="user\UserViewModel.h" />
-    <ClInclude Include="IView.h" />
     <ClInclude Include="ViewBase.h" />
     <ClInclude Include="ViewModelBase.h" />
   </ItemGroup>
