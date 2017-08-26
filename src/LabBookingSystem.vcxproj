@@ -162,6 +162,7 @@
     <ClCompile Include="request\RequestView.cpp" />
     <ClCompile Include="request\RequestViewModel.cpp" />
     <ClCompile Include="storage\LabStorage.cpp" />
+    <ClCompile Include="storage\RequestStorage.cpp" />
     <ClCompile Include="storage\UserStorage.cpp" />
     <ClCompile Include="user\UserView.cpp" />
     <ClCompile Include="user\UserViewModel.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="storage\JsonStorage.h" />
     <ClInclude Include="IView.h" />
     <ClInclude Include="storage\LabStorage.h" />
+    <ClInclude Include="storage\RequestStorage.h" />
     <ClInclude Include="storage\UserStorage.h" />
     <ClInclude Include="user\UserView.h" />
     <ClInclude Include="user\UserViewModel.h" />

@@ -11,7 +11,7 @@ private:
 	int _id;
 	std::string _labId;
 	std::string _userId;
-	std::string _approverId;
+	std::string _reviewerId;
 	std::string _status;
 
 
@@ -25,14 +25,14 @@ public:
 	std::string UserId() const { return _userId; }
 	void UserId(std::string value) { _userId = value; }
 
-	std::string ApproverId() const { return _approverId; }
-	void ApproverId(std::string value) { _approverId = value; }
+	std::string ReviewerId() const { return _reviewerId; }
+	void ReviewerId(std::string value) { _reviewerId = value; }
 
 	RequestStatus Status() const { return RequestStatus::_from_string(_status.c_str()); }
 	void Status(RequestStatus value) { _status = value._to_string(); }
 
 	Request() = default;
-	Request(int id, const RequestStatus& status, const std::string& labId, const std::string& userId, const std::string& approverId);
+	Request(int id, const std::string& labId, const std::string& userId, const std::string& reviewerId, const RequestStatus& status);
 };
 
 void to_json(nlohmann::json& json, const Request& user);
