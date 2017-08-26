@@ -117,6 +117,9 @@
     <ClCompile Include="storage\RequestStorage.cpp">
       <Filter>Source Files\storage</Filter>
     </ClCompile>
+    <ClCompile Include="AppFontIndex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h">

@@ -152,6 +152,7 @@
     <ClCompile Include="admin\AdminView.cpp" />
     <ClCompile Include="admin\AdminViewModel.cpp" />
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="AppFontIndex.cpp" />
     <ClCompile Include="logger\Logger.cpp" />
     <ClCompile Include="login\LoginView.cpp" />
     <ClCompile Include="login\LoginViewModel.cpp" />
