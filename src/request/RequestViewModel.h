@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "../ViewModelBase.h"
 #include <vector>
-#include "../Request.h"
+#include "../models/Request.h"
 
 class RequestViewModel
 	: public ViewModelBase

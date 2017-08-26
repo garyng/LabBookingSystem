@@ -8,6 +8,12 @@
 #include "admin/AdminView.h"
 #include "request/RequestViewModel.h"
 #include "request/RequestView.h"
+#include "storage/JsonStorage.h"
+#include "storage/UserStorage.h"
+#include "storage/LabStorage.h"
+#include "storage/RequestStorage.h"
+#include "GenericViewsRenderer.h"
+#include "test/AppColorsTestView.h"
 
 using namespace std;
 
@@ -24,16 +30,6 @@ int main(int argc, char* argv[])
 {
 	shared_ptr<NavigationService> navigation = make_shared<NavigationService>();
 
-	/*shared_ptr<LoginViewModel> loginViewModel = make_shared<LoginViewModel>(navigation);
-	shared_ptr<LoginView> loginView = make_shared<LoginView>(loginViewModel);
-
-	shared_ptr<UserViewModel> userViewModel = make_shared<UserViewModel>(navigation);
-	shared_ptr<UserView> userView = make_shared<UserView>(userViewModel);
-
-
-	navigation->Register<LoginViewModel, LoginView>(loginViewModel, loginView);
-	navigation->Register<UserViewModel, UserView>(userViewModel, userView);*/
-
 	MakeViewsAndViewModels<LoginView, LoginViewModel>(navigation);
 	MakeViewsAndViewModels<UserView, UserViewModel>(navigation);
 	MakeViewsAndViewModels<AdminView, AdminViewModel>(navigation);
@@ -41,8 +37,23 @@ int main(int argc, char* argv[])
 
 	navigation->NavigateTo<LoginViewModel>();
 
-	shared_ptr<App> app = make_shared<App>(navigation);
+	
+	// todo: should generic renderer render a menu for selecting which view to render?
+	shared_ptr<GenericViewsRenderer> genericRenderer = std::make_shared<GenericViewsRenderer>();
+	shared_ptr<AppColorsTestView> appColorsTestView = std::make_shared<AppColorsTestView>();
+
+	genericRenderer->Register(appColorsTestView);
+
+	shared_ptr<App> app = make_shared<App>(navigation, genericRenderer);
+
+	UserStorage us;
+	us.Load();
+	LabStorage ls;
+	ls.Load();
+	RequestStorage rs;
+	rs.Load();
 
 	app->Start();
+
 	return 0;
 }

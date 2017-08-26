@@ -4,6 +4,9 @@
 #include <string>
 #include <IconsMaterialDesign.h>
 #include "imgui_internal.h"
+#include "../AppFontIndex.h"
+#include "../AppColors.h"
+
 
 using namespace std;
 
@@ -17,55 +20,116 @@ void RequestView::Render()
 	ImGui::BeginDefaultCenteredResizableWindow("Request");
 
 	ImGui::Selectable(ICON_MD_ARROW_BACK " Back");
-	ImGui::Separator();
 
 	ImGui::Columns(2);
 
-	// todo: if no requests, then show "no requests"
-	static int selectedIndex = 0;
+	static char searchBuffer[1024];
+	static int requestListSelectedIndex = 0;
 
-	static char buffer[1024];
-	ImGui::InputText(ICON_MD_SEARCH " Search", buffer, 1024);
-
-	ImGui::BeginChild("RequestsList", ImVec2(0, -2 * ImGui::GetItemsLineHeightWithSpacing()));
-	{
-		for (size_t i = 0; i < _viewModel->Requests.size(); i++)
-		{
-			string label = "Request #" + to_string(_viewModel->Requests[i]->RequestId) + " " + _viewModel->Requests[i]->Status._to_string();
-			if (ImGui::Selectable(label.c_str(), selectedIndex == i))
-			{
-				selectedIndex = i;
-			}
-		}
-	}
-	ImGui::EndChild();
-
-	static int currentItem;
-	const char* items[] = {"Accepted", "Pending", "Rejected"};
-	ImGui::Combo("Filter By", &currentItem, items, IM_ARRAYSIZE(items));
-
-	ImGui::RightAlignedButton(ICON_MD_ADD " New Request");
-
+	RenderRequestList(searchBuffer, requestListSelectedIndex);
 
 	ImGui::NextColumn();
 
-	ImGui::BeginChild("RequestInfo", ImVec2(0, -ImGui::GetItemsLineHeightWithSpacing()));
+	RenderRequestDetails(requestListSelectedIndex);
+
+	ImGui::End();
+}
+
+void RequestView::RenderRequestList(char* searchBuffer, int& requestListSelectedIndex) const
+{
+	ImGui::InputText(ICON_MD_SEARCH "Search", searchBuffer, IM_ARRAYSIZE(searchBuffer));
+
+	ImGui::BeginChildWithNBottomLineSpace("RequestsList", 2);
 	{
-		string text = "Request #" + to_string(selectedIndex);
-		ImGui::Text(text.c_str());
-		ImGui::TextWrapped("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-		text = "Status: " + string(_viewModel->Requests[selectedIndex]->Status._to_string());
-		ImGui::Text(text.c_str());
-	}
-	ImGui::EndChild();
-	ImGui::BeginChild("RequestInfoFooter");
-	{
-		if (_viewModel->Requests[selectedIndex]->Status == +RequestStatus::Pending)
+		for (size_t i = 0; i < _viewModel->Requests.size(); i++)
 		{
-			ImGui::RightAlignedButton(ICON_MD_CLOSE " Cancel Request");
+			auto request = _viewModel->Requests[i];
+			stringstream ss;
+			ss << "#" << request->Id() << " "
+				<< request->LabId()
+				<< " - " << request->Status()._to_string();
+
+			if (ImGui::Selectable(ss.str().c_str(), i == requestListSelectedIndex))
+			{
+				requestListSelectedIndex = i;
+			};
 		}
 	}
 	ImGui::EndChild();
 
-	ImGui::End();
+	const char* filterByItems[] = {"All", "Accepted", "Pending", "Rejected"};
+	static int filterByCurrentItemIndex;
+	{
+		ImGui::Combo("Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems));
+	}
+
+	ImGui::RightAlignedButton(ICON_MD_ADD " New Request");
+	// todo: new request
+}
+
+
+void RequestView::RenderRequestDetails(int requestListSelectedIndex) const
+{
+	auto request = _viewModel->Requests[requestListSelectedIndex];
+	ImGui::BeginChildWithNBottomLineSpace("RequestDetails", 1);
+	{
+		ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+		string title = "Request #" + to_string(request->Id());
+		ImGui::Text(title.c_str());
+		ImGui::PopFont();
+		ImGui::Separator();
+
+		PrintValueLabel("Lab Id:", request->LabId());
+
+		RenderStatusLabel(request);
+
+		if (request->WasReviewed())
+		{
+			PrintValueLabel("Reviewed by:", request->ReviewerId());
+		}
+	}
+	ImGui::EndChild();
+	if (request->IsPending())
+	{
+		ImGui::RightAlignedButton(ICON_MD_CLOSE " Cancel Request");
+	}
+	// todo: cancel request
+}
+
+void RequestView::RenderStatusLabel(const shared_ptr<Request>& request) const
+{
+	ImVec4 color;
+	switch (request->Status())
+	{
+		case RequestStatus::Rejected:
+			color = AppColors::Red500;
+			break;
+		case RequestStatus::Pending:
+			color = AppColors::Yellow500;
+			break;
+		case RequestStatus::Accepted:
+			color = AppColors::Green500;
+			break;
+		case RequestStatus::Cancelled:
+			color = AppColors::DefaultWhite;
+			break;
+	}
+	PrintValueLabel("Status:", request->Status()._to_string(), color);
+}
+
+void RequestView::PrintValueLabel(string label, string value) const
+{
+	ImGui::PushFont(AppFontIndex::RobotoBold_Normal);
+	ImGui::Text(label.c_str());
+	ImGui::PopFont();
+	ImGui::Text(value.c_str());
+}
+
+
+void RequestView::PrintValueLabel(string label, string value, const ImVec4& valueLabelForeground) const
+{
+	ImGui::PushFont(AppFontIndex::RobotoBold_Normal);
+	ImGui::Text(label.c_str());
+	ImGui::PopFont();
+	ImGui::TextColored(valueLabelForeground, value.c_str());
 }
