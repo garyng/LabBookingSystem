@@ -43,6 +43,9 @@
     <Filter Include="Source Files\logger">
       <UniqueIdentifier>{237d1815-414b-43f5-8849-25c7efb2751e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\test">
+      <UniqueIdentifier>{c38f8bfb-8bbd-4bb2-b81a-30248a1a8868}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -214,6 +217,12 @@
     </ClInclude>
     <ClInclude Include="storage\RequestStorage.h">
       <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="test\AppColorsTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericViewsRenderer.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="AppColors.h">
       <Filter>Source Files</Filter>

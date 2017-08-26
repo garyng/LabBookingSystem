@@ -9,7 +9,8 @@
 
 using namespace std;
 
-App::App(const shared_ptr<NavigationService>& navigation): _navigation(navigation)
+App::App(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<GenericViewsRenderer>& renderer)
+	: _navigation(navigation), _renderer(renderer)
 {
 }
 
@@ -101,5 +102,6 @@ void App::Render() const
 {
 	//_navigation->RenderCurrent();
 	_navigation->RenderAll();
+	_renderer->RenderAll();
 	ImGui::ShowStyleEditor();
 }

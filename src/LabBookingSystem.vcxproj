@@ -182,6 +182,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AppFontIndex.h" />
+    <ClInclude Include="GenericViewsRenderer.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
     <ClInclude Include="logger\Logger.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="storage\LabStorage.h" />
     <ClInclude Include="storage\RequestStorage.h" />
     <ClInclude Include="storage\UserStorage.h" />
+    <ClInclude Include="test\AppColorsTestView.h" />
     <ClInclude Include="user\UserView.h" />
     <ClInclude Include="user\UserViewModel.h" />
     <ClInclude Include="ViewBase.h" />
