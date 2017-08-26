@@ -15,7 +15,7 @@ void to_json(nlohmann::json& json, const User& user)
 		{"Id", user.Id()},
 		{"Name", user.Name()},
 		{"HashedPassword", user.HashedPassword()},
-		{"Role", user.Role()}
+		{"Role", user.Role()._to_string()}
 	};
 }
 

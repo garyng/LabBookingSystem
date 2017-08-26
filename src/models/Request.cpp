@@ -15,7 +15,7 @@ void to_json(nlohmann::json& json, const Request& request)
 		{"LabId", request.LabId()},
 		{"UserId", request.UserId()},
 		{"ApproverId", request.ApproverId()},
-		{"Status", request.Status()}
+		{"Status", request.Status()._to_string()}
 	};
 }
 

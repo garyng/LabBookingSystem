@@ -28,7 +28,7 @@ public:
 	std::string ApproverId() const { return _approverId; }
 	void ApproverId(std::string value) { _approverId = value; }
 
-	std::string Status() const { return _status; }
+	RequestStatus Status() const { return RequestStatus::_from_string(_status.c_str()); }
 	void Status(RequestStatus value) { _status = value._to_string(); }
 
 	Request() = default;

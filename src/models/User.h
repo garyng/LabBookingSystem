@@ -25,7 +25,7 @@ public:
 	std::string HashedPassword() const { return _hashedPassword; }
 	void HashedPassword(std::string hashedPassword) { _hashedPassword = hashedPassword; }
 
-	std::string Role() const { return _role; }
+	UserRole Role() const { return UserRole::_from_string(_role.c_str()); }
 	void Role(UserRole role) { _role = role._to_string(); }
 
 	User() = default;
