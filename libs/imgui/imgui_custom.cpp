@@ -15,7 +15,7 @@ namespace ImGui
 	}
 
 
-	bool RightAlignedButton(const char* label)
+	bool FullWidthButton(const char* label)
 	{
 		return Button(label, ImVec2(-1, 0));
 	}
