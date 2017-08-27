@@ -42,7 +42,8 @@ public:
 		std::type_index key = typeid(TViewModel);
 		std::map<std::type_index, std::pair<std::shared_ptr<ViewModelBase>, std::shared_ptr<IView>>>::iterator result = _viewModelViewPair.find(key);
 		std::shared_ptr<ViewModelBase> viewModel = result->second.first;
-		callBack(std::static_pointer_cast<TViewModel>(viewModel));
+		std::shared_ptr<TViewModel> castedViewModel = std::static_pointer_cast<TViewModel>(viewModel);
+		callBack(castedViewModel);
 		if (result != _viewModelViewPair.end())
 		{
 			_currentView = result->second.second;
