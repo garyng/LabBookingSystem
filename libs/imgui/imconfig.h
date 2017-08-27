@@ -5,6 +5,8 @@
 //-----------------------------------------------------------------------------
 
 #pragma once
+#include <initializer_list>
+#include <string>
 
 //---- Define assertion handler. Defaults to calling assert().
 //#define IM_ASSERT(_EXPR)  MyAssert(_EXPR)
@@ -61,4 +63,6 @@ namespace ImGui
 	bool BeginDefaultCenteredResizableWindow(const char* name);
 	bool FullWidthButton(const char* label);
 	bool BeginChildWithNBottomLineSpace(const char* str_id, int lines);
+	void DrawWelcomeBack(const char* name);
+	void RenderPopupModal(std::string, std::initializer_list<std::string> texts);
 }

@@ -14,10 +14,8 @@
 #include "storage/RequestStorage.h"
 #include "GenericViewsRenderer.h"
 #include "test/AppColorsTestView.h"
-#include <coveo/linq/linq.h>
 
 using namespace std;
-using namespace coveo::linq;
 
 template <class TView, class TViewModel,
           enable_if_t<is_base_of<IView, TView>::value && is_base_of<ViewModelBase, TViewModel>::value>* = nullptr>

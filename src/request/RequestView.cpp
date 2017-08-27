@@ -63,7 +63,7 @@ void RequestView::RenderRequestList(char* searchBuffer, int& requestListSelected
 		ImGui::Combo("Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems));
 	}
 
-	ImGui::RightAlignedButton(ICON_MD_ADD " New Request");
+	ImGui::FullWidthButton(ICON_MD_ADD " New Request");
 	// todo: new request
 }
 
@@ -91,7 +91,7 @@ void RequestView::RenderRequestDetails(int requestListSelectedIndex) const
 	ImGui::EndChild();
 	if (request->IsPending())
 	{
-		ImGui::RightAlignedButton(ICON_MD_CLOSE " Cancel Request");
+		ImGui::FullWidthButton(ICON_MD_CLOSE " Cancel Request");
 	}
 	// todo: cancel request
 }

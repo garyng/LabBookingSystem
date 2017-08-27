@@ -185,6 +185,7 @@
     <ClInclude Include="AppFontIndex.h" />
     <ClInclude Include="command\UserLoginCommand.h" />
     <ClInclude Include="GenericViewsRenderer.h" />
+    <ClInclude Include="imgui\imgui_custom.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
     <ClInclude Include="logger\Logger.h" />

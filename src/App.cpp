@@ -102,7 +102,7 @@ void App::Loop() const
 
 void App::Render() const
 {
-	_navigation->RenderCurrent();
+	_navigation->RenderAll();
 	_renderer->RenderAll();
 	ImGui::ShowStyleEditor();
 }

@@ -11,4 +11,5 @@ public:
 	void UserName(std::string value) { _userName = value; }
 
 	explicit AdminViewModel(const std::shared_ptr<NavigationService>& navigation);
+	void LogoutCommand() const;
 };

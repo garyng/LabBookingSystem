@@ -242,5 +242,8 @@
     <ClInclude Include="query\GetUserByUserNameQuery.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+    <ClInclude Include="imgui\imgui_custom.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
