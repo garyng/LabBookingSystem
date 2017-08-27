@@ -1,10 +1,8 @@
 ﻿#pragma once
-#include <string>
 #include <json.hpp>
-#include <iostream>
 #include <enum.h>
 
-BETTER_ENUM(UserRole, int, Adminstrator, Normal);
+BETTER_ENUM(UserRole, int, Admin, Normal);
 
 class User
 {
@@ -27,7 +25,7 @@ public:
 
 	UserRole Role() const { return UserRole::_from_string(_role.c_str()); }
 	void Role(UserRole role) { _role = role._to_string(); }
-	bool IsAdmin() const { return Role() == +UserRole::Adminstrator; }
+	bool IsAdmin() const { return Role() == +UserRole::Admin; }
 
 	User() = default;
 	User(const std::string& id, const std::string& name, const std::string& hashedPassword, const UserRole& role);

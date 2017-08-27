@@ -3,7 +3,7 @@
 std::vector<User> UserStorage::LoadDefault()
 {
 	return std::vector<User>{
-		{"0001", "admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", UserRole::Adminstrator},
+		{"0001", "admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", UserRole::Admin},
 		{"0002", "garyng", "0d55f6fa2c80f790d39ef65eca13258aa6edaccf1b8563424a9e7e70c5245df5", UserRole::Normal},
 		{"0003", "dambrozewicz2", "618db554ddf082d345ff51c1398c981e178cfb1799e4bf12d7591f1ec7e2b204", UserRole::Normal},
 		{"0004", "hbrozek3", "305669aadd86c6fbdebd8fb8205f81353653aa9b479c647314dcfbb130f50aa2", UserRole::Normal},
@@ -22,7 +22,9 @@ std::vector<User> UserStorage::LoadDefault()
 		{"0017", "jmulmurayg", "69e93f83a6773733d12008da0394337400515c9ec20c50240dac6a5b17fcbebb", UserRole::Normal},
 		{"0018", "ccordeyh", "7289c9fb53c4e2a930110fc21c91c42eb6f3262a01403b27429c6111569bfe27", UserRole::Normal},
 		{"0019", "lbabei", "8c037669f7f73a1cae2c7220730cfb42c0335f104c9a91fd36cfd91e84f71246", UserRole::Normal},
-		{"0020", "sfrushardj", "79ab47772feffa381f949153218cfa83bf1a82c44fa1ee7f06b56bee93e5e7df", UserRole::Normal}
+		{"0020", "sfrushardj", "79ab47772feffa381f949153218cfa83bf1a82c44fa1ee7f06b56bee93e5e7df", UserRole::Normal},
+		{"0021", "1", "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b", UserRole::Admin},
+		{"0022", "2", "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35", UserRole::Normal}
 	};
 }
 
