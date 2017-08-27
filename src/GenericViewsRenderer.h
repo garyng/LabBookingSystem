@@ -16,7 +16,7 @@ public:
 	}
 	void RenderAll()
 	{
-		for (auto view : _views)
+		for (auto& view : _views)
 		{
 			view->Render();
 		}
