@@ -21,11 +21,32 @@ void LoginView::Render()
 	// todo: constantly push userid and password
 	// then you can generalize command model
 
-	if (ImGui::RightAlignedButton("Login"))
+	if (ImGui::FullWidthButton("Login"))
 	{
-		_viewModel->LoginCommand(std::string(userIdBuffer), std::string(userPasswordBuffer));
-		// todo: if login failed then popup
+		bool result = _viewModel->LoginCommand(std::string(userIdBuffer), std::string(userPasswordBuffer));
+
+		if (!result)
+		{
+			ImGui::OpenPopup("Unable to login");
+		}
 	}
+	RenderPasswordIncorrectDialog();
 
 	ImGui::End();
+}
+
+void LoginView::RenderPasswordIncorrectDialog()
+{
+	if (ImGui::BeginPopupModal("Unable to login", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text(ICON_MD_ERROR_OUTLINE " Invalid username/password combination.");
+		ImGui::Text("Please try again.");
+		ImGui::Spacing();
+		ImGui::Separator();
+		if (ImGui::FullWidthButton("OK"))
+		{
+			ImGui::CloseCurrentPopup();
+		}
+		ImGui::EndPopup();
+	}
 }

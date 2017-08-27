@@ -46,6 +46,12 @@
     <Filter Include="Source Files\test">
       <UniqueIdentifier>{c38f8bfb-8bbd-4bb2-b81a-30248a1a8868}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\command">
+      <UniqueIdentifier>{410b7a79-9e07-4670-b849-d034c2376510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\query">
+      <UniqueIdentifier>{ed16b66c-d5d2-4c46-8f9f-7fc218d8113f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -229,6 +235,12 @@
     </ClInclude>
     <ClInclude Include="AppFontIndex.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UserLoginCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetUserByUserNameQuery.h">
+      <Filter>Source Files\query</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

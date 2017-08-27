@@ -3,26 +3,26 @@
 std::vector<User> UserStorage::LoadDefault()
 {
 	return std::vector<User>{
-		{"0001", "admin", "21232f297a57a5a743894a0e4a801fc3", UserRole::Adminstrator},
-		{"0002", "garyng", "e10adc3949ba59abbe56e057f20f883e", UserRole::Normal},
-		{"0003", "dambrozewicz2", "e091f9e70d76bf77716e48660913a859", UserRole::Normal},
-		{"0004", "hbrozek3", "9d61173bb509f2e10940492dde1e81d3", UserRole::Normal},
-		{"0005", "dinchbald4", "cd5d453e45c584e243a48298364ed01e", UserRole::Normal},
-		{"0006", "tskokoe5", "6982dab3b0838b01b098ccdd00451421", UserRole::Normal},
-		{"0007", "ssodeau6", "5c4852551f44309b876f743a4fb873ab", UserRole::Normal},
-		{"0008", "dolivie7", "5640c42213f396f9670b85247787a572", UserRole::Normal},
-		{"0009", "ddaltrey8", "cffa496c770644f2d0059146cca3a512", UserRole::Normal},
-		{"0010", "jivens9", "ed731c7461cfa486e1124d83f3ebc0ba", UserRole::Normal},
-		{"0011", "tcashleya", "aed013afcc57e808dde1e6a3c8687e5b", UserRole::Normal},
-		{"0012", "ewhisbyb", "72c5f5ed0374633fbca0dcb8fec11113", UserRole::Normal},
-		{"0013", "djanskyc", "cf9a80979b2a9fb22a18019284544a32", UserRole::Normal},
-		{"0014", "jlenzd", "137ad5b557e902d06d4ccfb6f7c2fdce", UserRole::Normal},
-		{"0015", "spoore", "e04e183b1df4fe5d7fd11c733d82f6dc", UserRole::Normal},
-		{"0016", "alossmanf", "bb2deff531c81b672140aa09c2852699", UserRole::Normal},
-		{"0017", "jmulmurayg", "7f9df2f127ebd30b47c9816db4557886", UserRole::Normal},
-		{"0018", "ccordeyh", "28d3d603f1b222b3150d079474f551e7", UserRole::Normal},
-		{"0019", "lbabei", "bd0065ebc3ffc720fdc75ba1ccad7ffd", UserRole::Normal},
-		{"0020", "sfrushardj", "42e26d2e890c496a977d68cf7b4fa237", UserRole::Normal}
+		{"0001", "admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", UserRole::Adminstrator},
+		{"0002", "garyng", "0d55f6fa2c80f790d39ef65eca13258aa6edaccf1b8563424a9e7e70c5245df5", UserRole::Normal},
+		{"0003", "dambrozewicz2", "618db554ddf082d345ff51c1398c981e178cfb1799e4bf12d7591f1ec7e2b204", UserRole::Normal},
+		{"0004", "hbrozek3", "305669aadd86c6fbdebd8fb8205f81353653aa9b479c647314dcfbb130f50aa2", UserRole::Normal},
+		{"0005", "dinchbald4", "1cd2c3f8571636b9770a1f0bd83e26fcbb4361aad067f3a2bc0214aa7c509f91", UserRole::Normal},
+		{"0006", "tskokoe5", "dc92f99807191c42f44fa7b258bb5fa90341e987242ff10c7576ddf79b56bc1e", UserRole::Normal},
+		{"0007", "ssodeau6", "dcb03948fb3a48df7505e285a9b73de6f63e96e69fd5edf907023f947c9a3172", UserRole::Normal},
+		{"0008", "dolivie7", "b9c367d018b8f64c2981ea14eb798b9e40916a5947d5ad530ea73b499f447da2", UserRole::Normal},
+		{"0009", "ddaltrey8", "caa609b60ca5cc6618ee94869d5642ab47cb8a10fff7f51581fa02a05358746d", UserRole::Normal},
+		{"0010", "jivens9", "24ed6188d6377fbb932d886308c0f95bf8d04311f0e4ee93520a3ea856cc13d7", UserRole::Normal},
+		{"0011", "tcashleya", "9706502520433c6c38481885f9c0de8b8a1a3e43e7bdffb987b64915478e5a2f", UserRole::Normal},
+		{"0012", "ewhisbyb", "990c2d0251d29b7462cffa4186b4f6cc75945c553a5c7f2bbd641a4f85580e4e", UserRole::Normal},
+		{"0013", "djanskyc", "9cd66ecec60c85bc723bcc576cc4d1e3ae6a71235fd99ad2325c388d89c02dc7", UserRole::Normal},
+		{"0014", "jlenzd", "18f323e83495b2319129371919da5bd9fa0e848a9e024950a467ce26aee1ba69", UserRole::Normal},
+		{"0015", "spoore", "066820a42d2428eb02111e9cb7027e4e91f698772582c6accf1d97f788c4fdb8", UserRole::Normal},
+		{"0016", "alossmanf", "ad059207d40cf90e97244de30e97c0403c3f11841cde41b3554bef5816da6a11", UserRole::Normal},
+		{"0017", "jmulmurayg", "69e93f83a6773733d12008da0394337400515c9ec20c50240dac6a5b17fcbebb", UserRole::Normal},
+		{"0018", "ccordeyh", "7289c9fb53c4e2a930110fc21c91c42eb6f3262a01403b27429c6111569bfe27", UserRole::Normal},
+		{"0019", "lbabei", "8c037669f7f73a1cae2c7220730cfb42c0335f104c9a91fd36cfd91e84f71246", UserRole::Normal},
+		{"0020", "sfrushardj", "79ab47772feffa381f949153218cfa83bf1a82c44fa1ee7f06b56bee93e5e7df", UserRole::Normal}
 	};
 }
 

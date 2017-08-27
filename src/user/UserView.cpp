@@ -9,8 +9,7 @@ UserView::UserView(const std::shared_ptr<UserViewModel>& viewModel): ViewBase<Us
 
 void UserView::Render()
 {
-	// user name?
-	std::string name("User (" + _viewModel->_userId + ")");
+	std::string name("User (" + _viewModel->UserName() + ")");
 	ImGui::BeginDefaultCenteredWindow(name.c_str());
 	ImGui::Selectable(ICON_MD_ADD " Request");
 	ImGui::Selectable(ICON_MD_EXIT_TO_APP " Logout");

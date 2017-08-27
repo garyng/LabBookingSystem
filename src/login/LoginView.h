@@ -7,8 +7,9 @@
 class LoginView
 	: public ViewBase<LoginViewModel>
 {
+private:
+	void RenderPasswordIncorrectDialog();
 public:
 	explicit LoginView(const std::shared_ptr<LoginViewModel>& viewModel);
-
 	void Render() override;
 };

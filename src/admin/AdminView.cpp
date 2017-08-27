@@ -8,7 +8,7 @@ AdminView::AdminView(const std::shared_ptr<AdminViewModel>& viewModel) : ViewBas
 
 void AdminView::Render()
 {
-	std::string title("Admin");
+	std::string title("Admin (" + _viewModel->UserName() + ")");
 	ImGui::BeginDefaultCenteredWindow(title.c_str());
 	ImGui::Selectable(ICON_MD_ADD " Request");
 	ImGui::Selectable(ICON_MD_DONE " Review");

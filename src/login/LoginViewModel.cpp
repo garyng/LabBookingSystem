@@ -1,17 +1,63 @@
 ﻿#include "LoginViewModel.h"
 #include "../user/UserViewModel.h"
+#include "../storage/UserStorage.h"
+#include <memory>
+#include <picosha2.h>
+#include <optional>
+#include <coveo/linq.h>
+#include "../admin/AdminViewModel.h"
+#include "../command/UserLoginCommand.h"
+#include "../query/GetUserByUserNameQuery.h"
 
-LoginViewModel::LoginViewModel(const std::shared_ptr<NavigationService>& navigation): ViewModelBase(navigation)
+using namespace std;
+
+LoginViewModel::LoginViewModel(const shared_ptr<NavigationService>& navigation, const shared_ptr<UserStorage>& userStorage)
+	: ViewModelBase(navigation), _userStorage(userStorage)
 {
 }
 
-void LoginViewModel::LoginCommand(std::string userId, std::string userPassword) const
+bool LoginViewModel::LoginCommand(string userName, string userPassword) const
 {
-	if (userId == "1" && userPassword == "1")
+	string hash;
+	picosha2::hash256_hex_string(userPassword, hash);
+
+	Log->Debug("Logging in with username = " + userName + ", password hash = " + hash);
+
+	UserLoginCommand command(_userStorage);
+	bool loginResult = command.Execute(userName, hash);
+
+	Log->Debug("Login result: " + to_string(loginResult));
+
+	if (loginResult)
 	{
-		_navigation->NavigateTo<UserViewModel>([](std::shared_ptr<UserViewModel> vm)
+		GetUserByUserNameQuery query(_userStorage);
+		if (auto user = query.Execute(userName))
+		{
+			if (user->IsAdmin())
 			{
-				vm->_userId = "123123";
-			});
+				_navigation->NavigateTo<AdminViewModel>([&](shared_ptr<AdminViewModel> vm)
+					{
+						vm->UserName(user->Name());
+					});
+				return true;
+			}
+			else
+			{
+				_navigation->NavigateTo<UserViewModel>([&](shared_ptr<UserViewModel> vm)
+					{
+						vm->UserName(user->Name());
+					});
+				return true;
+			}
+		}
+		else
+		{
+			// logged in user but not found?
+			return false;
+		}
+	}
+	else
+	{
+		return false;
 	}
 }
