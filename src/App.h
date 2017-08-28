@@ -2,9 +2,9 @@
 #include <iostream>
 #include <memory>
 #include <GLFW/glfw3.h>
+#include <imgui.h>
 #include "services/NavigationService.h"
 #include "GenericViewsRenderer.h"
-
 class App
 {
 public:
@@ -20,6 +20,7 @@ private:
 	void Initialize();
 
 	void LoadFonts() const;
+	void AddIconFont(ImGuiIO& io, float offsetY, float fontSize) const;
 
 	void SetStyle() const;
 

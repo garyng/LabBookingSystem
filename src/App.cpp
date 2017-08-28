@@ -48,18 +48,29 @@ void App::LoadFonts() const
 	// Font index is best retrieved via class AppFontIndex
 	ImGuiIO& io = ImGui::GetIO();
 	io.Fonts->Clear();
-	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 17.0f);
 
-	ImFontConfig config;
-	config.GlyphOffset.y += 3;
-	config.MergeMode = true;
-	const ImWchar iconRange[] = {ICON_MIN_MD, ICON_MAX_MD, 0};
-	io.Fonts->AddFontFromFileTTF("Fonts/MaterialIcons-Regular.ttf", 17.0f, &config, iconRange);
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 17.0f);
+	AddIconFont(io, 3, 17.0f);
+
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 27.0f);
+	AddIconFont(io, 6, 27.0f);
+
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Bold.ttf", 17.0f);
+	AddIconFont(io, 3, 17.0f);
+
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 27.0f);
+	AddIconFont(io, 3, 27.0f);
 
 	io.Fonts->Build();
+}
+
+void App::AddIconFont(ImGuiIO& io, float offsetY, float fontSize) const
+{
+	ImFontConfig config;
+	config.GlyphOffset.y += offsetY;
+	config.MergeMode = true;
+	static const ImWchar iconRange[] = {ICON_MIN_MD, ICON_MAX_MD, 0};
+	io.Fonts->AddFontFromFileTTF("Fonts/MaterialIcons-Regular.ttf", fontSize, &config, iconRange);
 }
 
 void App::SetStyle() const
