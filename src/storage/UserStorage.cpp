@@ -24,7 +24,8 @@ std::vector<User> UserStorage::LoadDefault()
 		{"0019", "lbabei", "8c037669f7f73a1cae2c7220730cfb42c0335f104c9a91fd36cfd91e84f71246", UserRole::Normal},
 		{"0020", "sfrushardj", "79ab47772feffa381f949153218cfa83bf1a82c44fa1ee7f06b56bee93e5e7df", UserRole::Normal},
 		{"0021", "1", "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b", UserRole::Admin},
-		{"0022", "2", "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35", UserRole::Normal}
+		{"0022", "2", "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35", UserRole::Normal},
+		{"0023", "3", "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce", UserRole::Normal}
 	};
 }
 
