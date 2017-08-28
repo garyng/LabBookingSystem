@@ -12,4 +12,9 @@ protected:
 
 public:
 	ViewModelBase(const std::shared_ptr<NavigationService>& navigation);
+
+	void GoBackCommand() const
+	{
+		_navigation->GoBack();
+	}
 };
