@@ -67,4 +67,5 @@ namespace ImGui
 	void RenderPopupModal(std::string name, std::initializer_list<std::string> texts);
 	void HorizontallyCenteredText(std::string text);
 	void CentereredText(std::string text);
+	void CenteredTexts(std::initializer_list<std::string> texts);
 }

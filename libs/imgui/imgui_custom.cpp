@@ -77,5 +77,38 @@ namespace ImGui
 		SetCursorPosY(textY);
 		Text(text.c_str());
 	}
-	
+
+	void CenteredTexts(std::initializer_list<std::string> texts)
+	{
+		std::vector<std::pair<std::string, ImVec2>> textsAndSizes;
+
+		float allTextHeight = 0.0f;
+		for (std::string text : texts)
+		{
+			ImVec2 textSize = CalcTextSize(text.c_str());
+			allTextHeight += textSize.y;
+			textsAndSizes.emplace_back(text, textSize);
+
+		}
+		ImVec2 windowSize = GetWindowSize();
+
+		// to vertically center the whole text
+		float currentY = windowSize.y / 2 - allTextHeight / 2;
+
+		SetCursorPosY(currentY);
+
+		for (auto textAndSize : textsAndSizes)
+		{
+			std::string text = textAndSize.first;
+			ImVec2 textSize = textAndSize.second;
+
+			float currentX = windowSize.x / 2 - textSize.x / 2;
+			SetCursorPosX(currentX);
+
+			Text(text.c_str());
+
+			currentY += textSize.y;
+			
+		}
+	}
 }
