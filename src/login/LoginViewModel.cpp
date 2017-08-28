@@ -35,7 +35,7 @@ bool LoginViewModel::LoginCommand(string userName, string userPassword) const
 		{
 			if (user->IsAdmin())
 			{
-				_navigation->NavigateTo<AdminViewModel>([&](shared_ptr<AdminViewModel> vm)
+				_navigation->GoTo<AdminViewModel>([&](shared_ptr<AdminViewModel> vm)
 					{
 						vm->UserName(user->Name());
 					});
@@ -43,7 +43,7 @@ bool LoginViewModel::LoginCommand(string userName, string userPassword) const
 			}
 			else
 			{
-				_navigation->NavigateTo<UserViewModel>([&](shared_ptr<UserViewModel> vm)
+				_navigation->GoTo<UserViewModel>([&](shared_ptr<UserViewModel> vm)
 					{
 						vm->UserName(user->Name());
 					});

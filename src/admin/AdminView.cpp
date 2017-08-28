@@ -14,10 +14,10 @@ void AdminView::Render()
 
 	ImGui::DrawWelcomeBack(_viewModel->UserName().c_str());
 
-	ImGui::Selectable(ICON_MD_ADD " Request");
-	ImGui::Selectable(ICON_MD_DONE " Review");
+	ImGui::TransparentFullWidthButton(ICON_MD_ADD " Request");
+	ImGui::TransparentFullWidthButton(ICON_MD_DONE " Review");
 
-	if (ImGui::Selectable(ICON_MD_EXIT_TO_APP " Logout"))
+	if (ImGui::TransparentFullWidthButton(ICON_MD_EXIT_TO_APP " Logout"))
 	{
 		ImGui::OpenPopup("Are you sure?");
 	}

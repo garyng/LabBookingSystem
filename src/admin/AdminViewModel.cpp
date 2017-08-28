@@ -7,5 +7,5 @@ AdminViewModel::AdminViewModel(const std::shared_ptr<NavigationService>& navigat
 
 void AdminViewModel::LogoutCommand() const
 {
-	_navigation->NavigateTo<LoginViewModel>();
+	_navigation->GoTo<LoginViewModel>();
 }
