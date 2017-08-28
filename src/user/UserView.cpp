@@ -14,9 +14,12 @@ void UserView::Render()
 
 	ImGui::DrawWelcomeBack(_viewModel->UserName().c_str());
 
-	ImGui::Selectable(ICON_MD_ADD " Request");
+	if (ImGui::TransparentFullWidthButton(ICON_MD_ADD " Request"))
+	{
+		_viewModel->GoToRequestViewCommand();
+	}
 
-	if (ImGui::Selectable(ICON_MD_EXIT_TO_APP " Logout"))
+	if (ImGui::TransparentFullWidthButton(ICON_MD_EXIT_TO_APP " Logout"))
 	{
 		ImGui::OpenPopup("Are you sure?");
 	}

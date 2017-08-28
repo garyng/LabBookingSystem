@@ -1,12 +1,58 @@
 ﻿#include "RequestViewModel.h"
-#include <ctime>
+#include <coveo/linq/linq.h>
 
-RequestViewModel::RequestViewModel(const std::shared_ptr<NavigationService>& navigation): ViewModelBase(navigation)
+using namespace std;
+using namespace coveo::linq;
+
+class GetUserIdFromUserNameQuery
 {
-	srand(static_cast<unsigned>(time(nullptr)));
-	RequestStatus status[4] = {RequestStatus::Accepted, RequestStatus::Rejected, RequestStatus::Pending, RequestStatus::Cancelled};
-	for (int i = 0; i < 100; i++)
+private:
+	std::shared_ptr<UserStorage> _userStorage;
+
+public:
+	explicit GetUserIdFromUserNameQuery(const std::shared_ptr<UserStorage>& userStorage)
+		: _userStorage(userStorage)
 	{
-		Requests.emplace_back(new Request(i, "LAB0001", "0123", "0001", status[rand() % 4]));
 	}
+
+	std::string Execute(std::string userName)
+	{
+		using namespace coveo::linq;
+		User& result = _userStorage->Data()
+			| first([&](User user) { return user.Name() == userName; });
+		return result.Id();
+	}
+};
+
+class GetRequestsByUserIdQuery
+{
+private:
+	std::shared_ptr<RequestStorage> _requestStorage;
+public:
+	explicit GetRequestsByUserIdQuery(const std::shared_ptr<RequestStorage>& requestStorage)
+		: _requestStorage(requestStorage)
+	{
+	}
+
+	vector<Request> Execute(std::string userId)
+	{
+		return _requestStorage->Data()
+			| where([&](Request request) { return request.UserId() == userId; })
+			| to_vector();
+	}
+};
+
+RequestViewModel::RequestViewModel(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<UserStorage>& userStorage, const std::shared_ptr<RequestStorage>& requestStorage)
+	: ViewModelBase(navigation), _requestStorage(requestStorage), _userStorage(userStorage)
+{
+}
+
+void RequestViewModel::LoadUserRequestCommand()
+{
+	GetUserIdFromUserNameQuery userIdQuery(_userStorage);
+	string userId = userIdQuery.Execute(_userName);
+
+	GetRequestsByUserIdQuery requestQuery(_requestStorage);
+	vector<Request> requests = requestQuery.Execute(userId);
+	Requests(requests);
 }

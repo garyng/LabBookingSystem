@@ -12,4 +12,5 @@ public:
 
 	explicit AdminViewModel(const std::shared_ptr<NavigationService>& navigation);
 	void LogoutCommand() const;
+	void GoToRequestViewCommand() const;
 };

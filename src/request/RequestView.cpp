@@ -3,9 +3,9 @@
 #include "imgui.h"
 #include <string>
 #include <IconsMaterialDesign.h>
-#include "imgui_internal.h"
 #include "../AppFontIndex.h"
 #include "../AppColors.h"
+#include "imgui_internal.h"
 
 
 using namespace std;
@@ -19,8 +19,41 @@ void RequestView::Render()
 	ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiSetCond_FirstUseEver);
 	ImGui::BeginDefaultCenteredResizableWindow("Request");
 
-	ImGui::Selectable(ICON_MD_ARROW_BACK " Back");
+	if (ImGui::Selectable(ICON_MD_ARROW_BACK " Back"))
+	{
+		_viewModel->GoBackCommand();
+	}
 
+	if (_viewModel->Requests().size() > 0)
+	{
+		RenderRequestView();
+	}
+	else
+	{
+		RenderNoRequestsView();
+	}
+
+	ImGui::End();
+}
+
+void RequestView::RenderNoRequestsView()
+{
+	ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+
+	string text = "Much Nothingness";
+
+	ImGui::BeginChildWithNBottomLineSpace("Centered Text", 1);
+	{
+		ImGui::CenteredTexts({ "Much nothingness...", "Try to click on the " ICON_MD_ADD " New Request button!" });
+	}
+	ImGui::EndChild();
+
+	ImGui::PopFont();
+	RenderAddRequestButton();
+}
+
+void RequestView::RenderRequestView()
+{
 	ImGui::Columns(2);
 
 	static char searchBuffer[1024];
@@ -31,9 +64,8 @@ void RequestView::Render()
 	ImGui::NextColumn();
 
 	RenderRequestDetails(requestListSelectedIndex);
-
-	ImGui::End();
 }
+
 
 void RequestView::RenderRequestList(char* searchBuffer, int& requestListSelectedIndex) const
 {
@@ -41,13 +73,13 @@ void RequestView::RenderRequestList(char* searchBuffer, int& requestListSelected
 
 	ImGui::BeginChildWithNBottomLineSpace("RequestsList", 2);
 	{
-		for (size_t i = 0; i < _viewModel->Requests.size(); i++)
+		for (size_t i = 0; i < _viewModel->Requests().size(); i++)
 		{
-			auto request = _viewModel->Requests[i];
+			Request request = _viewModel->Requests().at(i);
 			stringstream ss;
-			ss << "#" << request->Id() << " "
-				<< request->LabId()
-				<< " - " << request->Status()._to_string();
+			ss << "#" << request.Id() << " "
+				<< request.LabId()
+				<< " - " << request.Status()._to_string();
 
 			if (ImGui::Selectable(ss.str().c_str(), i == requestListSelectedIndex))
 			{
@@ -63,43 +95,48 @@ void RequestView::RenderRequestList(char* searchBuffer, int& requestListSelected
 		ImGui::Combo("Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems));
 	}
 
+	RenderAddRequestButton();
+}
+
+void RequestView::RenderAddRequestButton() const
+{
 	ImGui::FullWidthButton(ICON_MD_ADD " New Request");
 	// todo: new request
 }
 
-
 void RequestView::RenderRequestDetails(int requestListSelectedIndex) const
 {
-	auto request = _viewModel->Requests[requestListSelectedIndex];
+	Request request = _viewModel->Requests().at(requestListSelectedIndex);
 	ImGui::BeginChildWithNBottomLineSpace("RequestDetails", 1);
 	{
 		ImGui::PushFont(AppFontIndex::RobotoLight_Title);
-		string title = "Request #" + to_string(request->Id());
+		string title = "Request #" + to_string(request.Id());
 		ImGui::Text(title.c_str());
 		ImGui::PopFont();
 		ImGui::Separator();
 
-		PrintValueLabel("Lab Id:", request->LabId());
+		PrintValueLabel("Lab Id:", request.LabId());
 
 		RenderStatusLabel(request);
 
-		if (request->WasReviewed())
+		if (request.WasReviewed())
 		{
-			PrintValueLabel("Reviewed by:", request->ReviewerId());
+			PrintValueLabel("Reviewed by:", request.ReviewerId());
 		}
 	}
 	ImGui::EndChild();
-	if (request->IsPending())
+	if (request.IsPending())
 	{
 		ImGui::FullWidthButton(ICON_MD_CLOSE " Cancel Request");
 	}
 	// todo: cancel request
 }
 
-void RequestView::RenderStatusLabel(const shared_ptr<Request>& request) const
+
+void RequestView::RenderStatusLabel(const Request& request) const
 {
 	ImVec4 color;
-	switch (request->Status())
+	switch (request.Status())
 	{
 		case RequestStatus::Rejected:
 			color = AppColors::Red500;
@@ -114,7 +151,7 @@ void RequestView::RenderStatusLabel(const shared_ptr<Request>& request) const
 			color = AppColors::DefaultWhite;
 			break;
 	}
-	PrintValueLabel("Status:", request->Status()._to_string(), color);
+	PrintValueLabel("Status:", request.Status()._to_string(), color);
 }
 
 void RequestView::PrintValueLabel(string label, string value) const
@@ -124,7 +161,6 @@ void RequestView::PrintValueLabel(string label, string value) const
 	ImGui::PopFont();
 	ImGui::Text(value.c_str());
 }
-
 
 void RequestView::PrintValueLabel(string label, string value, const ImVec4& valueLabelForeground) const
 {

@@ -14,7 +14,11 @@ void AdminView::Render()
 
 	ImGui::DrawWelcomeBack(_viewModel->UserName().c_str());
 
-	ImGui::TransparentFullWidthButton(ICON_MD_ADD " Request");
+	if (ImGui::TransparentFullWidthButton(ICON_MD_ADD " Request"))
+	{
+		_viewModel->GoToRequestViewCommand();
+	}
+
 	ImGui::TransparentFullWidthButton(ICON_MD_DONE " Review");
 
 	if (ImGui::TransparentFullWidthButton(ICON_MD_EXIT_TO_APP " Logout"))

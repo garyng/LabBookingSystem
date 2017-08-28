@@ -48,8 +48,11 @@ int main(int argc, char* argv[])
 	MakeViewsAndViewModels<UserView, UserViewModel>(navigation);
 	MakeViewsAndViewModels<AdminView, AdminViewModel>(navigation);
 
-	MakeViewsAndViewModels<RequestView, RequestViewModel>(navigation);
-
+	//MakeViewsAndViewModels<RequestView, RequestViewModel>(navigation);
+	shared_ptr<RequestViewModel> requestViewModel = make_shared<RequestViewModel>(navigation, userStorage, requestStorage);
+	shared_ptr<RequestView> requestView = make_shared<RequestView>(requestViewModel);
+	navigation->Register<RequestViewModel, RequestView>(requestViewModel, requestView);
+	
 	navigation->GoTo<LoginViewModel>();
 
 
