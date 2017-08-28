@@ -20,6 +20,14 @@ namespace ImGui
 		return Button(label, ImVec2(-1, 0));
 	}
 
+	bool TransparentFullWidthButton(const char* label)
+	{
+		PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
+		bool result = FullWidthButton(label);
+		PopStyleColor();
+		return result;
+	}
+
 	bool BeginChildWithNBottomLineSpace(const char* str_id, int lines)
 	{
 		return BeginChild(str_id, ImVec2(0, -lines * GetItemsLineHeightWithSpacing()));

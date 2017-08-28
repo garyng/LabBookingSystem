@@ -50,13 +50,13 @@ int main(int argc, char* argv[])
 
 	MakeViewsAndViewModels<RequestView, RequestViewModel>(navigation);
 
-	navigation->NavigateTo<LoginViewModel>();
+	navigation->GoTo<LoginViewModel>();
 
 
 	// todo: should generic renderer render a menu for selecting which view to render?
 	shared_ptr<GenericViewsRenderer> genericRenderer = make_shared<GenericViewsRenderer>();
 	shared_ptr<AppColorsTestView> appColorsTestView = make_shared<AppColorsTestView>();
-	shared_ptr<AppFontsTestView> appFontsTestView = std::make_shared<AppFontsTestView>();
+	shared_ptr<AppFontsTestView> appFontsTestView = make_shared<AppFontsTestView>();
 
 
 	genericRenderer->Register(appColorsTestView);
