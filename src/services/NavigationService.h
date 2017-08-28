@@ -77,6 +77,12 @@ public:
 
 		std::map<std::type_index, ViewViewModelPair>::iterator result = _viewModelViewPair.find(key);
 
+		if (result == _viewModelViewPair.end())
+		{
+			Log->Warn(std::string(key.name()) + " missing from the registration!");
+			return;
+		}
+
 		std::shared_ptr<ViewModelBase> viewModel = result->second.ViewModel();
 		std::shared_ptr<IView> view = result->second.View();
 
