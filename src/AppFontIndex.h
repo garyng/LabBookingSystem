@@ -13,6 +13,7 @@ public:
 	static AppFontIndex RobotoLight_Title;
 	static AppFontIndex RobotoBold_Normal;
 	static AppFontIndex RobotoRegular_Title;
+	static AppFontIndex MaterialIcon_Title;
 
 	const int Index;
 	operator int() const { return Index; }

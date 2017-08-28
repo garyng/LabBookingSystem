@@ -1,6 +1,7 @@
 #pragma once
 #include <initializer_list>
 #include <imgui.h>
+#include "../AppFontIndex.h"
 
 namespace ImGui
 {
@@ -8,31 +9,45 @@ namespace ImGui
 	// won't work if placed under imconfig.h
 
 	template <class OnOkClicked>
-	void RenderOkCancelPopupModel(std::string name,
-	                              std::initializer_list<std::string> texts,
-	                              OnOkClicked&& onOkClicked)
+	void OkCancelPopupModal(std::string name,
+	                        std::string icon,
+	                        std::initializer_list<std::string> texts,
+	                        OnOkClicked&& onOkClicked)
 	{
-		RenderOkCancelPopupModel(name, texts, onOkClicked, []()
-		                         {
-		                         });
+		OkCancelPopupModal(name, icon, texts, onOkClicked, []()
+		                   {
+		                   });
 	}
 
+
 	template <class OnOkClicked, class OnCancelClicked>
-	void RenderOkCancelPopupModel(std::string name,
-	                              std::initializer_list<std::string> texts,
-	                              OnOkClicked&& onOkClicked,
-	                              OnCancelClicked&& onCancelClicked)
+	void OkCancelPopupModal(std::string name,
+	                        std::string icon,
+	                        std::initializer_list<std::string> texts,
+	                        OnOkClicked&& onOkClicked,
+	                        OnCancelClicked&& onCancelClicked)
 	{
+		SetNextWindowPosCenter();
 		if (BeginPopupModal(name.c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize))
 		{
-			// each element is a seperate line
+			HorizontallyCenteredText("");
 
-			for (std::string text : texts)
+			PushFont(AppFontIndex::MaterialIcon_Title);
+			Text(icon.c_str());
+			PopFont();
+			SameLine();
+
+			BeginGroup();
 			{
-				Text(text.c_str());
+				for (std::string text : texts)
+				{
+					Text(text.c_str());
+				}
 			}
-			Spacing();
+			EndGroup();
+			HorizontallyCenteredText("");
 			Separator();
+
 			if (Button("OK", ImVec2(120, 0)))
 			{
 				onOkClicked();

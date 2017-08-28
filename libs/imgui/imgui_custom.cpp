@@ -46,18 +46,29 @@ namespace ImGui
 		Spacing();
 	}
 
-	void RenderPopupModal(std::string name, std::initializer_list<std::string> texts)
+	void OkPopupModal(std::string name, std::string icon, std::initializer_list<std::string> texts)
 	{
+		SetNextWindowPosCenter();
 		if (BeginPopupModal(name.c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize))
 		{
-			// each element is a seperate line
+			HorizontallyCenteredText("");
 
-			for (std::string text : texts)
+			PushFont(AppFontIndex::MaterialIcon_Title);
+			Text(icon.c_str());
+			PopFont();
+			SameLine();
+
+			BeginGroup();
 			{
-				Text(text.c_str());
+				for (std::string text : texts)
+				{
+					Text(text.c_str());
+				}
 			}
-			Spacing();
+			EndGroup();
+			HorizontallyCenteredText("");
 			Separator();
+
 			if (FullWidthButton("OK"))
 			{
 				CloseCurrentPopup();
@@ -75,7 +86,7 @@ namespace ImGui
 		Text(text.c_str());
 	}
 
-	void CentereredText(std::string text)
+	void CenteredTexts(std::string text)
 	{
 		ImVec2 textSize = CalcTextSize(text.c_str());
 		ImVec2 windowSize = GetWindowSize();
@@ -96,7 +107,6 @@ namespace ImGui
 			ImVec2 textSize = CalcTextSize(text.c_str());
 			allTextHeight += textSize.y;
 			textsAndSizes.emplace_back(text, textSize);
-
 		}
 		ImVec2 windowSize = GetWindowSize();
 
@@ -116,7 +126,6 @@ namespace ImGui
 			Text(text.c_str());
 
 			currentY += textSize.y;
-			
 		}
 	}
 }

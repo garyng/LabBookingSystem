@@ -29,10 +29,11 @@ void LoginView::Render()
 			ImGui::OpenPopup("Unable to login");
 		}
 	}
-	ImGui::RenderPopupModal("Unable to login",
-	                      {
-		                      ICON_MD_ERROR_OUTLINE " Invalid username/password combination.",
-		                      "Please try again."
-	                      });
+	ImGui::OkPopupModal("Unable to login",
+	                    ICON_MD_ERROR_OUTLINE,
+	                    {
+		                    "Invalid username/password combination.",
+		                    "Please try again."
+	                    });
 	ImGui::End();
 }

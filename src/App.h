@@ -20,7 +20,7 @@ private:
 	void Initialize();
 
 	void LoadFonts() const;
-	void AddIconFont(ImGuiIO& io, float offsetY, float fontSize) const;
+	void AddIconFont(ImGuiIO& io, float offsetY, float fontSize, bool merge = true) const;
 
 	void SetStyle() const;
 

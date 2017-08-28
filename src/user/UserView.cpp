@@ -21,13 +21,13 @@ void UserView::Render()
 		ImGui::OpenPopup("Are you sure?");
 	}
 
-	ImGui::RenderOkCancelPopupModel("Are you sure?",
-	                                {
-		                                ICON_MD_WARNING " Logging out.",
-		                                "Are you sure?"
-	                                }, [&]()
-	                                {
-		                                _viewModel->LogoutCommand();
-	                                });
+	ImGui::OkCancelPopupModal("Are you sure?", ICON_MD_WARNING,
+	                          {
+		                          "Logging out.",
+		                          "Are you sure?"
+	                          }, [&]()
+	                          {
+		                          _viewModel->LogoutCommand();
+	                          });
 	ImGui::End();
 }
