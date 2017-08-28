@@ -64,5 +64,7 @@ namespace ImGui
 	bool FullWidthButton(const char* label);
 	bool BeginChildWithNBottomLineSpace(const char* str_id, int lines);
 	void DrawWelcomeBack(const char* name);
-	void RenderPopupModal(std::string, std::initializer_list<std::string> texts);
+	void RenderPopupModal(std::string name, std::initializer_list<std::string> texts);
+	void HorizontallyCenteredText(std::string text);
+	void CentereredText(std::string text);
 }

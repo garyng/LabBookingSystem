@@ -57,5 +57,25 @@ namespace ImGui
 			EndPopup();
 		}
 	}
+
+	void HorizontallyCenteredText(std::string text)
+	{
+		float textWidth = CalcTextSize(text.c_str()).x;
+		float windowWidth = GetWindowSize().x;
+		float textX = windowWidth / 2 - textWidth / 2;
+		SetCursorPosX(textX);
+		Text(text.c_str());
+	}
+
+	void CentereredText(std::string text)
+	{
+		ImVec2 textSize = CalcTextSize(text.c_str());
+		ImVec2 windowSize = GetWindowSize();
+		float textX = windowSize.x / 2 - textSize.x / 2;
+		float textY = windowSize.y / 2 - textSize.y / 2;
+		SetCursorPosX(textX);
+		SetCursorPosY(textY);
+		Text(text.c_str());
+	}
 	
 }
