@@ -242,11 +242,11 @@
     <ClInclude Include="query\GetUserByUserNameQuery.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
-    <ClInclude Include="imgui\imgui_custom.h">
-      <Filter>Source Files\imgui</Filter>
-    </ClInclude>
     <ClInclude Include="test\AppFontsTestView.h">
       <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_extra.h">
+      <Filter>Source Files\imgui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
