@@ -14,6 +14,7 @@
 #include "storage/RequestStorage.h"
 #include "GenericViewsRenderer.h"
 #include "test/AppColorsTestView.h"
+#include "test/AppFontsTestView.h"
 
 using namespace std;
 
@@ -46,6 +47,7 @@ int main(int argc, char* argv[])
 
 	MakeViewsAndViewModels<UserView, UserViewModel>(navigation);
 	MakeViewsAndViewModels<AdminView, AdminViewModel>(navigation);
+
 	MakeViewsAndViewModels<RequestView, RequestViewModel>(navigation);
 
 	navigation->NavigateTo<LoginViewModel>();
@@ -54,8 +56,11 @@ int main(int argc, char* argv[])
 	// todo: should generic renderer render a menu for selecting which view to render?
 	shared_ptr<GenericViewsRenderer> genericRenderer = make_shared<GenericViewsRenderer>();
 	shared_ptr<AppColorsTestView> appColorsTestView = make_shared<AppColorsTestView>();
+	shared_ptr<AppFontsTestView> appFontsTestView = std::make_shared<AppFontsTestView>();
+
 
 	genericRenderer->Register(appColorsTestView);
+	genericRenderer->Register(appFontsTestView);
 
 	shared_ptr<App> app = make_shared<App>(navigation, genericRenderer);
 

@@ -245,5 +245,8 @@
     <ClInclude Include="imgui\imgui_custom.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="test\AppFontsTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
