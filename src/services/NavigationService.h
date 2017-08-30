@@ -84,6 +84,8 @@ public:
 		std::shared_ptr<IViewModel> viewModel = result->second.ViewModel();
 		std::shared_ptr<IView> view = result->second.View();
 
+		viewModel->Reset();
+
 		std::shared_ptr<TViewModel> castedViewModel = std::static_pointer_cast<TViewModel>(viewModel);
 		callBack(castedViewModel);
 

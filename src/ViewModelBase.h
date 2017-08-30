@@ -20,4 +20,9 @@ public:
 	{
 		_navigation->GoBack();
 	}
+
+	void Reset() override
+	{
+		// Do noting by default
+	}
 };
