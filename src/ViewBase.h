@@ -9,11 +9,11 @@ class ViewBase
 protected:
 	std::shared_ptr<TViewModel> _viewModel;
 
-	template <class Arr, class Val>
-	void ClearBuffer(Arr* buffer, int bufferSize, const Val& value)
+	void ClearCharBuffer(char* buffer, int bufferSize, char value)
 	{
 		std::fill_n(buffer, bufferSize, value);
 	}
+
 
 public:
 	explicit ViewBase(const std::shared_ptr<TViewModel>& viewModel)
