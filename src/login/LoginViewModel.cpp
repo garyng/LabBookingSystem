@@ -12,7 +12,8 @@
 using namespace std;
 
 LoginViewModel::LoginViewModel(const shared_ptr<NavigationService>& navigation, const shared_ptr<UserStorage>& userStorage)
-	: ViewModelBase(navigation), _userStorage(userStorage)
+	: ViewModelBase(navigation), _userId(""),
+	  _userPassword(""), _userStorage(userStorage)
 {
 }
 
