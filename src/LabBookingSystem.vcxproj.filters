@@ -251,5 +251,8 @@
     <ClInclude Include="tests\ImGuiStyleEditorView.h">
       <Filter>Source Files\test</Filter>
     </ClInclude>
+    <ClInclude Include="tests\DataStorageTestsView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

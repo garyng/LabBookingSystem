@@ -16,6 +16,7 @@
 #include "test/AppColorsTestView.h"
 #include "test/AppFontsTestView.h"
 #include "tests/ImGuiStyleEditorView.h"
+#include "tests/DataStorageTestsView.h"
 
 using namespace std;
 
@@ -39,7 +40,6 @@ int main(int argc, char* argv[])
 	shared_ptr<RequestStorage> requestStorage = make_shared<RequestStorage>();
 	requestStorage->Load();
 
-
 	shared_ptr<LoginViewModel> loginViewModel = make_shared<LoginViewModel>(navigation, userStorage);
 	shared_ptr<LoginView> loginView = make_shared<LoginView>(loginViewModel);
 	navigation->Register<LoginViewModel, LoginView>(loginViewModel, loginView);
@@ -58,11 +58,13 @@ int main(int argc, char* argv[])
 	shared_ptr<ViewsRenderer> renderer = make_shared<ViewsRenderer>(navigation);
 	shared_ptr<AppColorsTestView> appColorsTestView = make_shared<AppColorsTestView>();
 	shared_ptr<AppFontsTestView> appFontsTestView = make_shared<AppFontsTestView>();
-	shared_ptr<ImGuiStyleEditorView> imGuiStyleEditorView = std::make_shared<ImGuiStyleEditorView>();
+	shared_ptr<ImGuiStyleEditorView> imGuiStyleEditorView = make_shared<ImGuiStyleEditorView>();
+	shared_ptr<DataStorageTestsView> dataStorageTestsView = make_shared<DataStorageTestsView>(vector<shared_ptr<IStorage>>{userStorage, requestStorage, labStorage});
 
 	renderer->RegisterToDebugMenu<AppColorsTestView>(appColorsTestView);
 	renderer->RegisterToDebugMenu<AppFontsTestView>(appFontsTestView);
 	renderer->RegisterToDebugMenu<ImGuiStyleEditorView>(imGuiStyleEditorView);
+	renderer->RegisterToDebugMenu<DataStorageTestsView>(dataStorageTestsView);
 
 	shared_ptr<App> app = make_shared<App>(renderer);
 

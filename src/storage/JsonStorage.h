@@ -32,8 +32,8 @@ protected:
 
 	std::vector<TData> virtual LoadDefault() = 0;
 	std::string virtual GetDataFilename() = 0;
-public:
 
+public:
 	void Load() override
 	{
 		fs::path dataFilePath = ResolvePath(GetDataFilename());
@@ -54,9 +54,12 @@ public:
 		}
 
 		json json;
+
 		reader >> json;
 		reader.close();
+
 		_data = json.get<std::vector<TData>>();
+
 		Log->Debug("Data loaded from \"" + dataFilePath.string() + "\"");
 	}
 
@@ -75,6 +78,13 @@ public:
 		writer << json;
 		writer.close();
 		Log->Debug("Data saved to \"" + dataFilePath.string() + "\"");
+	}
+
+	void Restore() override
+	{
+		_data = LoadDefault();
+		Save();
+		Log->Info("Restored data to original state");
 	}
 
 	std::vector<TData>& Data()
