@@ -4,23 +4,23 @@
 #include <memory>
 #include <functional>
 #include <stack>
-#include "../IView.h"
 #include "../logger/Logger.h"
+#include "../IView.h"
 
-class ViewModelBase;
+class IViewModel;
 
 class ViewViewModelPair
 {
 private:
-	std::shared_ptr<ViewModelBase> _viewModel;
+	std::shared_ptr<IViewModel> _viewModel;
 	std::shared_ptr<IView> _view;
 
 public:
-	std::shared_ptr<ViewModelBase> ViewModel() const { return _viewModel; }
+	std::shared_ptr<IViewModel> ViewModel() const { return _viewModel; }
 	std::shared_ptr<IView> View() const { return _view; }
 	bool IsEmpty() const { return _view == nullptr || _viewModel == nullptr; }
 
-	ViewViewModelPair(const std::shared_ptr<::ViewModelBase>& viewModel, const std::shared_ptr<IView>& view)
+	ViewViewModelPair(const std::shared_ptr<IViewModel>& viewModel, const std::shared_ptr<IView>& view)
 		: _viewModel(viewModel),
 		  _view(view)
 	{
@@ -30,7 +30,6 @@ public:
 	{
 		return "[ViewModel: " + std::string(typeid(*_viewModel).name()) + " View: " + std::string(typeid(*_view).name()) + "]";
 	}
-
 };
 
 class NavigationService
@@ -49,9 +48,9 @@ public:
 
 	template <class TViewModel, class TView,
 	          std::enable_if_t<
-		          std::is_base_of<ViewModelBase, TViewModel>::value &&
+		          std::is_base_of<IViewModel, TViewModel>::value &&
 		          std::is_base_of<IView, TView>::value>* = nullptr>
-	void Register(const std::shared_ptr<ViewModelBase>& viewModel, const std::shared_ptr<IView>& view)
+	void Register(const std::shared_ptr<IViewModel>& viewModel, const std::shared_ptr<IView>& view)
 	{
 		std::type_index key = typeid(TViewModel);
 		_viewModelViewPair.insert({key, {viewModel, view}});
@@ -60,17 +59,17 @@ public:
 
 	template <class TViewModel,
 	          std::enable_if_t<
-		          std::is_base_of<ViewModelBase, TViewModel>::value>* = nullptr>
+		          std::is_base_of<IViewModel, TViewModel>::value>* = nullptr>
 	void GoTo()
 	{
-		GoTo<TViewModel>([](std::shared_ptr<ViewModelBase> vm)
+		GoTo<TViewModel>([](std::shared_ptr<IViewModel> vm)
 			{
 			});
 	}
 
 	template <class TViewModel, class CallBack,
 	          std::enable_if_t<
-		          std::is_base_of<ViewModelBase, TViewModel>::value>* = nullptr>
+		          std::is_base_of<IViewModel, TViewModel>::value>* = nullptr>
 	void GoTo(CallBack&& callBack, bool pushCurrentToHistory = false)
 	{
 		std::type_index key = typeid(TViewModel);
@@ -83,7 +82,7 @@ public:
 			return;
 		}
 
-		std::shared_ptr<ViewModelBase> viewModel = result->second.ViewModel();
+		std::shared_ptr<IViewModel> viewModel = result->second.ViewModel();
 		std::shared_ptr<IView> view = result->second.View();
 
 		std::shared_ptr<TViewModel> castedViewModel = std::static_pointer_cast<TViewModel>(viewModel);

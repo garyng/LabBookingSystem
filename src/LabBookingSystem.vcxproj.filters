@@ -84,9 +84,6 @@
     <ClCompile Include="login\LoginViewModel.cpp">
       <Filter>Source Files\login</Filter>
     </ClCompile>
-    <ClCompile Include="ViewModelBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="admin\AdminViewModel.cpp">
       <Filter>Source Files\admin</Filter>
     </ClCompile>
@@ -167,9 +164,6 @@
     <ClInclude Include="ViewModelBase.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="IView.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="admin\AdminViewModel.h">
       <Filter>Source Files\admin</Filter>
     </ClInclude>
@@ -181,9 +175,6 @@
     </ClInclude>
     <ClInclude Include="request\RequestViewModel.h">
       <Filter>Source Files\request</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewBase.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="user\UserView.h">
       <Filter>Source Files\user</Filter>
@@ -247,6 +238,15 @@
     </ClInclude>
     <ClInclude Include="imgui\imgui_extra.h">
       <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="IView.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IViewModel.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

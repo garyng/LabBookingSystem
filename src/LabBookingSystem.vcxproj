@@ -169,7 +169,6 @@
     <ClCompile Include="storage\UserStorage.cpp" />
     <ClCompile Include="user\UserView.cpp" />
     <ClCompile Include="user\UserViewModel.cpp" />
-    <ClCompile Include="ViewModelBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h" />
@@ -186,6 +185,8 @@
     <ClInclude Include="command\UserLoginCommand.h" />
     <ClInclude Include="GenericViewsRenderer.h" />
     <ClInclude Include="imgui\imgui_extra.h" />
+    <ClInclude Include="IView.h" />
+    <ClInclude Include="IViewModel.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
     <ClInclude Include="logger\Logger.h" />
@@ -200,7 +201,6 @@
     <ClInclude Include="services\NavigationService.h" />
     <ClInclude Include="storage\IStorage.h" />
     <ClInclude Include="storage\JsonStorage.h" />
-    <ClInclude Include="IView.h" />
     <ClInclude Include="storage\LabStorage.h" />
     <ClInclude Include="storage\RequestStorage.h" />
     <ClInclude Include="storage\UserStorage.h" />
@@ -217,6 +217,14 @@
       <DeploymentContent>True</DeploymentContent>
     </Content>
     <Content Include="fonts\MaterialIcons-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>True</DeploymentContent>
+    </Content>
+    <Content Include="fonts\Roboto-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>True</DeploymentContent>
+    </Content>
+    <Content Include="fonts\Roboto-Bold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>True</DeploymentContent>
     </Content>
