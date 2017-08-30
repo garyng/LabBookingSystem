@@ -26,4 +26,6 @@ public:
 		ImGui::Text(text.c_str());
 		ImGui::PopFont();
 	}
+
+	std::string Name() override { return "AppFontsTestView"; }
 };

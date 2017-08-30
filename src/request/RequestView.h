@@ -19,5 +19,6 @@ private:
 
 public:
 	void Render() override;
+	std::string Name() override { return "RequestView"; }
 	explicit RequestView(const std::shared_ptr<RequestViewModel>& viewModel);
 };

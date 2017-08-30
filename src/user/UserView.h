@@ -9,4 +9,5 @@ class UserView
 public:
 	explicit UserView(const std::shared_ptr<UserViewModel>& viewModel);
 	void Render() override;
+	std::string Name() override { return "UserView"; }
 };

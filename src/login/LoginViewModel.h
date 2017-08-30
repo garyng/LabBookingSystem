@@ -13,4 +13,5 @@ private:
 public:
 	LoginViewModel(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<UserStorage>& userStorage);
 	bool LoginCommand(std::string userId, std::string userPassword) const;
+	std::string Name() override { return "LoginViewModel"; }
 };

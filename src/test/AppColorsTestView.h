@@ -6,6 +6,8 @@ class AppColorsTestView
 	: public IView
 {
 public:
+	std::string Name() override { return "AppColorsTestView"; }
+
 	void Render() override
 	{
 		ImGui::Begin("Debug: App Color Tests");
@@ -32,4 +34,5 @@ public:
 
 		ImGui::End();
 	}
+
 };

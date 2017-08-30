@@ -6,8 +6,7 @@
 #include <stack>
 #include "../logger/Logger.h"
 #include "../IView.h"
-
-class IViewModel;
+#include "../IViewModel.h"
 
 class ViewViewModelPair
 {
@@ -28,7 +27,7 @@ public:
 
 	std::string ToString() const
 	{
-		return "[ViewModel: " + std::string(typeid(*_viewModel).name()) + " View: " + std::string(typeid(*_view).name()) + "]";
+		return "[ViewModel: " + _viewModel->Name() + " View: " + _view->Name() + "]";
 	}
 };
 
@@ -50,7 +49,7 @@ public:
 	          std::enable_if_t<
 		          std::is_base_of<IViewModel, TViewModel>::value &&
 		          std::is_base_of<IView, TView>::value>* = nullptr>
-	void Register(const std::shared_ptr<IViewModel>& viewModel, const std::shared_ptr<IView>& view)
+	void Register(std::shared_ptr<IViewModel> viewModel, std::shared_ptr<IView> view)
 	{
 		std::type_index key = typeid(TViewModel);
 		_viewModelViewPair.insert({key, {viewModel, view}});

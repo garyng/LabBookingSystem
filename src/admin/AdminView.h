@@ -8,4 +8,6 @@ class AdminView
 public:
 	explicit AdminView(const std::shared_ptr<AdminViewModel>& viewModel);
 	void Render() override;
+
+	std::string Name() override { return "AdminView"; }
 };
