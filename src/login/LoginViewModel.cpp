@@ -21,7 +21,7 @@ bool LoginViewModel::LoginCommand(string userName, string userPassword) const
 	string hash;
 	picosha2::hash256_hex_string(userPassword, hash);
 
-	Log->Debug("Logging in with username = " + userName + ", password hash = " + hash);
+	Log->Debug("Logging in [Username: " + userName + " SHA2: " + hash + "]");
 
 	UserLoginCommand command(_userStorage);
 	bool loginResult = command.Execute(userName, hash);

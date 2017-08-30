@@ -10,9 +10,9 @@ protected:
 	std::shared_ptr<TViewModel> _viewModel;
 
 	template <class Arr, class Val>
-	void ClearBuffer(Arr* buffer, const Val& value)
+	void ClearBuffer(Arr* buffer, int bufferSize, const Val& value)
 	{
-		std::fill_n(buffer, static_cast<int>(sizeof(buffer)) / (sizeof(*buffer)), value);
+		std::fill_n(buffer, bufferSize, value);
 	}
 
 public:

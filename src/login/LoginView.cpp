@@ -1,7 +1,6 @@
 ﻿#include "LoginView.h"
 #include <IconsMaterialDesign.h>
 #include "imgui.h"
-#include "../services/NavigationService.h"
 #include "LoginViewModel.h"
 
 LoginView::LoginView(const std::shared_ptr<LoginViewModel>& viewModel): ViewBase<LoginViewModel>(viewModel)
@@ -22,7 +21,7 @@ void LoginView::Render()
 	{
 		bool result = _viewModel->LoginCommand(std::string(userIdBuffer), std::string(userPasswordBuffer));
 
-		ClearBuffer(userPasswordBuffer, 0);
+		ClearBuffer(userPasswordBuffer, 255, 0);
 
 		if (!result)
 		{
