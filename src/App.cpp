@@ -9,8 +9,7 @@
 
 using namespace std;
 
-App::App(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<GenericViewsRenderer>& renderer)
-	: _navigation(navigation), _renderer(renderer)
+App::App(const std::shared_ptr<ViewsRenderer>& viewsRenderer): _renderer(viewsRenderer)
 {
 }
 
@@ -115,9 +114,5 @@ void App::Loop() const
 
 void App::Render() const
 {
-	_navigation->RenderCurrent();
-	_renderer->RenderAll();
-	ImGui::ShowStyleEditor();
-
-	
+	_renderer->Render();
 }

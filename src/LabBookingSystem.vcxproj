@@ -183,7 +183,8 @@
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AppFontIndex.h" />
     <ClInclude Include="command\UserLoginCommand.h" />
-    <ClInclude Include="GenericViewsRenderer.h" />
+    <ClInclude Include="tests\ImGuiStyleEditorView.h" />
+    <ClInclude Include="ViewsRenderer.h" />
     <ClInclude Include="imgui\imgui_extra.h" />
     <ClInclude Include="IView.h" />
     <ClInclude Include="IViewModel.h" />

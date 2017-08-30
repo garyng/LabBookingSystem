@@ -218,9 +218,6 @@
     <ClInclude Include="test\AppColorsTestView.h">
       <Filter>Source Files\test</Filter>
     </ClInclude>
-    <ClInclude Include="GenericViewsRenderer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="AppColors.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -247,6 +244,12 @@
     </ClInclude>
     <ClInclude Include="IViewModel.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewsRenderer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\ImGuiStyleEditorView.h">
+      <Filter>Source Files\test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

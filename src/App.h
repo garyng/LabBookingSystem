@@ -4,18 +4,14 @@
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 #include "services/NavigationService.h"
-#include "GenericViewsRenderer.h"
+#include "ViewsRenderer.h"
+
 class App
 {
-public:
-	App(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<GenericViewsRenderer>& renderer);
-	void Start();
-
 private:
 	const std::string WINDOW_TITLE = "Lab Booking System";
 	GLFWwindow* _window;
-	std::shared_ptr<NavigationService> _navigation;
-	const std::shared_ptr<GenericViewsRenderer>& _renderer;
+	std::shared_ptr<ViewsRenderer> _renderer;
 
 	void Initialize();
 
@@ -27,4 +23,7 @@ private:
 	void Loop() const;
 
 	void Render() const;
+public:
+	explicit App(const std::shared_ptr<ViewsRenderer>& viewsRenderer);
+	void Start();
 };

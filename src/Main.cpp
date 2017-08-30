@@ -12,9 +12,10 @@
 #include "storage/UserStorage.h"
 #include "storage/LabStorage.h"
 #include "storage/RequestStorage.h"
-#include "GenericViewsRenderer.h"
+#include "ViewsRenderer.h"
 #include "test/AppColorsTestView.h"
 #include "test/AppFontsTestView.h"
+#include "tests/ImGuiStyleEditorView.h"
 
 using namespace std;
 
@@ -31,7 +32,6 @@ int main(int argc, char* argv[])
 {
 	shared_ptr<NavigationService> navigation = make_shared<NavigationService>();
 
-	//MakeViewsAndViewModels<LoginView, LoginViewModel>(navigation);
 	shared_ptr<UserStorage> userStorage = make_shared<UserStorage>();
 	userStorage->Load();
 	shared_ptr<LabStorage> labStorage = make_shared<LabStorage>();
@@ -48,24 +48,23 @@ int main(int argc, char* argv[])
 	MakeViewsAndViewModels<UserView, UserViewModel>(navigation);
 	MakeViewsAndViewModels<AdminView, AdminViewModel>(navigation);
 
-	//MakeViewsAndViewModels<RequestView, RequestViewModel>(navigation);
 	shared_ptr<RequestViewModel> requestViewModel = make_shared<RequestViewModel>(navigation, userStorage, requestStorage);
 	shared_ptr<RequestView> requestView = make_shared<RequestView>(requestViewModel);
 	navigation->Register<RequestViewModel, RequestView>(requestViewModel, requestView);
-	
+
 	navigation->GoTo<LoginViewModel>();
 
 
-	// todo: should generic renderer render a menu for selecting which view to render?
-	shared_ptr<GenericViewsRenderer> genericRenderer = make_shared<GenericViewsRenderer>();
+	shared_ptr<ViewsRenderer> renderer = make_shared<ViewsRenderer>(navigation);
 	shared_ptr<AppColorsTestView> appColorsTestView = make_shared<AppColorsTestView>();
 	shared_ptr<AppFontsTestView> appFontsTestView = make_shared<AppFontsTestView>();
+	shared_ptr<ImGuiStyleEditorView> imGuiStyleEditorView = std::make_shared<ImGuiStyleEditorView>();
 
+	renderer->RegisterToDebugMenu<AppColorsTestView>(appColorsTestView);
+	renderer->RegisterToDebugMenu<AppFontsTestView>(appFontsTestView);
+	renderer->RegisterToDebugMenu<ImGuiStyleEditorView>(imGuiStyleEditorView);
 
-	genericRenderer->Register(appColorsTestView);
-	genericRenderer->Register(appFontsTestView);
-
-	shared_ptr<App> app = make_shared<App>(navigation, genericRenderer);
+	shared_ptr<App> app = make_shared<App>(renderer);
 
 	app->Start();
 
