@@ -43,7 +43,8 @@ public:
 };
 
 RequestViewModel::RequestViewModel(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<UserStorage>& userStorage, const std::shared_ptr<RequestStorage>& requestStorage)
-	: ViewModelBase(navigation), _requestStorage(requestStorage), _userStorage(userStorage)
+	: ViewModelBase(navigation), _searchString(""), _selectedIndex(0),
+	  _requestStorage(requestStorage), _userStorage(userStorage)
 {
 }
 
@@ -55,4 +56,30 @@ void RequestViewModel::LoadUserRequestCommand()
 	GetRequestsByUserIdQuery requestQuery(_requestStorage);
 	vector<Request> requests = requestQuery.Execute(userId);
 	Requests(requests);
+}
+
+class CancelRequestByIdCommand
+{
+private:
+	std::shared_ptr<RequestStorage> _requestStorage;
+public:
+	explicit CancelRequestByIdCommand(const std::shared_ptr<RequestStorage>& requestStorage)
+		: _requestStorage(requestStorage)
+	{
+	}
+
+	void Execute(int requestId)
+	{
+		Request& result = _requestStorage->Data()
+			| first([&](Request request) { return request.Id() == requestId; });
+
+		result.Status(RequestStatus::Cancelled);
+		_requestStorage->Save();
+	}
+};
+
+void RequestViewModel::CancelRequestCommand(int requestId) const
+{
+	CancelRequestByIdCommand command(_requestStorage);
+	command.Execute(requestId);
 }

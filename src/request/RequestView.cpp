@@ -6,6 +6,7 @@
 #include "../AppFontIndex.h"
 #include "../AppColors.h"
 #include "imgui_internal.h"
+#include "../imgui/imgui_extra.h"
 
 
 using namespace std;
@@ -44,7 +45,7 @@ void RequestView::RenderNoRequestsView()
 
 	ImGui::BeginChildWithNBottomLineSpace("Centered Text", 1);
 	{
-		ImGui::CenteredTexts({ "Much nothingness...", "Try to click on the " ICON_MD_ADD " New Request button!" });
+		ImGui::CenteredTexts({"Much nothingness...", "Try to click on the " ICON_MD_ADD " New Request button!"});
 	}
 	ImGui::EndChild();
 
@@ -56,20 +57,22 @@ void RequestView::RenderRequestView()
 {
 	ImGui::Columns(2);
 
-	static char searchBuffer[1024];
-	static int requestListSelectedIndex = 0;
-
-	RenderRequestList(searchBuffer, requestListSelectedIndex);
+	RenderRequestList();
 
 	ImGui::NextColumn();
 
-	RenderRequestDetails(requestListSelectedIndex);
+	RenderRequestDetails();
 }
 
 
-void RequestView::RenderRequestList(char* searchBuffer, int& requestListSelectedIndex) const
+void RequestView::RenderRequestList() const
 {
-	ImGui::InputText(ICON_MD_SEARCH "Search", searchBuffer, IM_ARRAYSIZE(searchBuffer));
+	char searchBuffer[1024];
+	FillCharBuffer(searchBuffer, 1024, _viewModel->SearchString());
+
+	ImGui::InputText(ICON_MD_SEARCH "Search", searchBuffer, 1024);
+
+	_viewModel->SearchString(searchBuffer);
 
 	ImGui::BeginChildWithNBottomLineSpace("RequestsList", 2);
 	{
@@ -81,9 +84,9 @@ void RequestView::RenderRequestList(char* searchBuffer, int& requestListSelected
 				<< request.LabId()
 				<< " - " << request.Status()._to_string();
 
-			if (ImGui::Selectable(ss.str().c_str(), i == requestListSelectedIndex))
+			if (ImGui::Selectable(ss.str().c_str(), i == _viewModel->SelectedIndex()))
 			{
-				requestListSelectedIndex = i;
+				_viewModel->SelectedIndex(i);
 			};
 		}
 	}
@@ -104,9 +107,9 @@ void RequestView::RenderAddRequestButton() const
 	// todo: new request
 }
 
-void RequestView::RenderRequestDetails(int requestListSelectedIndex) const
+void RequestView::RenderRequestDetails() const
 {
-	Request request = _viewModel->Requests().at(requestListSelectedIndex);
+	Request request = _viewModel->Requests().at(_viewModel->SelectedIndex());
 	ImGui::BeginChildWithNBottomLineSpace("RequestDetails", 1);
 	{
 		ImGui::PushFont(AppFontIndex::RobotoLight_Title);
@@ -127,11 +130,25 @@ void RequestView::RenderRequestDetails(int requestListSelectedIndex) const
 	ImGui::EndChild();
 	if (request.IsPending())
 	{
-		ImGui::FullWidthButton(ICON_MD_CLOSE " Cancel Request");
+		RenderCancelButton(request.Id());
 	}
-	// todo: cancel request
 }
 
+void RequestView::RenderCancelButton(int requestId) const
+{
+	if (ImGui::FullWidthButton(ICON_MD_CLOSE " Cancel Request"))
+	{
+		ImGui::OpenPopup("Are you sure?");
+	}
+	ImGui::OkCancelPopupModal("Are you sure?", ICON_MD_WARNING,
+	                          {
+		                          "Do you want to cancel this request?"
+	                          }, [&]()
+	                          {
+		                          _viewModel->CancelRequestCommand(requestId);
+	                          });
+	_viewModel->LoadUserRequestCommand();
+}
 
 void RequestView::RenderStatusLabel(const Request& request) const
 {

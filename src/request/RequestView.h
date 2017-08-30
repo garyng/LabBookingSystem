@@ -10,9 +10,10 @@ class RequestView
 private:
 	void RenderNoRequestsView();
 	void RenderRequestView();
-	void RenderRequestList(char* searchBuffer, int& requestListSelectedIndex) const;
+	void RenderRequestList() const;
 	void RenderAddRequestButton() const;
-	void RenderRequestDetails(int requestListSelectedIndex) const;
+	void RenderRequestDetails() const;
+	void RenderCancelButton(int requestId) const;
 	void RenderStatusLabel(const Request& request) const;
 	void PrintValueLabel(std::string label, std::string value) const;
 	void PrintValueLabel(std::string label, std::string value, const ImVec4& valueLabelForeground) const;
