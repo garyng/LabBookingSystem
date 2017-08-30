@@ -21,7 +21,7 @@ void LoginView::Render()
 	{
 		bool result = _viewModel->LoginCommand(std::string(userIdBuffer), std::string(userPasswordBuffer));
 
-		ClearBuffer(userPasswordBuffer, 255, 0);
+		ClearCharBuffer(userPasswordBuffer, 255, 0);
 
 		if (!result)
 		{

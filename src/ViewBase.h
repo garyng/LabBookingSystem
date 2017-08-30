@@ -9,11 +9,14 @@ class ViewBase
 protected:
 	std::shared_ptr<TViewModel> _viewModel;
 
-	void ClearCharBuffer(char* buffer, int bufferSize, char value)
+	void ClearCharBuffer(char* buffer, int bufferSize, char value) const
 	{
 		std::fill_n(buffer, bufferSize, value);
 	}
-
+	void FillCharBuffer(char* buffer, int bufferSisze, std::string source) const
+	{
+		snprintf(buffer, bufferSisze, ("%." + std::to_string(bufferSisze) + "s").c_str(), source.c_str());
+	}
 
 public:
 	explicit ViewBase(const std::shared_ptr<TViewModel>& viewModel)
