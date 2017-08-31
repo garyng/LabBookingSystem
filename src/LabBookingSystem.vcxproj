@@ -88,7 +88,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\date;$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CppLanguageStandard>Default</CppLanguageStandard>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
