@@ -30,7 +30,7 @@ namespace ImGui
 		SetNextWindowPosCenter();
 		if (BeginPopupModal(name.c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize))
 		{
-			HorizontallyCenteredText("");
+			Text("");
 
 			PushFont(AppFontIndex::MaterialIcon_Title);
 			Text(icon.c_str());
@@ -45,20 +45,20 @@ namespace ImGui
 				}
 			}
 			EndGroup();
-			HorizontallyCenteredText("");
-			Separator();
+			Text("");
 
-			if (Button("OK", ImVec2(120, 0)))
+			if (Button("OK", ImVec2(60, 0)))
 			{
 				onOkClicked();
 				CloseCurrentPopup();
 			}
 			SameLine();
-			if (Button("Cancel", ImVec2(120, 0)))
+			if (Button("Cancel", ImVec2(60, 0)))
 			{
 				onCancelClicked();
 				CloseCurrentPopup();
 			}
+
 			EndPopup();
 		}
 	}
