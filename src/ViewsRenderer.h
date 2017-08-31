@@ -1,6 +1,7 @@
 #pragma once
 #include "IView.h"
 #include <memory>
+#include "AppFontIndex.h"
 
 class ViewVisibilityPair
 {
@@ -53,17 +54,18 @@ public:
 			{
 				ImGui::Text("Navigation Service");
 				ImGui::Checkbox("Show all registered views", &showAllViewsInNavigation);
+
 				ImGui::Separator();
+
 				ImGui::Text("Tests");
 
+				RenderShowAllTestViewsButton();
 				RenderMenuForEachView();
 
 				ImGui::EndMenu();
 			}
 
 			RenderAboutMenu();
-
-
 		}
 		ImGui::EndMainMenuBar();
 
@@ -76,6 +78,17 @@ public:
 		else
 		{
 			_navigation->RenderCurrent();
+		}
+	}
+
+	void RenderShowAllTestViewsButton()
+	{
+		if (ImGui::FullWidthButton("Show all test views"))
+		{
+			for (auto& view : _views)
+			{
+				view.second.IsVisible(true);
+			}
 		}
 	}
 
