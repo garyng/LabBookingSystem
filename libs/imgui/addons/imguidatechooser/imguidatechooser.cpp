@@ -176,7 +176,7 @@ bool DateChooser(const char* label, tm& dateOut,const char* dateFormat,bool clos
 #   ifdef IMGUIVARIOUSCONTROLS_H_
     widthAdder+=2.f*style.ItemSpacing.x;
 #   endif //IMGUIVARIOUSCONTROLS_H_
-    const float widthRequiredByCalendar = 2.f*arrowLeftWidth + 2.f*arrowRightWidth + ImGui::CalcTextSize(monthNames[maxMonthWidthIndex]).x + ImGui::CalcTextSize("9999").x + 50.f + widthAdder;
+    const float widthRequiredByCalendar = 2.f*arrowLeftWidth + 2.f*arrowRightWidth + ImGui::CalcTextSize(monthNames[maxMonthWidthIndex]).x + ImGui::CalcTextSize("9999").x + 100.f + widthAdder;
     const float widthRequiredByTextBox = label_size.x + ImGui::CalcTextSize(currentText).x;// + style.FramePadding.x*2.0f;
     const float w = widthRequiredByCalendar > widthRequiredByTextBox ? widthRequiredByCalendar : widthRequiredByTextBox;//ImGui::CalcItemWidth();
 
