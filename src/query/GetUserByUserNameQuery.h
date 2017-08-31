@@ -1,8 +1,6 @@
 #pragma once
-#include <optional>
-#include <coveo/linq/linq.h>
-#include "../storage/UserStorage.h"
-#include "../models/User.h"
+#include "storage/UserStorage.h"
+#include "models/User.h"
 
 class GetUserByUserNameQuery
 {

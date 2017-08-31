@@ -1,7 +1,5 @@
 #pragma once
-#include <initializer_list>
-#include <imgui.h>
-#include "../AppFontIndex.h"
+#include "AppFontIndex.h"
 
 namespace ImGui
 {

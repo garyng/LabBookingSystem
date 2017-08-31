@@ -84,12 +84,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CppLanguageStandard>Default</CppLanguageStandard>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -144,12 +143,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\libs\gl3w\GL\gl3w.c" />
-    <ClCompile Include="..\libs\imgui\imgui.cpp" />
+    <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\libs\imgui\imgui_custom.cpp" />
-    <ClCompile Include="..\libs\imgui\imgui_demo.cpp" />
-    <ClCompile Include="..\libs\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\libs\imgui\imgui_impl_glfw_gl3.cpp" />
+    <ClCompile Include="..\libs\imgui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_impl_glfw_gl3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="admin\AdminView.cpp" />
     <ClCompile Include="admin\AdminViewModel.cpp" />
     <ClCompile Include="App.cpp" />
@@ -164,6 +173,9 @@
     <ClCompile Include="models\User.cpp" />
     <ClCompile Include="request\RequestView.cpp" />
     <ClCompile Include="request\RequestViewModel.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="storage\LabStorage.cpp" />
     <ClCompile Include="storage\RequestStorage.cpp" />
     <ClCompile Include="storage\UserStorage.cpp" />
@@ -183,6 +195,7 @@
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AppFontIndex.h" />
     <ClInclude Include="command\UserLoginCommand.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="tests\DataStorageTestsView.h" />
     <ClInclude Include="tests\ImGuiStyleEditorView.h" />
     <ClInclude Include="ViewsRenderer.h" />

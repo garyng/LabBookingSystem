@@ -1,4 +1,5 @@
-﻿#include "UserStorage.h"
+﻿#include "stdafx.h"
+#include "UserStorage.h"
 
 std::vector<User> UserStorage::LoadDefault()
 {

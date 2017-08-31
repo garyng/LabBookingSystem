@@ -1,8 +1,6 @@
 ﻿#pragma once
-#include <memory>
 #include "RequestViewModel.h"
-#include "../ViewBase.h"
-#include "imgui.h"
+#include "ViewBase.h"
 
 class RequestView
 	: public ViewBase<RequestViewModel>

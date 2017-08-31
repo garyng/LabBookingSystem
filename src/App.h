@@ -1,9 +1,5 @@
 ﻿#pragma once
-#include <iostream>
-#include <memory>
 #include <GLFW/glfw3.h>
-#include <imgui.h>
-#include "services/NavigationService.h"
 #include "ViewsRenderer.h"
 
 class App

@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <memory>
 #include "services/NavigationService.h"
 #include "logger/Logger.h"
 #include "IViewModel.h"

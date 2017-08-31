@@ -1,4 +1,4 @@
-#include <memory>
+#include "stdafx.h"
 #include "App.h"
 #include "services/NavigationService.h"
 #include "login/LoginView.h"

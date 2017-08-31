@@ -1,6 +1,4 @@
 ﻿#pragma once
-#include <json.hpp>
-#include <enum.h>
 
 BETTER_ENUM(UserRole, int, Admin, Normal);
 

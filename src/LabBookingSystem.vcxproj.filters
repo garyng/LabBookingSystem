@@ -129,6 +129,9 @@
     <ClCompile Include="AppFontIndex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
@@ -242,9 +245,6 @@
     <ClInclude Include="ViewBase.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="IViewModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ViewsRenderer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -253,6 +253,12 @@
     </ClInclude>
     <ClInclude Include="tests\DataStorageTestsView.h">
       <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="IViewModel.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

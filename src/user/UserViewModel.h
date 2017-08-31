@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include "../ViewModelBase.h"
 
 class UserViewModel
 	: public ViewModelBase

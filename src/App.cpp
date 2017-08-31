@@ -1,10 +1,7 @@
-﻿#include <imgui.h>
+﻿#include "stdafx.h"
 #include <imgui_impl_glfw_gl3.h>
-#include <iostream>
 #include <GL/gl3w.h>
 #include <GLFW/glfw3.h>
-#include <string>
-#include <IconsMaterialDesign.h>
 #include "App.h"
 
 using namespace std;

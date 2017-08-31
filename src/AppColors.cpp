@@ -1,4 +1,5 @@
-﻿#include "AppColors.h"
+﻿#include "stdafx.h"
+#include "AppColors.h"
 AppColors AppColors::DefaultWhite(ImVec4(0.90f, 0.90f, 0.90f, 1.00f));
 AppColors AppColors::Red500(ImVec4(0.957f, 0.263f, 0.212f, 1.0f));
 AppColors AppColors::Pink500(ImVec4(0.914f, 0.118f, 0.388f, 1.0f));

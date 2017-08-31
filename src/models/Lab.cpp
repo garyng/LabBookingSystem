@@ -1,4 +1,5 @@
-﻿#include "Lab.h"
+﻿#include "stdafx.h"
+#include "Lab.h"
 
 Lab::Lab(const std::string& id, const std::string& description): _id(id),
                                                                  _description(description)

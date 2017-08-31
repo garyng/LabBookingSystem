@@ -1,6 +1,5 @@
 #pragma once
 #include "ILogger.h"
-#include <iostream>
 
 class ConsoleLogger
 	: public ILogger

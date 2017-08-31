@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "../ViewModelBase.h"
+#include "ViewModelBase.h"
 
 class AdminViewModel
 	: public ViewModelBase

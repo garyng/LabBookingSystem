@@ -1,4 +1,5 @@
-﻿#include "LabStorage.h"
+﻿#include "stdafx.h"
+#include "LabStorage.h"
 
 std::vector<Lab> LabStorage::LoadDefault()
 {

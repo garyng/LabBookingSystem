@@ -1,8 +1,6 @@
 ﻿#pragma once
-#include "../ViewModelBase.h"
-#include <string>
-#include "../storage/IStorage.h"
-#include "../storage/UserStorage.h"
+#include "ViewModelBase.h"
+#include "storage/UserStorage.h"
 
 class LoginViewModel
 	: public ViewModelBase

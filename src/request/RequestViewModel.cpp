@@ -1,5 +1,5 @@
-﻿#include "RequestViewModel.h"
-#include <coveo/linq/linq.h>
+﻿#include "stdafx.h"
+#include "RequestViewModel.h"
 
 using namespace std;
 using namespace coveo::linq;

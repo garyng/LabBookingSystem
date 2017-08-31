@@ -1,6 +1,4 @@
 #pragma once
-#include "IView.h"
-#include <memory>
 #include "AppFontIndex.h"
 
 class ViewVisibilityPair

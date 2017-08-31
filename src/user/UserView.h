@@ -1,7 +1,5 @@
 ﻿#pragma once
-#include <memory>
 #include "UserViewModel.h"
-#include "../ViewBase.h"
 
 class UserView
 	: public ViewBase<UserViewModel>

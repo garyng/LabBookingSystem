@@ -1,12 +1,7 @@
 ﻿#pragma once
-#include <map>
-#include <typeindex>
-#include <memory>
-#include <functional>
-#include <stack>
-#include "../logger/Logger.h"
-#include "../IView.h"
-#include "../IViewModel.h"
+#include "logger/Logger.h"
+#include "IViewModel.h"
+#include "IView.h"
 
 class ViewViewModelPair
 {

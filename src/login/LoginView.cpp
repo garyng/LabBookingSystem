@@ -1,6 +1,5 @@
-﻿#include "LoginView.h"
-#include <IconsMaterialDesign.h>
-#include "imgui.h"
+﻿#include "stdafx.h"
+#include "LoginView.h"
 #include "LoginViewModel.h"
 
 LoginView::LoginView(const std::shared_ptr<LoginViewModel>& viewModel): ViewBase<LoginViewModel>(viewModel)

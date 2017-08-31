@@ -1,7 +1,6 @@
 ﻿#pragma once
-#include <memory>
 #include "LoginViewModel.h"
-#include "../ViewBase.h"
+#include "ViewBase.h"
 
 
 class LoginView

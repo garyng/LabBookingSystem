@@ -1,5 +1,4 @@
-﻿#include <imgui.h>
-#include "../../src/AppFontIndex.h"
+﻿#include "stdafx.h"
 
 namespace ImGui
 {

@@ -1,13 +1,10 @@
-﻿#include "LoginViewModel.h"
-#include "../user/UserViewModel.h"
-#include "../storage/UserStorage.h"
-#include <memory>
-#include <picosha2.h>
-#include <optional>
-#include <coveo/linq.h>
-#include "../admin/AdminViewModel.h"
-#include "../command/UserLoginCommand.h"
-#include "../query/GetUserByUserNameQuery.h"
+﻿#include "stdafx.h"
+#include "LoginViewModel.h"
+#include "command/UserLoginCommand.h"
+#include "query/GetUserByUserNameQuery.h"
+#include "admin/AdminViewModel.h"
+#include "user/UserViewModel.h"
+#include "storage/UserStorage.h"
 
 using namespace std;
 

@@ -1,4 +1,5 @@
-﻿#include "RequestStorage.h"
+﻿#include "stdafx.h"
+#include "RequestStorage.h"
 
 std::vector<Request> RequestStorage::LoadDefault()
 {

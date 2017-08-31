@@ -1,6 +1,5 @@
 #pragma once
-#include "../ViewBase.h"
-#include "../AppColors.h"
+#include "AppColors.h"
 
 class AppColorsTestView
 	: public IView

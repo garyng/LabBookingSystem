@@ -1,6 +1,4 @@
 #pragma once
-#include <imgui.h>
-#include "../IView.h"
 
 class ImGuiStyleEditorView
 	: public IView

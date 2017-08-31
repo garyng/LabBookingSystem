@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "../storage/UserStorage.h"
+#include "storage/UserStorage.h"
 #include <coveo/linq/linq.h>
 
 class UserLoginCommand

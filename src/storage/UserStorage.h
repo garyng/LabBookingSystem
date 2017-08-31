@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "JsonStorage.h"
-#include "../models/User.h"
+#include "models/User.h"
 
 class UserStorage
 	: public JsonStorage<User>

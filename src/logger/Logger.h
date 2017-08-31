@@ -1,6 +1,6 @@
 #pragma once
-#include "ConsoleLogger.h"
-#include <memory>
+#include "ILogger.h"
+
 
 class Logger
 	: public ILogger

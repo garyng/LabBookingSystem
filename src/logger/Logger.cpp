@@ -1,5 +1,6 @@
+#include "stdafx.h"
 #include "Logger.h"
-#include <memory>
+#include "ConsoleLogger.h"
 
 std::shared_ptr<ILogger> Logger::_defaultLogger = nullptr;
 

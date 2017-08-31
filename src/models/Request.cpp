@@ -1,4 +1,5 @@
-﻿#include "Request.h"
+﻿#include "stdafx.h"
+#include "Request.h"
 
 Request::Request(int id, const std::string& labId, const std::string& userId, const std::string& reviewerId, const RequestStatus& status): _id(id),
                                                                                                                                          _labId(labId),

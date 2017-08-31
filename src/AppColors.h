@@ -1,8 +1,5 @@
 ﻿#pragma once
 
-#pragma once
-#include "imgui.h"
-
 class AppColors
 {
 private:

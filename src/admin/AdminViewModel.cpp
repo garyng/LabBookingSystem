@@ -1,6 +1,8 @@
-﻿#include "AdminViewModel.h"
-#include "../login/LoginViewModel.h"
-#include "../request/RequestViewModel.h"
+﻿#include "stdafx.h"
+#include "AdminViewModel.h"
+#include "login/LoginViewModel.h"
+#include "request/RequestViewModel.h"
+
 
 AdminViewModel::AdminViewModel(const std::shared_ptr<NavigationService>& navigation): ViewModelBase(navigation)
 {

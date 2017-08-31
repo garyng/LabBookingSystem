@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include "test/AppColorsTestView.h"
 
 class AppFontIndex
 {

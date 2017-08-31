@@ -1,7 +1,4 @@
 #pragma once
-#include "../IView.h"
-#include <memory>
-#include <IconsMaterialDesign.h>
 
 class DataStorageTestsView
 	: public IView

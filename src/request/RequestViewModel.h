@@ -1,9 +1,8 @@
 ﻿#pragma once
-#include "../ViewModelBase.h"
-#include <vector>
-#include "../models/Request.h"
-#include "../storage/RequestStorage.h"
-#include "../storage/UserStorage.h"
+#include "ViewModelBase.h"
+#include "models/Request.h"
+#include "storage/RequestStorage.h"
+#include "storage/UserStorage.h"
 
 class RequestViewModel
 	: public ViewModelBase

@@ -1,8 +1,6 @@
-﻿#include "AdminView.h"
-#include "imgui.h"
-#include <IconsMaterialDesign.h>
-#include "../AppFontIndex.h"
-#include "../imgui/imgui_extra.h"
+﻿#include "stdafx.h"
+#include "AdminView.h"
+#include "imgui/imgui_extra.h"
 
 AdminView::AdminView(const std::shared_ptr<AdminViewModel>& viewModel) : ViewBase<AdminViewModel>(viewModel)
 {

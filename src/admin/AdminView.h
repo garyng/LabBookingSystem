@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "../ViewBase.h"
+#include "ViewBase.h"
 #include "AdminViewModel.h"
 
 class AdminView

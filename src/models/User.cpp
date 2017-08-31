@@ -1,5 +1,5 @@
-﻿#include "User.h"
-#include <json.hpp>
+﻿#include "stdafx.h"
+#include "User.h"
 
 
 User::User(const std::string& id, const std::string& name, const std::string& hashedPassword, const UserRole& role): _id(id),

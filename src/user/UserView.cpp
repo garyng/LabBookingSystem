@@ -1,8 +1,6 @@
-﻿#include "UserView.h"
-#include "imconfig.h"
-#include "imgui.h"
-#include <IconsMaterialDesign.h>
-#include "../imgui/imgui_extra.h"
+﻿#include "stdafx.h"
+#include "UserView.h"
+#include "imgui/imgui_extra.h"
 
 UserView::UserView(const std::shared_ptr<UserViewModel>& viewModel): ViewBase<UserViewModel>(viewModel)
 {

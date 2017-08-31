@@ -1,8 +1,5 @@
 #pragma once
-#include "../IView.h"
-#include <string>
-#include "../AppFontIndex.h"
-#include <IconsMaterialDesign.h>
+#include "AppFontIndex.h"
 
 class AppFontsTestView
 	: public IView

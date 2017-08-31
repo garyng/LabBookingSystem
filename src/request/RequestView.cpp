@@ -1,12 +1,8 @@
-﻿#include "RequestView.h"
-#include "imconfig.h"
-#include "imgui.h"
-#include <string>
-#include <IconsMaterialDesign.h>
-#include "../AppFontIndex.h"
-#include "../AppColors.h"
-#include "imgui_internal.h"
-#include "../imgui/imgui_extra.h"
+﻿#include "stdafx.h"
+#include "RequestView.h"
+#include "AppFontIndex.h"
+#include "AppColors.h"
+#include "imgui/imgui_extra.h"
 
 
 using namespace std;
