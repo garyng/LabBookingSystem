@@ -13,8 +13,8 @@ namespace ImGui
 	                        OnOkClicked&& onOkClicked)
 	{
 		OkCancelPopupModal(name, icon, texts, onOkClicked, []()
-		                   {
-		                   });
+	                   {
+	                   });
 	}
 
 
@@ -44,6 +44,11 @@ namespace ImGui
 			}
 			EndGroup();
 			Text("");
+
+
+			float windowWidth = GetWindowSize().x;
+			float buttonX = windowWidth / 2 - (60 + 60) / 2;
+			SetCursorPosX(buttonX);
 
 			if (Button("OK", ImVec2(60, 0)))
 			{
