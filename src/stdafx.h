@@ -4,6 +4,7 @@
 //
 
 #pragma once
+
 #include <string>
 #include <vector>
 #include <memory>
@@ -24,6 +25,7 @@
 #include <coveo/linq.h>
 #include <enum.h>
 #include <json.hpp>
+#include <date.h>
 
 #include "IView.h"
 #include "ViewBase.h"
