@@ -48,7 +48,7 @@ void App::LoadFonts() const
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 17.0f);
 	AddIconFont(io, 3, 17.0f);
 
-	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 27.0f);
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 30.0f);
 	AddIconFont(io, 6, 27.0f);
 
 	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Bold.ttf", 17.0f);
@@ -58,6 +58,9 @@ void App::LoadFonts() const
 	AddIconFont(io, 3, 27.0f);
 
 	AddIconFont(io, 0, 50.0f, false);
+
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 27.0f);
+	AddIconFont(io, 6, 27.0f);
 
 	io.Fonts->Build();
 }

@@ -35,7 +35,7 @@ namespace ImGui
 
 	void DrawWelcomeBack(const char* name)
 	{
-		PushFont(AppFontIndex::RobotoLight_Title);
+		PushFont(AppFontIndex::RobotoLight_Title1);
 		Text("Welcome back,");
 		SameLine();
 		PopFont();
@@ -134,7 +134,10 @@ namespace ImGui
 		PushFont(AppFontIndex::RobotoBold_Normal);
 		TextWrapped(label.c_str());
 		PopFont();
+
+		PushFont(AppFontIndex::RobotoLight_Title2);
 		TextWrapped(value.c_str());
+		PopFont();
 	}
 
 	void PrintValueLabel(std::string label, std::string value, const ImVec4& valueLabelForeground)
@@ -143,9 +146,11 @@ namespace ImGui
 		TextWrapped(label.c_str());
 		PopFont();
 
+		PushFont(AppFontIndex::RobotoLight_Title2);
 		PushStyleColor(ImGuiCol_Text, valueLabelForeground);
 		TextWrapped(value.c_str());
 		PopStyleColor();
+		PopFont();
 
 	}
 }

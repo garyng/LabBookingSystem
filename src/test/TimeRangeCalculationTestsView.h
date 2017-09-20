@@ -49,16 +49,16 @@ public:
 		}
 		if (isDateInvalid)
 		{
-			ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+			ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 
-			ImGui::CenteredTexts({ICON_MD_ERROR_OUTLINE, "Invalid date!", "I wish I could", "travel back in time..."});
+			ImGui::CenteredTexts({ICON_MD_ERROR_OUTLINE, "Invalid date!", ICON_MD_MUSIC_NOTE " I wish I could", "turn back time... " ICON_MD_MUSIC_NOTE});
 
 			ImGui::PopFont();
 		}
 		else
 		{
 			ImGui::Spacing();
-			ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+			ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 			ImGui::Text(format("%d/%m/%Y", selected).c_str());
 			ImGui::PopFont();
 			ImGui::Spacing();
@@ -162,7 +162,7 @@ public:
 					// if there is not selected start time
 					if (selectedStartTime.IsEmpty())
 					{
-						ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+						ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 						ImGui::CenteredTexts({ICON_MD_BLUR_ON, "Wow! Much emptiness...", "Try choosing", "one of the available time?"});
 						ImGui::PopFont();
 					}
@@ -175,7 +175,7 @@ public:
 			if (isAddingAllowed)
 			{
 				ImGui::Text("Selected time slot: ");
-				ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+				ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 				ostringstream oss;
 				oss << selectedStartTime.FormattedTime()
 					<< " - "
