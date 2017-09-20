@@ -5,7 +5,8 @@ namespace ImGui
 	bool BeginDefaultCenteredWindow(const char* name)
 	{
 		// SetNextWindowPosCenter();
-		return Begin(name, nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
+		return Begin(name, nullptr,
+		             ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
 	}
 
 	bool BeginDefaultCenteredResizableWindow(const char* name)
@@ -126,5 +127,25 @@ namespace ImGui
 
 			currentY += textSize.y;
 		}
+	}
+
+	void PrintValueLabel(std::string label, std::string value)
+	{
+		PushFont(AppFontIndex::RobotoBold_Normal);
+		TextWrapped(label.c_str());
+		PopFont();
+		TextWrapped(value.c_str());
+	}
+
+	void PrintValueLabel(std::string label, std::string value, const ImVec4& valueLabelForeground)
+	{
+		PushFont(AppFontIndex::RobotoBold_Normal);
+		TextWrapped(label.c_str());
+		PopFont();
+
+		PushStyleColor(ImGuiCol_Text, valueLabelForeground);
+		TextWrapped(value.c_str());
+		PopStyleColor();
+
 	}
 }

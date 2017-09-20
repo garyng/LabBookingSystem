@@ -49,6 +49,8 @@
 //---- Use 32-bit vertex indices (instead of default: 16-bit) to allow meshes with more than 64K vertices
 //#define ImDrawIdx unsigned int
 
+struct ImVec4;
+
 //---- Tip: You can add extra functions within the ImGui:: namespace, here or in your own headers files.
 //---- e.g. create variants of the ImGui::Value() helper for your low-level math types, or your own widgets/helpers.
 /*
@@ -69,4 +71,7 @@ namespace ImGui
 	void HorizontallyCenteredText(std::string text);
 	void CenteredTexts(std::string text);
 	void CenteredTexts(std::initializer_list<std::string> texts);
+
+	void PrintValueLabel(std::string label, std::string value);
+	void PrintValueLabel(std::string label, std::string value, const ImVec4& valueLabelForeground);
 }

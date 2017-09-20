@@ -105,13 +105,13 @@ void RequestView::RenderRequestDetails() const
 		ImGui::PopFont();
 		ImGui::Separator();
 
-		PrintValueLabel("Lab Id:", request.LabId());
+		ImGui::PrintValueLabel("Lab Id:", request.LabId());
 
 		RenderStatusLabel(request);
 
 		if (request.WasReviewed())
 		{
-			PrintValueLabel("Reviewed by:", request.ReviewerId());
+			ImGui::PrintValueLabel("Reviewed by:", request.ReviewerId());
 		}
 	}
 	ImGui::EndChild();
@@ -131,9 +131,9 @@ void RequestView::RenderCancelButton(int requestId) const
 	                          {
 		                          "Do you want to cancel this request?"
 	                          }, [&]()
-                          {
-	                          _viewModel->CancelRequestCommand(requestId);
-                          });
+							  {
+								  _viewModel->CancelRequestCommand(requestId);
+							  });
 	_viewModel->LoadUserRequestCommand();
 }
 
@@ -155,21 +155,5 @@ void RequestView::RenderStatusLabel(const Request& request) const
 			color = AppColors::DefaultWhite;
 			break;
 	}
-	PrintValueLabel("Status:", request.Status()._to_string(), color);
-}
-
-void RequestView::PrintValueLabel(string label, string value) const
-{
-	ImGui::PushFont(AppFontIndex::RobotoBold_Normal);
-	ImGui::Text(label.c_str());
-	ImGui::PopFont();
-	ImGui::Text(value.c_str());
-}
-
-void RequestView::PrintValueLabel(string label, string value, const ImVec4& valueLabelForeground) const
-{
-	ImGui::PushFont(AppFontIndex::RobotoBold_Normal);
-	ImGui::Text(label.c_str());
-	ImGui::PopFont();
-	ImGui::TextColored(valueLabelForeground, value.c_str());
+	ImGui::PrintValueLabel("Status:", request.Status()._to_string(), color);
 }

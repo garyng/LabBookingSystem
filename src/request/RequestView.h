@@ -13,8 +13,6 @@ private:
 	void RenderRequestDetails() const;
 	void RenderCancelButton(int requestId) const;
 	void RenderStatusLabel(const Request& request) const;
-	void PrintValueLabel(std::string label, std::string value) const;
-	void PrintValueLabel(std::string label, std::string value, const ImVec4& valueLabelForeground) const;
 
 public:
 	void Render() override;
