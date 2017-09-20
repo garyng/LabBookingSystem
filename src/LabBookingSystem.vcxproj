@@ -176,6 +176,8 @@
     <ClCompile Include="models\User.cpp" />
     <ClCompile Include="request\RequestView.cpp" />
     <ClCompile Include="request\RequestViewModel.cpp" />
+    <ClCompile Include="request\SelectLabView.cpp" />
+    <ClCompile Include="request\SelectLabViewModel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -202,9 +204,14 @@
     <ClInclude Include="command\UserLoginCommand.h" />
     <ClInclude Include="query\GetUserIdFromUserNameQuery.h" />
     <ClInclude Include="query\GetRequestsByUserIdQuery.h" />
+    <ClInclude Include="request\SelectLabView.h" />
+    <ClInclude Include="request\SelectLabViewModel.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="tests\DataStorageTestsView.h" />
-    <ClInclude Include="tests\ImGuiStyleEditorView.h" />
+    <ClInclude Include="test\DataStorageTestsView.h" />
+    <ClInclude Include="test\ImGuiDateChooserTestView.h" />
+    <ClInclude Include="test\ImGuiMetricsView.h" />
+    <ClInclude Include="test\ImGuiStyleEditorView.h" />
+    <ClInclude Include="test\TimeRangeCalculationTestsView.h" />
     <ClInclude Include="ViewsRenderer.h" />
     <ClInclude Include="imgui\imgui_extra.h" />
     <ClInclude Include="IView.h" />

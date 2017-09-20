@@ -24,11 +24,13 @@ public:
 
 	std::string ReviewerId() const { return _reviewerId; }
 	void ReviewerId(std::string value) { _reviewerId = value; }
+	
 
 	RequestStatus Status() const { return RequestStatus::_from_string(_status.c_str()); }
 	void Status(RequestStatus value) { _status = value._to_string(); }
 	bool IsPending() const { return Status() == +RequestStatus::Pending; }
 	bool IsCancelled() const { return Status() == +RequestStatus::Cancelled; }
+	bool IsAccepted() const { return Status() == +RequestStatus::Accepted; }
 	bool WasReviewed() const { return Status() == +RequestStatus::Accepted || Status() == +RequestStatus::Rejected; }
 
 	Request() = default;

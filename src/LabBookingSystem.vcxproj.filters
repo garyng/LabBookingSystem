@@ -135,6 +135,12 @@
     <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="request\SelectLabView.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\SelectLabViewModel.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
@@ -251,12 +257,6 @@
     <ClInclude Include="ViewsRenderer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="tests\ImGuiStyleEditorView.h">
-      <Filter>Source Files\test</Filter>
-    </ClInclude>
-    <ClInclude Include="tests\DataStorageTestsView.h">
-      <Filter>Source Files\test</Filter>
-    </ClInclude>
     <ClInclude Include="IViewModel.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -266,6 +266,24 @@
     <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="test\ImGuiDateChooserTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\DataStorageTestsView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ImGuiStyleEditorView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\TimeRangeCalculationTestsView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="request\SelectLabView.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="request\SelectLabViewModel.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
     <ClInclude Include="query\GetRequestsByUserIdQuery.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
@@ -274,6 +292,9 @@
     </ClInclude>
     <ClInclude Include="command\CancelRequestByIdCommand.h">
       <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ImGuiMetricsView.h">
+      <Filter>Source Files\test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,7 +10,6 @@ class RequestViewModel
 private:
 	std::string _userName;
 	std::vector<Request> _requests;
-	std::string _searchString;
 	int _selectedIndex;
 
 	std::shared_ptr<RequestStorage> _requestStorage;
@@ -28,12 +27,12 @@ public:
 
 	void Reset() override
 	{
-		_searchString = "";
 		_selectedIndex = 0;
 	}
 
 	void LoadUserRequestCommand();
 	void CancelRequestCommand(int requestId) const;
+	void AddRequestCommand();
 
 	explicit RequestViewModel(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<UserStorage>& userStorage, const std::shared_ptr<RequestStorage>& requestStorage);
 	std::string Name() override { return "RequestViewModel"; }

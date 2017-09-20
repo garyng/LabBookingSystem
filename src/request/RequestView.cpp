@@ -58,14 +58,13 @@ void RequestView::RenderRequestView()
 	RenderRequestDetails();
 }
 
-
 void RequestView::RenderRequestList() const
 {
 	ImGui::BeginChildWithNBottomLineSpace("RequestsList", 2);
 	{
-		for (size_t i = 0; i < _viewModel->Requests().size(); i++)
+		int i = 0;
+		for (Request& request : _viewModel->Requests())
 		{
-			Request request = _viewModel->Requests().at(i);
 			stringstream ss;
 			ss << "#" << request.Id() << " "
 				<< request.LabId()
@@ -75,7 +74,9 @@ void RequestView::RenderRequestList() const
 			{
 				_viewModel->SelectedIndex(i);
 			};
+			i++;
 		}
+
 	}
 	ImGui::EndChild();
 
@@ -84,14 +85,18 @@ void RequestView::RenderRequestList() const
 	{
 		ImGui::Combo("Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems));
 	}
+	// todo: filter by
 
 	RenderAddRequestButton();
 }
 
 void RequestView::RenderAddRequestButton() const
 {
-	ImGui::FullWidthButton(ICON_MD_ADD " New Request");
-	// todo: new request
+	if (ImGui::FullWidthButton(ICON_MD_ADD " New Request"))
+	{
+		_viewModel->AddRequestCommand();
+	}
+	
 }
 
 void RequestView::RenderRequestDetails() const

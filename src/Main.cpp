@@ -15,8 +15,13 @@
 #include "ViewsRenderer.h"
 #include "test/AppColorsTestView.h"
 #include "test/AppFontsTestView.h"
-#include "tests/ImGuiStyleEditorView.h"
-#include "tests/DataStorageTestsView.h"
+#include "test/ImGuiStyleEditorView.h"
+#include "test/DataStorageTestsView.h"
+#include "test/ImGuiDateChooserTestView.h"
+#include "test/TimeRangeCalculationTestsView.h"
+#include "request/SelectLabViewModel.h"
+#include "request/SelectLabView.h"
+#include "test/ImGuiMetricsView.h"
 
 using namespace std;
 
@@ -52,6 +57,10 @@ int main(int argc, char* argv[])
 	shared_ptr<RequestView> requestView = make_shared<RequestView>(requestViewModel);
 	navigation->Register<RequestViewModel, RequestView>(requestViewModel, requestView);
 
+	shared_ptr<SelectLabViewModel> selectLabViewModel = make_shared<SelectLabViewModel>(navigation, labStorage);
+	shared_ptr<SelectLabView> selectLabView = make_shared<SelectLabView>(selectLabViewModel);
+	navigation->Register<SelectLabViewModel, SelectLabView>(selectLabViewModel, selectLabView);
+
 	navigation->GoTo<LoginViewModel>();
 
 
@@ -60,16 +69,25 @@ int main(int argc, char* argv[])
 	shared_ptr<AppFontsTestView> appFontsTestView = make_shared<AppFontsTestView>();
 	shared_ptr<ImGuiStyleEditorView> imGuiStyleEditorView = make_shared<ImGuiStyleEditorView>();
 	shared_ptr<DataStorageTestsView> dataStorageTestsView = make_shared<DataStorageTestsView>(vector<shared_ptr<IStorage>>{userStorage, requestStorage, labStorage});
+	shared_ptr<ImGuiDateChooserTestView> imGuiDateChooserTestView = make_shared<ImGuiDateChooserTestView>();
+	shared_ptr<ImGuiMetricsView> imGuiMetricsView = make_shared<ImGuiMetricsView>();
+	shared_ptr<TimeRangeCalculationTestsView> timeRangeCalculationTestsView = make_shared<TimeRangeCalculationTestsView>();
 
 	renderer->RegisterToDebugMenu<AppColorsTestView>(appColorsTestView);
 	renderer->RegisterToDebugMenu<AppFontsTestView>(appFontsTestView);
 	renderer->RegisterToDebugMenu<ImGuiStyleEditorView>(imGuiStyleEditorView);
 	renderer->RegisterToDebugMenu<DataStorageTestsView>(dataStorageTestsView);
+	renderer->RegisterToDebugMenu<ImGuiDateChooserTestView>(imGuiDateChooserTestView);
+	renderer->RegisterToDebugMenu<TimeRangeCalculationTestsView>(timeRangeCalculationTestsView);
+	renderer->RegisterToDebugMenu<ImGuiMetricsView>(imGuiMetricsView);
 
 	shared_ptr<App> app = make_shared<App>(renderer);
 
-	app->Start();
+	// automate gui
+	loginViewModel->LoginCommand("1", "1");
 
+
+	app->Start();
 
 	return 0;
 }
