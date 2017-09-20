@@ -23,11 +23,11 @@ public:
 
 	int SelectedIndex() const { return _selectedIndex; }
 
-	void SelectedIndex(int value) { _selectedIndex = value % _requests.size(); }
+	void SelectedIndex(int value) { _selectedIndex = value; }
 
 	void Reset() override
 	{
-		_selectedIndex = 0;
+		_selectedIndex = -1;
 	}
 
 	void LoadUserRequestCommand();

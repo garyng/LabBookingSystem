@@ -9,7 +9,7 @@ using namespace std;
 using namespace coveo::linq;
 
 RequestViewModel::RequestViewModel(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<UserStorage>& userStorage, const std::shared_ptr<RequestStorage>& requestStorage)
-	: ViewModelBase(navigation), _selectedIndex(0),
+	: ViewModelBase(navigation), _selectedIndex(-1),
 	  _requestStorage(requestStorage), _userStorage(userStorage)
 {
 }

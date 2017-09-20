@@ -101,7 +101,15 @@ void RequestView::RenderAddRequestButton() const
 
 void RequestView::RenderRequestDetails() const
 {
-	Request request = _viewModel->Requests().at(_viewModel->SelectedIndex());
+	int selectedIndex = _viewModel->SelectedIndex();
+
+	if (selectedIndex < 0 || selectedIndex > _viewModel->Requests().size())
+	{
+		RenderNoRequestSelected();
+		return;
+	}
+
+	Request request = _viewModel->Requests().at(selectedIndex);
 	ImGui::BeginChildWithNBottomLineSpace("RequestDetails", 1);
 	{
 		ImGui::PushFont(AppFontIndex::RobotoLight_Title);
@@ -136,9 +144,9 @@ void RequestView::RenderCancelButton(int requestId) const
 	                          {
 		                          "Do you want to cancel this request?"
 	                          }, [&]()
-							  {
-								  _viewModel->CancelRequestCommand(requestId);
-							  });
+                          {
+	                          _viewModel->CancelRequestCommand(requestId);
+                          });
 	_viewModel->LoadUserRequestCommand();
 }
 
