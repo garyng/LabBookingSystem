@@ -171,6 +171,7 @@ public:
 
 				isAddingAllowed = !selectedStartTime.IsEmpty() && !selectedEndTime.IsEmpty();
 			}
+			ImGui::Columns(1);
 			if (isAddingAllowed)
 			{
 				ImGui::Text("Selected time slot: ");
@@ -266,7 +267,10 @@ public:
 		}
 		if (allocation.front().StartTime() != earliest)
 		{
-			freePeriods.insert(freePeriods.begin(), {earliest, allocation.front().StartTime()});
+			// use emplace?
+			// freePeriods.insert(freePeriods.begin(), {earliest, allocation.front().StartTime()});
+			freePeriods.emplace(freePeriods.begin(), earliest, allocation.front().StartTime());
+			// freePeriods.insert(freePeriods.begin(), { });
 		}
 		if (allocation.back().EndTime() != latest)
 		{

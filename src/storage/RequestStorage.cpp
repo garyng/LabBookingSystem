@@ -1,29 +1,30 @@
 ﻿#include "stdafx.h"
 #include "RequestStorage.h"
 
+using namespace std;
+using namespace date;
+
 std::vector<Request> RequestStorage::LoadDefault()
 {
-	return std::vector<Request>{
-		{1, "LAB0015", "0001", "", RequestStatus::Pending},
-		{2, "LAB0015", "0001", "0001", RequestStatus::Accepted},
-		{3, "LAB0003", "0001", "", RequestStatus::Pending },
-		{4, "LAB0011", "0021", "", RequestStatus::Pending },
-		{5, "LAB0008", "0021", "", RequestStatus::Pending },
-		{6, "LAB0004", "0021", "", RequestStatus::Cancelled},
-		{7, "LAB0010", "0021", "0001", RequestStatus::Rejected},
-		{8, "LAB0016", "0021", "0001", RequestStatus::Rejected},
-		{9, "LAB0002", "0021", "0001", RequestStatus::Accepted},
-		{10, "LAB0017", "0022", "0001", RequestStatus::Accepted},
-		{11, "LAB0005", "0022", "0001", RequestStatus::Accepted},
-		{12, "LAB0003", "0022", "0001", RequestStatus::Accepted},
-		{13, "LAB0004", "0022", "", RequestStatus::Pending},
-		{14, "LAB0015", "0022", "0001", RequestStatus::Rejected},
-		{15, "LAB0014", "0022", "", RequestStatus::Pending},
-		{16, "LAB0018", "0022", "0001", RequestStatus::Rejected},
-		{17, "LAB0014", "0022", "", RequestStatus::Pending},
-		{18, "LAB0007", "0022", "0001", RequestStatus::Accepted},
-		{19, "LAB0003", "0022", "", RequestStatus::Pending},
-		{20, "LAB0004", "0022", "", RequestStatus::Pending}
+	sys_days date1 = day{ 15 } / date::oct / 2017;
+	sys_days date2 = day{ 16 } / date::oct / 2017;
+	sys_days date3 = day{ 17 } / date::oct / 2017;
+	sys_days date4 = day{ 18 } / date::oct / 2017;
+
+	return vector<Request>{
+		{ 1, "LAB0001", "0021", "", date1, date1 + 8h, date1 + 10h, RequestStatus::Cancelled },
+		{ 2, "LAB0001", "0021", "0001", date1, date1 + 8h + 30min, date1 + 12h, RequestStatus::Accepted },
+		{ 3, "LAB0001", "0022", "", date1, date1 + 13h, date1 + 15h, RequestStatus::Pending },
+		{ 4, "LAB0001", "0022", "0001", date1, date1 + 19h, date1 + 20h, RequestStatus::Rejected },
+		{ 5, "LAB0001", "0021", "", date2, date2 + 13h, date2 + 15h, RequestStatus::Pending },
+		{ 6, "LAB0001", "0021", "0001", date2, date2 + 8h, date2 + 20h, RequestStatus::Rejected },
+		{ 7, "LAB0001", "0022", "0001", date3, date3 + 8h , date3 + 10h, RequestStatus::Cancelled },
+		{ 8, "LAB0001", "0022", "0001", date3, date3 + 8h + 30min, date3 + 12h, RequestStatus::Accepted },
+		{ 9, "LAB0001", "0022", "0001", date3, date3 + 13h, date3 + 15h, RequestStatus::Pending },
+		{ 10, "LAB0001", "0022", "0001", date3, date3 + 19h, date3 + 20h, RequestStatus::Rejected },
+		{ 11, "LAB0001", "0022", "0001", date4, date4 + 13h, date4 + 15h, RequestStatus::Pending },
+		{ 12, "LAB0001", "0022", "0001", date4, date4 + 8h, date4 + 20h, RequestStatus::Rejected }
+
 	};
 }
 

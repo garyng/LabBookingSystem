@@ -202,12 +202,14 @@
     <ClInclude Include="AppFontIndex.h" />
     <ClInclude Include="command\CancelRequestByIdCommand.h" />
     <ClInclude Include="command\UserLoginCommand.h" />
+    <ClInclude Include="date\date_extra.h" />
     <ClInclude Include="query\GetUserIdFromUserNameQuery.h" />
     <ClInclude Include="query\GetRequestsByUserIdQuery.h" />
     <ClInclude Include="request\SelectLabView.h" />
     <ClInclude Include="request\SelectLabViewModel.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test\DataStorageTestsView.h" />
+    <ClInclude Include="test\DateLibraryTestsView.h" />
     <ClInclude Include="test\ImGuiDateChooserTestView.h" />
     <ClInclude Include="test\ImGuiMetricsView.h" />
     <ClInclude Include="test\ImGuiStyleEditorView.h" />

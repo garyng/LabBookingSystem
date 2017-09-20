@@ -22,6 +22,7 @@
 #include "request/SelectLabViewModel.h"
 #include "request/SelectLabView.h"
 #include "test/ImGuiMetricsView.h"
+#include "test/DateLibraryTestsView.h"
 
 using namespace std;
 
@@ -95,6 +96,7 @@ int main(int argc, char* argv[])
 	RegisterDebug<ImGuiDateChooserTestView>(renderer);
 	RegisterDebug<ImGuiMetricsView>(renderer);
 	RegisterDebug<TimeRangeCalculationTestsView>(renderer);
+	RegisterDebug<DateLibraryTestsView>(renderer);
 
 
 	shared_ptr<App> app = make_shared<App>(renderer);
