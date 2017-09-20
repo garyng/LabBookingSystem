@@ -13,7 +13,6 @@ private:
 	std::string _searchString;
 	int _selectedIndex;
 
-
 	std::shared_ptr<RequestStorage> _requestStorage;
 	std::shared_ptr<UserStorage> _userStorage;
 public:
@@ -22,9 +21,6 @@ public:
 
 	std::vector<Request> Requests() const { return _requests; }
 	void Requests(std::vector<Request> value) { _requests = value; }
-
-	std::string SearchString() const { return _searchString; }
-	void SearchString(std::string value) { _searchString = value; }
 
 	int SelectedIndex() const { return _selectedIndex; }
 

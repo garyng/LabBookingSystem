@@ -37,8 +37,6 @@ void RequestView::RenderNoRequestsView()
 {
 	ImGui::PushFont(AppFontIndex::RobotoLight_Title);
 
-	string text = "Much Nothingness";
-
 	ImGui::BeginChildWithNBottomLineSpace("Centered Text", 1);
 	{
 		ImGui::CenteredTexts({"Much nothingness...", "Try to click on the " ICON_MD_ADD " New Request button!"});
@@ -63,13 +61,6 @@ void RequestView::RenderRequestView()
 
 void RequestView::RenderRequestList() const
 {
-	char searchBuffer[1024];
-	FillCharBuffer(searchBuffer, 1024, _viewModel->SearchString());
-
-	ImGui::InputText(ICON_MD_SEARCH "Search", searchBuffer, 1024);
-
-	_viewModel->SearchString(searchBuffer);
-
 	ImGui::BeginChildWithNBottomLineSpace("RequestsList", 2);
 	{
 		for (size_t i = 0; i < _viewModel->Requests().size(); i++)
@@ -140,9 +131,9 @@ void RequestView::RenderCancelButton(int requestId) const
 	                          {
 		                          "Do you want to cancel this request?"
 	                          }, [&]()
-	                          {
-		                          _viewModel->CancelRequestCommand(requestId);
-	                          });
+                          {
+	                          _viewModel->CancelRequestCommand(requestId);
+                          });
 	_viewModel->LoadUserRequestCommand();
 }
 

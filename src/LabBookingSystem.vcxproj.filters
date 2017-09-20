@@ -266,5 +266,14 @@
     <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="query\GetRequestsByUserIdQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetUserIdFromUserNameQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CancelRequestByIdCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
