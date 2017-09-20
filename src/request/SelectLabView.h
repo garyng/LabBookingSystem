@@ -32,7 +32,7 @@ public:
 
 	void RenderNoLabsView()
 	{
-		ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+		ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 		ImGui::CenteredTexts({"The are no available labs...", "Weird isn't it?"});
 		ImGui::PopFont();
 	}
@@ -82,7 +82,7 @@ public:
 		Lab lab = _viewModel->Labs().at(_viewModel->SelectedIndex());
 		ImGui::BeginChildWithNBottomLineSpace("LabDetails", 2);
 		{
-			ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+			ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 			ImGui::Text(lab.Id().c_str());
 			ImGui::PopFont();
 			ImGui::Separator();

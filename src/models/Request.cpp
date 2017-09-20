@@ -8,9 +8,9 @@ void to_json(nlohmann::json& json, const Request& request)
 		{"LabId", request.LabId()},
 		{"UserId", request.UserId()},
 		{"ReviewerId", request.ReviewerId()},
-		{"Date", request._date},
-		{"StartTime", request._startTime},
-		{"EndTime", request._endTime},
+		{"Date", request.DateAsString()},
+		{"StartTime", request.StartTimeAsString()},
+		{"EndTime", request.EndTimeAsString()},
 		{"Status", request.Status()._to_string()}
 	};
 }
@@ -21,9 +21,9 @@ void from_json(const nlohmann::json& json, Request& request)
 	request.LabId(json.at("LabId").get<std::string>());
 	request.UserId(json.at("UserId").get<std::string>());
 	request.ReviewerId(json.at("ReviewerId").get<std::string>());
-	request._date = json.at("Date").get<std::string>();
-	request._startTime = json.at("StartTime").get<std::string>();
-	request._endTime = json.at("EndTime").get<std::string>();
+	request.Date(json.at("Date").get<std::string>());
+	request.StartTime(json.at("StartTime").get<std::string>());
+	request.EndTime(json.at("EndTime").get<std::string>());
 	request.Status(RequestStatus::_from_string(
 			json.at("Status")
 			    .get<std::string>()

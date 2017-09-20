@@ -36,10 +36,6 @@ private:
 	{
 		return date::parse_string<date::sys_days>("%d/%m/%Y", date);
 	}
-
-	friend void to_json(nlohmann::json& json, const Request& user);
-	friend void from_json(const nlohmann::json& json, Request& user);
-
 public:
 
 	int Id() const { return _id; }
@@ -55,13 +51,19 @@ public:
 	void ReviewerId(std::string value) { _reviewerId = value; }
 
 	date::sys_days Date() const { return ToDate(_date); }
+	std::string DateAsString() const { return _date; };
 	void Date(date::sys_days value) { _date = FromDate(value); }
+	void Date(std::string value) { _date = value; }
 
 	date::sys_time<std::chrono::minutes> StartTime() const { return ToTime(_startTime); }
+	std::string StartTimeAsString() const { return _startTime; }
 	void StartTime(date::sys_time<std::chrono::minutes> value) { _startTime = FromTime(value); }
+	void StartTime(std::string value) { _startTime = value; }
 
 	date::sys_time<std::chrono::minutes> EndTime() const { return ToTime(_endTime); }
+	std::string EndTimeAsString() const { return _endTime; }
 	void EndTime(date::sys_time<std::chrono::minutes> value) { _endTime = FromTime(value); }
+	void EndTime(std::string value) { _endTime = value; }
 
 	RequestStatus Status() const { return RequestStatus::_from_string(_status.c_str()); }
 	void Status(RequestStatus value) { _status = value._to_string(); }

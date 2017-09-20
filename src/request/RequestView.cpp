@@ -35,7 +35,7 @@ void RequestView::Render()
 
 void RequestView::RenderNoRequestsView()
 {
-	ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+	ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 
 	ImGui::BeginChildWithNBottomLineSpace("Centered Text", 1);
 	{
@@ -64,7 +64,7 @@ void RequestView::RenderRequestList() const
 	{
 		if (_viewModel->Requests().size() == 0)
 		{
-			ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+			ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 			ImGui::CenteredTexts({"Nothing here..."});
 			ImGui::PopFont();
 		}
@@ -125,7 +125,7 @@ void RequestView::RenderRequestDetails() const
 	Request request = _viewModel->Requests().at(selectedIndex);
 	ImGui::BeginChildWithNBottomLineSpace("RequestDetails", 1);
 	{
-		ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+		ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 		string title = "Request #" + to_string(request.Id());
 		ImGui::Text(title.c_str());
 		ImGui::PopFont();
@@ -139,6 +139,9 @@ void RequestView::RenderRequestDetails() const
 		{
 			ImGui::PrintValueLabel("Reviewed by:", request.ReviewerId());
 		}
+
+		string time = request.StartTimeAsString() + " - " + request.EndTimeAsString();
+		ImGui::PrintValueLabel("Time:", time);
 	}
 	ImGui::EndChild();
 	if (request.IsPending())
@@ -149,7 +152,7 @@ void RequestView::RenderRequestDetails() const
 
 void RequestView::RenderNoRequestSelected() const
 {
-	ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+	ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 
 	ImGui::BeginChildWithNBottomLineSpace("Centered Text", 1);
 	{
