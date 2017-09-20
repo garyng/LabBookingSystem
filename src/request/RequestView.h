@@ -8,9 +8,11 @@ class RequestView
 private:
 	void RenderNoRequestsView();
 	void RenderRequestView();
+	void RenderFilterByComboBox() const;
 	void RenderRequestList() const;
 	void RenderAddRequestButton() const;
 	void RenderRequestDetails() const;
+	void RenderNoRequestSelected() const;
 	void RenderCancelButton(int requestId) const;
 	void RenderStatusLabel(const Request& request) const;
 

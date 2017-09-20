@@ -21,7 +21,7 @@ void RequestView::Render()
 		_viewModel->GoBackCommand();
 	}
 
-	if (_viewModel->Requests().size() > 0)
+	if (_viewModel->AllRequest().size() > 0)
 	{
 		RenderRequestView();
 	}
@@ -62,32 +62,46 @@ void RequestView::RenderRequestList() const
 {
 	ImGui::BeginChildWithNBottomLineSpace("RequestsList", 2);
 	{
-		int i = 0;
-		for (Request& request : _viewModel->Requests())
+		if (_viewModel->Requests().size() == 0)
 		{
-			stringstream ss;
-			ss << "#" << request.Id() << " "
-				<< request.LabId()
-				<< " - " << request.Status()._to_string();
-
-			if (ImGui::Selectable(ss.str().c_str(), i == _viewModel->SelectedIndex()))
-			{
-				_viewModel->SelectedIndex(i);
-			};
-			i++;
+			ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+			ImGui::CenteredTexts({"Nothing here..."});
+			ImGui::PopFont();
 		}
+		else
+		{
+			int i = 0;
+			for (Request& request : _viewModel->Requests())
+			{
+				stringstream ss;
+				ss << "#" << request.Id() << " "
+					<< request.LabId()
+					<< " - " << request.Status()._to_string();
 
+				if (ImGui::Selectable(ss.str().c_str(), i == _viewModel->SelectedIndex()))
+				{
+					_viewModel->SelectedIndex(i);
+				};
+				i++;
+			}
+		}
 	}
 	ImGui::EndChild();
 
-	const char* filterByItems[] = {"All", "Accepted", "Pending", "Rejected"};
-	static int filterByCurrentItemIndex;
-	{
-		ImGui::Combo("Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems));
-	}
-	// todo: filter by
-
+	RenderFilterByComboBox();
 	RenderAddRequestButton();
+}
+
+void RequestView::RenderFilterByComboBox() const
+{
+	const char* filterByItems[] = {"All", "Accepted", "Pending", "Rejected"};
+	int filterByCurrentItemIndex = _viewModel->SelectedFilterIndex();
+
+	if (ImGui::Combo("Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems)))
+	{
+		_viewModel->SelectedFilterIndex(filterByCurrentItemIndex);
+		_viewModel->FilterRequestsCommand(filterByItems[filterByCurrentItemIndex]);
+	}
 }
 
 void RequestView::RenderAddRequestButton() const
@@ -96,7 +110,6 @@ void RequestView::RenderAddRequestButton() const
 	{
 		_viewModel->AddRequestCommand();
 	}
-	
 }
 
 void RequestView::RenderRequestDetails() const
@@ -134,6 +147,19 @@ void RequestView::RenderRequestDetails() const
 	}
 }
 
+void RequestView::RenderNoRequestSelected() const
+{
+	ImGui::PushFont(AppFontIndex::RobotoLight_Title);
+
+	ImGui::BeginChildWithNBottomLineSpace("Centered Text", 1);
+	{
+		ImGui::CenteredTexts({"Nothing to show"});
+	}
+	ImGui::EndChild();
+
+	ImGui::PopFont();
+}
+
 void RequestView::RenderCancelButton(int requestId) const
 {
 	if (ImGui::FullWidthButton(ICON_MD_CLOSE " Cancel Request"))
@@ -146,8 +172,8 @@ void RequestView::RenderCancelButton(int requestId) const
 	                          }, [&]()
                           {
 	                          _viewModel->CancelRequestCommand(requestId);
+	                          _viewModel->LoadUserRequestCommand();
                           });
-	_viewModel->LoadUserRequestCommand();
 }
 
 void RequestView::RenderStatusLabel(const Request& request) const
