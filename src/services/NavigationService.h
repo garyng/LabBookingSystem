@@ -57,8 +57,8 @@ public:
 	void GoTo()
 	{
 		GoTo<TViewModel>([](std::shared_ptr<IViewModel> vm)
-			{
-			});
+		{
+		});
 	}
 
 	template <class TViewModel, class CallBack,
@@ -105,6 +105,28 @@ public:
 		{
 			_currentViewViewModelPair = _history.top();
 			_history.pop();
+			Log->Debug("Navigated backwards to " + _currentViewViewModelPair.ToString());
+		}
+		else
+		{
+			Log->Warn("History stack is empty! Unable to go backwards!");
+		}
+	}
+
+	template <class TViewModel, class CallBack,
+	          std::enable_if_t<
+		          std::is_base_of<IViewModel, TViewModel>::value>* = nullptr>
+	void GoBack(CallBack&& callBack)
+	{
+		if (!_history.empty())
+		{
+			ViewViewModelPair pair{_history.top()};
+			std::shared_ptr<TViewModel> castedViewModel = std::static_pointer_cast<TViewModel>(pair.ViewModel());
+			callBack(castedViewModel);
+
+			_currentViewViewModelPair = pair;
+			_history.pop();
+
 			Log->Debug("Navigated backwards to " + _currentViewViewModelPair.ToString());
 		}
 		else
