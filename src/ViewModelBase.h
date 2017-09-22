@@ -15,7 +15,7 @@ public:
 	{
 	}
 
-	void GoBackCommand() const
+	virtual void GoBackCommand() const
 	{
 		_navigation->GoBack();
 	}
