@@ -23,6 +23,8 @@
 #include "request/SelectLabView.h"
 #include "test/ImGuiMetricsView.h"
 #include "test/DateLibraryTestsView.h"
+#include "request/SelectTimeView.h"
+#include "test/PocoDateTestView.h"
 
 using namespace std;
 
@@ -84,6 +86,7 @@ int main(int argc, char* argv[])
 	RegisterMVVM<AdminView, AdminViewModel>(navigation);
 	RegisterMVVM<RequestView, RequestViewModel>(navigation, userStorage, requestStorage);
 	RegisterMVVM<SelectLabView, SelectLabViewModel>(navigation, labStorage);
+	RegisterMVVM<SelectTimeView, SelectTimeViewModel>(navigation, requestStorage, userStorage);
 
 	navigation->GoTo<LoginViewModel>();
 
@@ -97,7 +100,7 @@ int main(int argc, char* argv[])
 	RegisterDebug<ImGuiMetricsView>(renderer);
 	RegisterDebug<TimeRangeCalculationTestsView>(renderer);
 	RegisterDebug<DateLibraryTestsView>(renderer);
-
+	RegisterDebug<PocoDateTestView>(renderer);
 
 	shared_ptr<App> app = make_shared<App>(renderer);
 
@@ -105,6 +108,5 @@ int main(int argc, char* argv[])
 	AutomateGui(navigation);
 
 	app->Start();
-
 	return 0;
 }

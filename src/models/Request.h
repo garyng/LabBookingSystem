@@ -1,7 +1,28 @@
 ﻿#pragma once
-#include "date/date_extra.h"
+#include <Poco/Data/Time.h>
+#include <Poco/Data/Date.h>
 
 BETTER_ENUM(RequestStatus, int, Pending, Accepted, Rejected, Cancelled);
+
+namespace nlohmann
+{
+	using namespace Poco;
+
+	template <>
+	struct adl_serializer<DateTime>
+	{
+		static void to_json(json& j, const DateTime& date)
+		{
+			j = DateTimeFormatter::format(date, "%d/%m/%Y %h:%M %A");
+		}
+
+		static void from_json(const json& j, DateTime& date)
+		{
+			int timezone;
+			date = DateTimeParser::parse("%d/%m/%Y %h:%M %A", j.get<std::string>(), timezone);
+		}
+	};
+}
 
 class Request
 {
@@ -11,31 +32,10 @@ private:
 	std::string _labId;
 	std::string _userId;
 	std::string _reviewerId;
-	std::string _date;
-	std::string _startTime;
-	std::string _endTime;
 	std::string _status;
+	Poco::DateTime _startDateTime;
+	Poco::DateTime _endDateTime;
 
-
-	std::string FromTime(date::sys_time<std::chrono::minutes> time) const
-	{
-		return date::format("%H:%M", time);
-	}
-
-	date::sys_time<std::chrono::minutes> ToTime(std::string time) const
-	{
-		return date::parse_string<date::sys_time<std::chrono::minutes>>("%H:%M", _startTime);
-	}
-
-	std::string FromDate(date::sys_days value) const
-	{
-		return date::format("%d/%m/%Y", value);
-	}
-
-	date::sys_days ToDate(std::string date) const
-	{
-		return date::parse_string<date::sys_days>("%d/%m/%Y", date);
-	}
 public:
 
 	int Id() const { return _id; }
@@ -50,42 +50,48 @@ public:
 	std::string ReviewerId() const { return _reviewerId; }
 	void ReviewerId(std::string value) { _reviewerId = value; }
 
-	date::sys_days Date() const { return ToDate(_date); }
-	std::string DateAsString() const { return _date; };
-	void Date(date::sys_days value) { _date = FromDate(value); }
-	void Date(std::string value) { _date = value; }
 
-	date::sys_time<std::chrono::minutes> StartTime() const { return ToTime(_startTime); }
-	std::string StartTimeAsString() const { return _startTime; }
-	void StartTime(date::sys_time<std::chrono::minutes> value) { _startTime = FromTime(value); }
-	void StartTime(std::string value) { _startTime = value; }
+	std::string DateTimeFormat() const { return "%d/%m/%Y %h:%M %A"; }
+	std::string DateFormat() const { return "%d/%m/%Y"; }
+	std::string TimeFormat() const { return "%h:%M %A"; }
 
-	date::sys_time<std::chrono::minutes> EndTime() const { return ToTime(_endTime); }
-	std::string EndTimeAsString() const { return _endTime; }
-	void EndTime(date::sys_time<std::chrono::minutes> value) { _endTime = FromTime(value); }
-	void EndTime(std::string value) { _endTime = value; }
+	Poco::DateTime StartDateTime() const { return _startDateTime; }
+	void StartDateTime(Poco::DateTime value) { _startDateTime = value; }
+
+	Poco::DateTime EndDateTime() const { return _endDateTime; }
+	void EndDateTime(Poco::DateTime value) { _endDateTime = value; }
+
+	Poco::Data::Date Date() const { return Poco::Data::Date{_startDateTime}; }
+	Poco::Data::Time StartTime() const { return Poco::Data::Time{_startDateTime}; }
+	Poco::Data::Time EndTime() const { return Poco::Data::Time{_endDateTime}; }
+
+	std::string StartDateTimeFormatted() const { return Poco::DateTimeFormatter::format(_startDateTime, DateTimeFormat()); }
+	std::string EndDateTimeFormatted() const { return Poco::DateTimeFormatter::format(_endDateTime, DateTimeFormat()); }
+	std::string DateFormatted() const { return Poco::DateTimeFormatter::format(_startDateTime, DateFormat()); }
+	std::string StartTimeFormatted() const { return Poco::DateTimeFormatter::format(_startDateTime, TimeFormat()); }
+	std::string EndTimeFormatted() const { return Poco::DateTimeFormatter::format(_endDateTime, TimeFormat()); }
 
 	RequestStatus Status() const { return RequestStatus::_from_string(_status.c_str()); }
 	void Status(RequestStatus value) { _status = value._to_string(); }
 	bool IsPending() const { return Status() == +RequestStatus::Pending; }
 	bool IsCancelled() const { return Status() == +RequestStatus::Cancelled; }
+	bool IsRejected() const { return Status() == +RequestStatus::Rejected; }
 	bool IsAccepted() const { return Status() == +RequestStatus::Accepted; }
 	bool WasReviewed() const { return Status() == +RequestStatus::Accepted || Status() == +RequestStatus::Rejected; }
 
 	Request() = default;
 
 	Request(int id, const std::string& labId, const std::string& userId, const std::string& reviewerId,
-	        const date::sys_days& date, const date::sys_time<std::chrono::minutes>& startTime, const date::sys_time<std::chrono::minutes>& endTime,
+	        const Poco::DateTime& startDateTime, const Poco::DateTime& endDateTime,
 	        const RequestStatus& status)
 		: _id(id),
 		  _labId(labId),
 		  _userId(userId),
-		  _reviewerId(reviewerId)
+		  _reviewerId(reviewerId),
+		  _startDateTime(startDateTime),
+		  _endDateTime(endDateTime)
 	{
-		_date = FromDate(date);
-		_startTime = FromTime(startTime);
-		_endTime = FromTime(endTime);
-		_status = status._to_string();
+		Status(status);
 	}
 };
 

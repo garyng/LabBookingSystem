@@ -4,7 +4,6 @@
 #include "AppColors.h"
 #include "imgui/imgui_extra.h"
 
-
 using namespace std;
 
 RequestView::RequestView(const shared_ptr<RequestViewModel>& viewModel): ViewBase<RequestViewModel>(viewModel)
@@ -140,7 +139,9 @@ void RequestView::RenderRequestDetails() const
 			ImGui::PrintValueLabel("Reviewed by:", request.ReviewerId());
 		}
 
-		string time = request.StartTimeAsString() + " - " + request.EndTimeAsString();
+		ImGui::PrintValueLabel("Date:", request.DateFormatted());
+
+		string time = request.StartTimeFormatted() + " - " + request.EndTimeFormatted();
 		ImGui::PrintValueLabel("Time:", time);
 	}
 	ImGui::EndChild();

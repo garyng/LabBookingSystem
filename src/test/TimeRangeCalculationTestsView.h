@@ -1,20 +1,21 @@
 ﻿#pragma once
 
-class TimePeriod
+class TestTimePeriod
 {
 private:
-	date::sys_time<std::chrono::minutes> _startTime;
-	date::sys_time<std::chrono::minutes> _endTime;
+	date::sys_time<std::chrono::minutes> _startDateTime;
+	date::sys_time<std::chrono::minutes> _endDateTime;
 public:
-	date::sys_time<std::chrono::minutes> StartTime() const { return _startTime; }
-	date::sys_time<std::chrono::minutes> EndTime() const { return _endTime; }
+	date::sys_time<std::chrono::minutes> StartDateTime() const { return _startDateTime; }
+	date::sys_time<std::chrono::minutes> EndDateTime() const { return _endDateTime; }
 
-	TimePeriod(const date::sys_time<std::chrono::minutes>& startTime, const date::sys_time<std::chrono::minutes>& endTime)
-		: _startTime(startTime),
-		  _endTime(endTime)
+	TestTimePeriod(const date::sys_time<std::chrono::minutes>& startTime, const date::sys_time<std::chrono::minutes>& endTime)
+		: _startDateTime(startTime),
+		  _endDateTime(endTime)
 	{
 	}
 };
+
 
 class TimeRangeCalculationTestsView
 	: public IView
@@ -39,8 +40,8 @@ public:
 
 		auto d = 30min;
 
-		vector<TimePeriod> allocatedSlots{{earliest + 1h, earliest + 2h},{earliest + 3h, earliest + 5h}};
-		vector<TimePeriod> freePeriods = getGaps(allocatedSlots, earliest, latest);
+		vector<TestTimePeriod> allocatedSlots{{earliest + 1h, earliest + 2h},{earliest + 3h, earliest + 5h}};
+		vector<TestTimePeriod> freePeriods = getGaps(allocatedSlots, earliest, latest);
 
 		if (ImGui::DateChooser("Choose a date", date))
 		{
@@ -117,7 +118,7 @@ public:
 
 			for (auto freePeriodIndex = 0; freePeriodIndex < freePeriods.size(); ++freePeriodIndex)
 			{
-				TimePeriod& tp = freePeriods[freePeriodIndex];
+				TestTimePeriod& tp = freePeriods[freePeriodIndex];
 				vector<string> expanded = expandTimePeriod(tp, 1h)
 					| select([](sys_time<minutes> time) { return format("%I:%M %p", time); })
 					| to_vector();
@@ -192,11 +193,11 @@ public:
 		ImGui::End();
 	}
 
-	std::vector<date::sys_time<std::chrono::minutes>> expandTimePeriod(const TimePeriod& period, std::chrono::minutes step)
+	std::vector<date::sys_time<std::chrono::minutes>> expandTimePeriod(const TestTimePeriod& period, std::chrono::minutes step)
 	{
 		std::vector<date::sys_time<std::chrono::minutes>> expanded;
-		date::sys_time<std::chrono::minutes> current = period.StartTime();
-		date::sys_time<std::chrono::minutes> end = period.EndTime();
+		date::sys_time<std::chrono::minutes> current = period.StartDateTime();
+		date::sys_time<std::chrono::minutes> end = period.EndDateTime();
 
 		while (current <= end)
 		{
@@ -229,7 +230,7 @@ public:
 		return {};
 	}*/
 
-	std::vector<TimePeriod> getGaps(const std::vector<TimePeriod>& allocation, const date::sys_time<std::chrono::minutes>& earliest, const date::sys_time<std::chrono::minutes>& latest)
+	std::vector<TestTimePeriod> getGaps(const std::vector<TestTimePeriod>& allocation, const date::sys_time<std::chrono::minutes>& earliest, const date::sys_time<std::chrono::minutes>& latest)
 	{
 		//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 		//	| 0800	| 0900	| 1000	| 1100	| 1200	| 1300	| 1400	| 1500	| 1600	|
@@ -258,23 +259,23 @@ public:
 		//	|+++++++|		|		|+++++++|+++++++|		|		|		|+++++++|
 		//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
-		std::vector<TimePeriod> freePeriods;
+		std::vector<TestTimePeriod> freePeriods;
 		freePeriods.reserve(allocation.size() + 2);
 
 		for (auto i = 1; i < allocation.size(); ++i)
 		{
-			freePeriods.emplace_back(allocation[i - 1].EndTime(), allocation[i].StartTime());
+			freePeriods.emplace_back(allocation[i - 1].EndDateTime(), allocation[i].StartDateTime());
 		}
-		if (allocation.front().StartTime() != earliest)
+		if (allocation.front().StartDateTime() != earliest)
 		{
 			// use emplace?
 			// freePeriods.insert(freePeriods.begin(), {earliest, allocation.front().StartTime()});
-			freePeriods.emplace(freePeriods.begin(), earliest, allocation.front().StartTime());
+			freePeriods.emplace(freePeriods.begin(), earliest, allocation.front().StartDateTime());
 			// freePeriods.insert(freePeriods.begin(), { });
 		}
-		if (allocation.back().EndTime() != latest)
+		if (allocation.back().EndDateTime() != latest)
 		{
-			freePeriods.insert(freePeriods.end(), {allocation.back().EndTime(), latest});
+			freePeriods.insert(freePeriods.end(), {allocation.back().EndDateTime(), latest});
 		}
 
 		/*for (auto& period : freePeriods)

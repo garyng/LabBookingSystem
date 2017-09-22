@@ -88,7 +88,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\poco\include\Foundation;$(SolutionDir)\..\libs\date;$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\poco\include\Data;$(SolutionDir)\..\libs\poco\include\Foundation;$(SolutionDir)\..\libs\date;$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CppLanguageStandard>Default</CppLanguageStandard>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -171,6 +171,7 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="AppColors.cpp" />
     <ClCompile Include="AppFontIndex.cpp" />
+    <ClCompile Include="command\AddRequestCommand.cpp" />
     <ClCompile Include="logger\Logger.cpp" />
     <ClCompile Include="login\LoginView.cpp" />
     <ClCompile Include="login\LoginViewModel.cpp" />
@@ -182,6 +183,8 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClCompile Include="request\RequestViewModel.cpp" />
     <ClCompile Include="request\SelectLabView.cpp" />
     <ClCompile Include="request\SelectLabViewModel.cpp" />
+    <ClCompile Include="request\SelectTimeView.cpp" />
+    <ClCompile Include="request\SelectTimeViewModel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -204,19 +207,25 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="App.h" />
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AppFontIndex.h" />
+    <ClInclude Include="command\AddRequestCommand.h" />
     <ClInclude Include="command\CancelRequestByIdCommand.h" />
     <ClInclude Include="command\UserLoginCommand.h" />
-    <ClInclude Include="date\date_extra.h" />
+    <ClInclude Include="query\GetAllLabsQuery.h" />
+    <ClInclude Include="query\GetAllRequestByLabIdQuery.h" />
     <ClInclude Include="query\GetUserIdFromUserNameQuery.h" />
     <ClInclude Include="query\GetRequestsByUserIdQuery.h" />
     <ClInclude Include="request\SelectLabView.h" />
     <ClInclude Include="request\SelectLabViewModel.h" />
+    <ClInclude Include="request\SelectTimeView.h" />
+    <ClInclude Include="request\SelectTimeViewModel.h" />
+    <ClInclude Include="request\TimePeriod.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test\DataStorageTestsView.h" />
     <ClInclude Include="test\DateLibraryTestsView.h" />
     <ClInclude Include="test\ImGuiDateChooserTestView.h" />
     <ClInclude Include="test\ImGuiMetricsView.h" />
     <ClInclude Include="test\ImGuiStyleEditorView.h" />
+    <ClInclude Include="test\PocoDateTestView.h" />
     <ClInclude Include="test\TimeRangeCalculationTestsView.h" />
     <ClInclude Include="ViewsRenderer.h" />
     <ClInclude Include="imgui\imgui_extra.h" />

@@ -52,9 +52,6 @@
     <Filter Include="Source Files\query">
       <UniqueIdentifier>{ed16b66c-d5d2-4c46-8f9f-7fc218d8113f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\date">
-      <UniqueIdentifier>{7acc63a6-5e34-4fa8-aba1-9e15087397b3}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -143,6 +140,15 @@
     </ClCompile>
     <ClCompile Include="request\SelectLabViewModel.cpp">
       <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\SelectTimeView.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\SelectTimeViewModel.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="command\AddRequestCommand.cpp">
+      <Filter>Source Files\command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -302,8 +308,26 @@
     <ClInclude Include="test\DateLibraryTestsView.h">
       <Filter>Source Files\test</Filter>
     </ClInclude>
-    <ClInclude Include="date\date_extra.h">
-      <Filter>Source Files\date</Filter>
+    <ClInclude Include="request\SelectTimeView.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="request\SelectTimeViewModel.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllLabsQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="request\TimePeriod.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="test\PocoDateTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllRequestByLabIdQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AddRequestCommand.h">
+      <Filter>Source Files\command</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

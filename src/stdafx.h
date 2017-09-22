@@ -27,6 +27,14 @@
 #include <json.hpp>
 #include <date.h>
 
+#include <Poco/DateTime.h>
+#include <Poco/DateTimeFormatter.h>
+#include <Poco/DateTimeFormat.h>
+#include <Poco/LocalDateTime.h>
+#include <Poco/DateTimeParser.h>
+#include <Poco/Data/Time.h>
+#include <Poco/Data/Date.h>
+
 #include "IView.h"
 #include "ViewBase.h"
 #include "IViewModel.h"
