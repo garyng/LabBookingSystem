@@ -171,7 +171,6 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="AppColors.cpp" />
     <ClCompile Include="AppFontIndex.cpp" />
-    <ClCompile Include="command\AddRequestCommand.cpp" />
     <ClCompile Include="logger\Logger.cpp" />
     <ClCompile Include="login\LoginView.cpp" />
     <ClCompile Include="login\LoginViewModel.cpp" />
@@ -185,6 +184,8 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClCompile Include="request\SelectLabViewModel.cpp" />
     <ClCompile Include="request\SelectTimeView.cpp" />
     <ClCompile Include="request\SelectTimeViewModel.cpp" />
+    <ClCompile Include="review\ReviewView.cpp" />
+    <ClCompile Include="review\ReviewViewModel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -207,11 +208,16 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="App.h" />
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AppFontIndex.h" />
+    <ClInclude Include="command\AcceptAllPendingRequestsCommand.h" />
+    <ClInclude Include="command\AcceptRequestByIdCommand.h" />
     <ClInclude Include="command\AddRequestCommand.h" />
     <ClInclude Include="command\CancelRequestByIdCommand.h" />
+    <ClInclude Include="command\RejectAllPendingRequestsCommand.h" />
+    <ClInclude Include="command\RejectRequestByIdCommand.h" />
     <ClInclude Include="command\UserLoginCommand.h" />
     <ClInclude Include="query\GetAllLabsQuery.h" />
     <ClInclude Include="query\GetAllRequestByLabIdQuery.h" />
+    <ClInclude Include="query\GetAllRequestsQuery.h" />
     <ClInclude Include="query\GetUserIdFromUserNameQuery.h" />
     <ClInclude Include="query\GetRequestsByUserIdQuery.h" />
     <ClInclude Include="request\SelectLabView.h" />
@@ -219,6 +225,8 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="request\SelectTimeView.h" />
     <ClInclude Include="request\SelectTimeViewModel.h" />
     <ClInclude Include="request\TimePeriod.h" />
+    <ClInclude Include="review\ReviewView.h" />
+    <ClInclude Include="review\ReviewViewModel.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test\DataStorageTestsView.h" />
     <ClInclude Include="test\DateLibraryTestsView.h" />

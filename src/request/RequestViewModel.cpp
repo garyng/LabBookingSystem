@@ -9,8 +9,8 @@ using namespace std;
 using namespace coveo::linq;
 
 RequestViewModel::RequestViewModel(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<UserStorage>& userStorage, const std::shared_ptr<RequestStorage>& requestStorage)
-	: ViewModelBase(navigation), _selectedIndex(-1), _selectedFilterIndex(0),
-	  _requestStorage(requestStorage), _userStorage(userStorage)
+	: ViewModelBase(navigation), _selectedIndex(-1), _requestStorage(requestStorage),
+	  _userStorage(userStorage), _selectedFilterIndex(0)
 {
 }
 
@@ -30,6 +30,7 @@ void RequestViewModel::LoadUserRequestCommand()
 
 	_allRequests = requests;
 	_requests = requests;
+	FilterRequestsCommand();
 }
 
 void RequestViewModel::CancelRequestCommand(int requestId) const
@@ -47,30 +48,29 @@ void RequestViewModel::AddRequestCommand()
                                       }, true);
 }
 
-void RequestViewModel::FilterRequestsCommand(string filterBy)
+void RequestViewModel::FilterRequestsCommand()
 {
+	// {"All", "Accepted", "Pending", "Rejected"}
 	SelectedIndex(-1);
-
-	if (filterBy == "All")
+	switch (_selectedFilterIndex)
 	{
-		_requests = _allRequests;
-	}
-	else if (filterBy == "Accepted")
-	{
-		_requests = _allRequests
-			| where([](Request r) { return r.Status() == +RequestStatus::Accepted; })
-			| to_vector();
-	}
-	else if (filterBy == "Pending")
-	{
-		_requests = _allRequests
-			| where([](Request r) { return r.Status() == +RequestStatus::Pending; })
-			| to_vector();
-	}
-	else if (filterBy == "Rejected")
-	{
-		_requests = _allRequests
-			| where([](Request r) { return r.Status() == +RequestStatus::Rejected; })
-			| to_vector();
+		case 0:
+			_requests = _allRequests;
+			break;
+		case 1:
+			_requests = _allRequests
+				| where([](Request r) { return r.Status() == +RequestStatus::Accepted; })
+				| to_vector();
+			break;
+		case 2:
+			_requests = _allRequests
+				| where([](Request r) { return r.Status() == +RequestStatus::Pending; })
+				| to_vector();
+			break;
+		case 3:
+			_requests = _allRequests
+				| where([](Request r) { return r.Status() == +RequestStatus::Rejected; })
+				| to_vector();
+			break;
 	}
 }

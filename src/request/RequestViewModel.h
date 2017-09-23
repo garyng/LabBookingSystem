@@ -37,7 +37,7 @@ public:
 	void LoadUserRequestCommand();
 	void CancelRequestCommand(int requestId) const;
 	void AddRequestCommand();
-	void FilterRequestsCommand(std::string filterBy);
+	void FilterRequestsCommand();
 
 	explicit RequestViewModel(const std::shared_ptr<NavigationService>& navigation, const std::shared_ptr<UserStorage>& userStorage, const std::shared_ptr<RequestStorage>& requestStorage);
 	std::string Name() override { return "RequestViewModel"; }

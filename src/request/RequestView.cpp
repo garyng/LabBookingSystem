@@ -96,10 +96,10 @@ void RequestView::RenderFilterByComboBox() const
 	const char* filterByItems[] = {"All", "Accepted", "Pending", "Rejected"};
 	int filterByCurrentItemIndex = _viewModel->SelectedFilterIndex();
 
-	if (ImGui::Combo("Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems)))
+	if (ImGui::Combo(ICON_MD_FILTER_LIST " Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems)))
 	{
 		_viewModel->SelectedFilterIndex(filterByCurrentItemIndex);
-		_viewModel->FilterRequestsCommand(filterByItems[filterByCurrentItemIndex]);
+		_viewModel->FilterRequestsCommand();
 	}
 }
 
@@ -122,7 +122,7 @@ void RequestView::RenderRequestDetails() const
 	}
 
 	Request request = _viewModel->Requests().at(selectedIndex);
-	ImGui::BeginChildWithNBottomLineSpace("RequestDetails", 1);
+	ImGui::BeginChildWithNBottomLineSpace("RequestDetails", request.IsPending() ? 1 : 0);
 	{
 		ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
 		string title = "Request #" + to_string(request.Id());

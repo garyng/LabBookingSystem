@@ -17,7 +17,10 @@ void AdminView::Render()
 		_viewModel->GoToRequestViewCommand();
 	}
 
-	ImGui::TransparentFullWidthButton(ICON_MD_DONE " Review");
+	if (ImGui::TransparentFullWidthButton(ICON_MD_DONE " Review"))
+	{
+		_viewModel->GoToReviewViewCommand();
+	}
 
 	if (ImGui::TransparentFullWidthButton(ICON_MD_EXIT_TO_APP " Logout"))
 	{

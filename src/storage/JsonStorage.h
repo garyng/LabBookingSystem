@@ -83,10 +83,8 @@ public:
 		Log->Info("Restored data to original state");
 	}
 
-	std::vector<TData>& Data()
-	{
-		return _data;
-	}
+	std::vector<TData>& Data() { return _data; }
+	void Data(std::vector<TData> value) { _data = value; }
 
 	virtual ~JsonStorage() = default;
 };

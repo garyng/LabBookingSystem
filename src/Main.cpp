@@ -25,6 +25,8 @@
 #include "test/DateLibraryTestsView.h"
 #include "request/SelectTimeView.h"
 #include "test/PocoDateTestView.h"
+#include "review/ReviewViewModel.h"
+#include "review/ReviewView.h"
 
 using namespace std;
 
@@ -58,7 +60,13 @@ void AutomateGui(const shared_ptr<NavigationService>& navigation)
                                  {
 	                                 vm->UserName("1");
                                  }, true);
-	navigation->GoTo<RequestViewModel>([](shared_ptr<RequestViewModel> vm)
+	navigation->GoTo<ReviewViewModel>([](std::shared_ptr<ReviewViewModel> vm)
+                                  {
+	                                  vm->AdminUserName("1");
+	                                  vm->LoadAllRequestCommand();
+                                  }, true);
+
+	/*navigation->GoTo<RequestViewModel>([](shared_ptr<RequestViewModel> vm)
                                    {
 	                                   vm->UserName("1");
 	                                   vm->LoadUserRequestCommand();
@@ -67,7 +75,7 @@ void AutomateGui(const shared_ptr<NavigationService>& navigation)
                                      {
 	                                     vm->UserName("1");
 	                                     vm->LoadAllLabsCommand();
-                                     }, true);
+                                     }, true);*/
 }
 
 int main(int argc, char* argv[])
@@ -87,6 +95,7 @@ int main(int argc, char* argv[])
 	RegisterMVVM<RequestView, RequestViewModel>(navigation, userStorage, requestStorage);
 	RegisterMVVM<SelectLabView, SelectLabViewModel>(navigation, labStorage);
 	RegisterMVVM<SelectTimeView, SelectTimeViewModel>(navigation, requestStorage, userStorage);
+	RegisterMVVM<ReviewView, ReviewViewModel>(navigation, requestStorage, userStorage);
 
 	navigation->GoTo<LoginViewModel>();
 

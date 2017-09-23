@@ -15,7 +15,7 @@ SelectTimeView::SelectTimeView(const shared_ptr<SelectTimeViewModel>& viewModel)
 
 void SelectTimeView::Render()
 {
-	ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiSetCond_FirstUseEver);
+	ImGui::SetNextWindowSize(ImVec2(500, 600), ImGuiSetCond_FirstUseEver);
 	ImGui::BeginDefaultCenteredResizableWindow("Select Time");
 
 	if (ImGui::Selectable(ICON_MD_ARROW_BACK " Back"))
