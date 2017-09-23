@@ -3,8 +3,10 @@
 #include <coveo/linq.h>
 #include "models/Request.h"
 #include "storage/RequestStorage.h"
+#include "ICommand.h"
 
 class CancelRequestByIdCommand
+	: public ICommand
 {
 private:
 	std::shared_ptr<RequestStorage> _requestStorage;

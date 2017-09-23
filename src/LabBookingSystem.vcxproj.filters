@@ -359,5 +359,11 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="command\ICommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="query\IQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

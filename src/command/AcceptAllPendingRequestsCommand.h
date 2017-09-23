@@ -3,8 +3,10 @@
 #include <vector>
 #include "models/Request.h"
 #include "storage/RequestStorage.h"
+#include "ICommand.h"
 
 class AcceptAllPendingRequestsCommand
+	: public ICommand
 {
 private:
 	const std::shared_ptr<RequestStorage>& _requestStorage;

@@ -3,9 +3,10 @@
 #include <coveo/linq.h>
 #include "models/Request.h"
 #include "storage/RequestStorage.h"
-
+#include "IQuery.h"
 
 class GetAllRequestByLabIdQuery
+	: public IQuery
 {
 private:
 	std::shared_ptr<RequestStorage> _requestStorage;

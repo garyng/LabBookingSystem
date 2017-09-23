@@ -2,8 +2,10 @@
 #include <memory>
 #include "models/Request.h"
 #include "storage/RequestStorage.h"
+#include "ICommand.h"
 
 class AddRequestCommand
+	: public ICommand
 {
 private:
 	std::shared_ptr<RequestStorage> _requestStorage;

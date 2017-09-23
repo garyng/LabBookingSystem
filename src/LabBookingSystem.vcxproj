@@ -212,6 +212,7 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="command\AcceptRequestByIdCommand.h" />
     <ClInclude Include="command\AddRequestCommand.h" />
     <ClInclude Include="command\CancelRequestByIdCommand.h" />
+    <ClInclude Include="command\ICommand.h" />
     <ClInclude Include="command\RejectAllPendingRequestsCommand.h" />
     <ClInclude Include="command\RejectRequestByIdCommand.h" />
     <ClInclude Include="command\UserLoginCommand.h" />
@@ -220,6 +221,7 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="query\GetAllRequestsQuery.h" />
     <ClInclude Include="query\GetUserIdFromUserNameQuery.h" />
     <ClInclude Include="query\GetRequestsByUserIdQuery.h" />
+    <ClInclude Include="query\IQuery.h" />
     <ClInclude Include="request\SelectLabView.h" />
     <ClInclude Include="request\SelectLabViewModel.h" />
     <ClInclude Include="request\SelectTimeView.h" />

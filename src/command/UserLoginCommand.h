@@ -1,8 +1,10 @@
 ﻿#pragma once
 #include "storage/UserStorage.h"
 #include <coveo/linq/linq.h>
+#include "ICommand.h"
 
 class UserLoginCommand
+	: public ICommand
 {
 private:
 	std::shared_ptr<UserStorage> _userStorage;

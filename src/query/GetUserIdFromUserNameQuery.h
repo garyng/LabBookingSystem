@@ -1,12 +1,13 @@
 ﻿#pragma once
 #include <memory>
 #include <string>
-#include "storage/RequestStorage.h"
 #include "models/User.h"
 #include "storage/UserStorage.h"
 #include "coveo/linq.h"
+#include "IQuery.h"
 
 class GetUserIdFromUserNameQuery
+	: public IQuery
 {
 private:
 	std::shared_ptr<UserStorage> _userStorage;

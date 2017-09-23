@@ -3,8 +3,10 @@
 #include <vector>
 #include "models/Lab.h"
 #include "storage/LabStorage.h"
+#include "IQuery.h"
 
 class GetAllLabsQuery
+	: public IQuery
 {
 private:
 	std::shared_ptr<LabStorage> _labStorage;

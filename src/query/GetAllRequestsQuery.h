@@ -3,8 +3,10 @@
 #include <vector>
 #include "models/Request.h"
 #include "storage/RequestStorage.h"
+#include "IQuery.h"
 
 class GetAllRequestsQuery
+	: public IQuery
 {
 private:
 	const std::shared_ptr<RequestStorage>& _requestStorage;

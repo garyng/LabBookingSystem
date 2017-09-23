@@ -1,8 +1,10 @@
 #pragma once
 #include "storage/UserStorage.h"
 #include "models/User.h"
+#include "IQuery.h"
 
 class GetUserByUserNameQuery
+	: public IQuery
 {
 private:
 	std::shared_ptr<UserStorage> _userStorage;
