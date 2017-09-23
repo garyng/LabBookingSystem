@@ -225,6 +225,7 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="request\SelectTimeView.h" />
     <ClInclude Include="request\SelectTimeViewModel.h" />
     <ClInclude Include="request\TimePeriod.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="review\ReviewView.h" />
     <ClInclude Include="review\ReviewViewModel.h" />
     <ClInclude Include="stdafx.h" />
@@ -262,6 +263,12 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="user\UserViewModel.h" />
     <ClInclude Include="ViewBase.h" />
     <ClInclude Include="ViewModelBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LabBookingSystem.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
