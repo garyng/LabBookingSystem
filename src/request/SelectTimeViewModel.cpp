@@ -47,10 +47,12 @@ void SelectTimeViewModel::GetFreeTimePeriods(Date selectedDate, Timespan increme
 
 	vector<TimePeriod> allocated = _requests
 		| where([&](Request r) { return (r.Date() == selectedDate) && (r.IsAccepted() || r.IsPending()); })
+		| order_by([](Request r) { return r.StartDateTime(); })
 		| select([](Request r) { return TimePeriod{r.StartTime(), r.EndTime()}; })
 		| to_vector();
 
-	_freeTimePeriods = GetGaps(allocated)
+	_freeTimePeriods = GetGaps(
+			MergeAdjacentTimePeriods(allocated))
 		| select([&](TimePeriod tp)
 		{
 			vector<Time> expanded = ExpandTimePeriod(tp, incrementStep);
@@ -80,11 +82,39 @@ vector<Time> SelectTimeViewModel::ExpandTimePeriod(const TimePeriod& timePeriod,
 	return expanded;
 }
 
+vector<TimePeriod> SelectTimeViewModel::MergeAdjacentTimePeriods(const vector<TimePeriod>& allocated)
+{
+	int size = allocated.size();
+	if (size <= 1) return allocated;
+
+	vector<TimePeriod> temp{allocated};
+	vector<TimePeriod> merged;
+
+	TimePeriod merge{allocated.front().StartTime(),allocated.front().EndTime()};
+
+	for (int i = 1; i < size; i++)
+	{
+		const TimePeriod& current = allocated[i];
+		// if the previous time period's end time is equal to current's start time
+		// there are adjacent
+		if (merge.EndTime() == current.StartTime())
+		{
+			merge.EndTime(current.EndTime());
+		}
+		else
+		{
+			// else push previous time period
+			merged.push_back(merge);
+			merge = TimePeriod{current.StartTime(), current.EndTime()};
+		}
+	}
+	// push the last time period
+	merged.push_back(merge);
+	return merged;
+}
+
 vector<TimePeriod> SelectTimeViewModel::GetGaps(const vector<TimePeriod>& allocated, Time earliestTime, Time latestTime)
 {
-	using namespace std;
-	using namespace Poco;
-
 	//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 	//	| 0800	| 0900	| 1000	| 1100	| 1200	| 1300	| 1400	| 1500	| 1600	|
 	//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
@@ -113,15 +143,37 @@ vector<TimePeriod> SelectTimeViewModel::GetGaps(const vector<TimePeriod>& alloca
 	//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
 	vector<TimePeriod> freePeriods;
-	freePeriods.reserve(allocated.size() + 2);
+	int size = allocated.size();
+	freePeriods.reserve(size + 2);
 
-	if (allocated.size() == 0)
+	if (size == 0)
 	{
+		// if there is no allocated time -> free whole day
 		freePeriods.emplace_back(earliestTime, latestTime);
+	}
+	else if (size == 1)
+	{
+		//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+		//	| 0800	| 0900	| 1000	| 1100	| 1200	| 1300	| 1400	| 1500	| 1600	|
+		//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+		//	|		|xxxxxxx|xxxxxxx|		|		|		|		|		|		|
+		//	|		|xxxxxxx|xxxxxxx|		|		|		|		|		|		|
+		//	+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+		//					|		|
+		//	<---------------+		+----------------------------------------------->
+
+		if (allocated.front().StartTime() != earliestTime)
+		{
+			freePeriods.emplace(freePeriods.begin(), earliestTime, allocated.front().StartTime());
+		}
+		if (allocated.front().EndTime() != latestTime)
+		{
+			freePeriods.emplace(freePeriods.end(), allocated.front().EndTime(), latestTime);
+		}
 	}
 	else
 	{
-		for (auto i = 1; i < allocated.size(); ++i)
+		for (auto i = 1; i < size; ++i)
 		{
 			freePeriods.emplace_back(allocated[i - 1].EndTime(), allocated[i].StartTime());
 		}
@@ -131,7 +183,7 @@ vector<TimePeriod> SelectTimeViewModel::GetGaps(const vector<TimePeriod>& alloca
 		}
 		if (allocated.back().EndTime() != latestTime)
 		{
-			freePeriods.insert(freePeriods.end(), {allocated.back().EndTime(), latestTime});
+			freePeriods.emplace(freePeriods.end(), allocated.back().EndTime(), latestTime);
 		}
 	}
 

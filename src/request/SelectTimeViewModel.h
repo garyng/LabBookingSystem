@@ -75,6 +75,7 @@ public:
 	// expand start and end time to a list of continuous time with a specified increment
 	// eg: 8AM - 9AM => 8AM 8.30AM 9AM
 	std::vector<Poco::Data::Time> ExpandTimePeriod(const TimePeriod& timePeriod, Poco::Timespan incrementStep);
+	std::vector<TimePeriod> MergeAdjacentTimePeriods(const std::vector<TimePeriod>& allocated);
 	std::vector<TimePeriod> GetGaps(const std::vector<TimePeriod>& allocated,
 	                                Poco::Data::Time earliestTime = Poco::Data::Time{8,0,0}, Poco::Data::Time latestTime = Poco::Data::Time{20,0,0});
 

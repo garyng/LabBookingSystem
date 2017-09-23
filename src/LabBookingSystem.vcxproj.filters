@@ -317,9 +317,6 @@
     <ClInclude Include="query\GetAllLabsQuery.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
-    <ClInclude Include="request\TimePeriod.h">
-      <Filter>Source Files\request</Filter>
-    </ClInclude>
     <ClInclude Include="test\PocoDateTestView.h">
       <Filter>Source Files\test</Filter>
     </ClInclude>
@@ -328,6 +325,9 @@
     </ClInclude>
     <ClInclude Include="command\AddRequestCommand.h">
       <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="request\TimePeriod.h">
+      <Filter>Source Files\request</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
