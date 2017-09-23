@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AdminView">
+    <Position X="11.75" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAEAAABAAAAAAAAA=</HashCode>
+      <FileName>admin\AdminView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppColorsTestView">
+    <Position X="7.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>test\AppColorsTestView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImGuiDateChooserTestView">
+    <Position X="10.25" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAACAAEQAAAAAAAAAABAAAIAAAAA=</HashCode>
+      <FileName>test\ImGuiDateChooserTestView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImGuiMetricsView">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>test\ImGuiMetricsView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImGuiStyleEditorView">
+    <Position X="7.75" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>test\ImGuiStyleEditorView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IView">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>IView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoginView">
+    <Position X="14.5" Y="9.5" Width="2" />
+    <InheritanceLine Type="ViewBase&lt;TViewModel, &gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="15" Y="4.569" />
+        <Point X="15" Y="5.243" />
+        <Point X="16.157" Y="5.243" />
+        <Point X="16.157" Y="9.26" />
+        <Point X="15.5" Y="9.26" />
+        <Point X="15.5" Y="9.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAABAAAA=</HashCode>
+      <FileName>login\LoginView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RequestView">
+    <Position X="16.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gBAAABAAAAIAAAQAAAAAAAQAAAABBIAAABFAAAAAAAA=</HashCode>
+      <FileName>request\RequestView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReviewView">
+    <Position X="19" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAABCAAAAAAAAgAQAAAAQAABABBIAIABFQAAAAAAA=</HashCode>
+      <FileName>review\ReviewView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectLabView">
+    <Position X="10" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAgAAQBAAAAAAAAAJAAgAAAAAQ=</HashCode>
+      <FileName>request\SelectLabView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectTimeView">
+    <Position X="13.25" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIgAAgAAQgAIAABAAAAAAAQBAAAAAAAAABgAAAAAAAA=</HashCode>
+      <FileName>request\SelectTimeView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserView">
+    <Position X="9.75" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>user\UserView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewBase&lt;TViewModel, &gt;">
+    <Position X="14" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAQAAAAAAAAAAAAAAQACAAAAAAAAAA=</HashCode>
+      <FileName>ViewBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppFontsTestView">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAADAAAAAAAAA=</HashCode>
+      <FileName>test\AppFontsTestView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DateLibraryTestsView">
+    <Position X="6.25" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAIAA=</HashCode>
+      <FileName>test\DateLibraryTestsView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataStorageTestsView">
+    <Position X="4.75" Y="5.75" Width="2" />
+    <InheritanceLine Type="IView" ManuallyRouted="true">
+      <Path>
+        <Point X="9.75" Y="1.988" />
+        <Point X="9.75" Y="2.164" />
+        <Point X="7.5" Y="2.164" />
+        <Point X="7.5" Y="5.51" />
+        <Point X="5.75" Y="5.51" />
+        <Point X="5.75" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAgAA=</HashCode>
+      <FileName>test\DataStorageTestsView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PocoDateTestView">
+    <Position X="2.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAQAAAkQAAAAAAAAAABAAAABAAIA=</HashCode>
+      <FileName>test\PocoDateTestView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeRangeCalculationTestsView">
+    <Position X="4.75" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAIAAAAAAAAAACAAEQAAAAAAAAAABAAACAAAAA=</HashCode>
+      <FileName>test\TimeRangeCalculationTestsView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

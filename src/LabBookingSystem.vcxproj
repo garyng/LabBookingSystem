@@ -267,6 +267,15 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClInclude Include="ViewModelBase.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\docs\All.cd" />
+    <None Include="..\docs\Commands.cd" />
+    <None Include="..\docs\DataStorages.cd" />
+    <None Include="..\docs\Loggers.cd" />
+    <None Include="..\docs\Queries.cd" />
+    <None Include="..\docs\ViewModels.cd" />
+    <None Include="..\docs\Views.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <ResourceCompile Include="LabBookingSystem.rc" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="IStorage">
+    <Position X="10.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>storage\IStorage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JsonStorage&lt;TData&gt;">
+    <Position X="10" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEgIAABAAAQCAAACACAAAAAAgAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>storage\JsonStorage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabStorage">
+    <Position X="7.25" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>storage\LabStorage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RequestStorage">
+    <Position X="10.25" Y="9.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>storage\RequestStorage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserStorage">
+    <Position X="13.5" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>storage\UserStorage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

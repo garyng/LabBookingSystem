@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="IQuery">
+    <Position X="12" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>query\IQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetAllLabsQuery">
+    <Position X="8" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>query\GetAllLabsQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetAllRequestByLabIdQuery">
+    <Position X="7.75" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAACAAAAAIAAAAAA=</HashCode>
+      <FileName>query\GetAllRequestByLabIdQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetAllRequestsQuery">
+    <Position X="15.5" Y="2.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAIAAAAEA=</HashCode>
+      <FileName>query\GetAllRequestsQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetRequestsByUserIdQuery">
+    <Position X="15" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>query\GetRequestsByUserIdQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetUserByUserNameQuery">
+    <Position X="11.25" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>query\GetUserByUserNameQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetUserIdFromUserNameQuery">
+    <Position X="11.5" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>query\GetUserIdFromUserNameQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

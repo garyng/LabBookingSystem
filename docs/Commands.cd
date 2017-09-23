@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ICommand">
+    <Position X="21.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>command\ICommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AcceptAllPendingRequestsCommand">
+    <Position X="19.75" Y="6" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>command\AcceptAllPendingRequestsCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AcceptRequestByIdCommand">
+    <Position X="18.75" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>command\AcceptRequestByIdCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddRequestCommand">
+    <Position X="23.75" Y="6" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgIAAAAAA=</HashCode>
+      <FileName>command\AddRequestCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CancelRequestByIdCommand">
+    <Position X="16" Y="6" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAAAIAAAAAA=</HashCode>
+      <FileName>command\CancelRequestByIdCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RejectAllPendingRequestsCommand">
+    <Position X="22.75" Y="3.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>command\RejectAllPendingRequestsCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RejectRequestByIdCommand">
+    <Position X="27" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAIBAAAAA=</HashCode>
+      <FileName>command\RejectRequestByIdCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserLoginCommand">
+    <Position X="15" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAEAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>command\UserLoginCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

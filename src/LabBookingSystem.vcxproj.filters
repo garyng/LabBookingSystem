@@ -55,6 +55,9 @@
     <Filter Include="Source Files\review">
       <UniqueIdentifier>{263933c6-f152-4927-83c6-0efca3bce62c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Docs">
+      <UniqueIdentifier>{94811281-6ca0-40b4-bbbf-3b99ebfd12c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -365,5 +368,38 @@
     <ClInclude Include="query\IQuery.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LabBookingSystem.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\docs\All.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\ViewModels.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Views.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\DataStorages.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Loggers.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Queries.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Commands.cd">
+      <Filter>Docs</Filter>
+    </None>
   </ItemGroup>
 </Project>

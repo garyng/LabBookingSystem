@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="LoginViewModel">
+    <Position X="10.25" Y="10.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAABAAAAAAAAAwAAAAACAAIAAAAAAKAAAA=</HashCode>
+      <FileName>login\LoginViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectLabViewModel">
+    <Position X="10.5" Y="17" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AgCAAAAAEAAABAAAAAAAAARAAAAAAAAAAcIAAEEAAgA=</HashCode>
+      <FileName>request\SelectLabViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReviewViewModel">
+    <Position X="6.5" Y="16.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIAAACAgBBAAQAEQgARAAgAAAAQGgIQAIBAAAAA=</HashCode>
+      <FileName>review\ReviewViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectTimeViewModel">
+    <Position X="14.25" Y="10" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>MAABCABAEkAABIKQQAUwAGRDAAAAiQAAEQMAIBMQsAA=</HashCode>
+      <FileName>request\SelectTimeViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserViewModel">
+    <Position X="10.5" Y="14" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAACAAAAAAAQIABAAAAIA=</HashCode>
+      <FileName>user\UserViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModelBase">
+    <Position X="9.25" Y="7" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAABBAAAAAAAAAAAAAhAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModelBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IViewModel">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAQAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RequestViewModel">
+    <Position X="6.5" Y="10" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIAAACIABAAAQAEAAARQAQAAAAACAYIgIBAAABA=</HashCode>
+      <FileName>request\RequestViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminViewModel">
+    <Position X="13.75" Y="20.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAQIABAAAAII=</HashCode>
+      <FileName>admin\AdminViewModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

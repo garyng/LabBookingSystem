@@ -41,6 +41,8 @@
 #include "ViewModelBase.h"
 #include "AppColors.h"
 #include "AppFontIndex.h"
+#include "query/IQuery.h"
+#include "command/ICommand.h"
 #include "services/NavigationService.h"
 #include "storage/IStorage.h"
 #include "storage/JsonStorage.h"
