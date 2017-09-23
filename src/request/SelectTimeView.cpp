@@ -25,7 +25,7 @@ void SelectTimeView::Render()
 
 	static tm selectedDateBuffer;
 	selectedDateBuffer = _viewModel->SelectedDateTimetm();
-	if (ImGui::DateChooser("Select a date", selectedDateBuffer))
+	if (ImGui::DateChooser(ICON_MD_DATE_RANGE " Select a date", selectedDateBuffer))
 	{
 		_viewModel->SelectedDateTime(selectedDateBuffer);
 		_viewModel->RefreshTimeListCommand();

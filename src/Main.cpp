@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
 	shared_ptr<App> app = make_shared<App>(renderer);
 
 	// automate gui
-	AutomateGui(navigation);
+	// AutomateGui(navigation);
 
 	app->Start();
 	return 0;
