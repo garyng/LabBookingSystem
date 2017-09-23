@@ -32,54 +32,13 @@ void SelectTimeView::Render()
 	}
 	if (_viewModel->IsSelectedTimeValid())
 	{
-		ImGui::Spacing();
-		ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
-		ImGui::Text(_viewModel->SelectedDateFormatted().c_str());
-		ImGui::PopFont();
-		ImGui::Spacing();
-		ImGui::Separator();
-
-		ImGui::Columns(2);
-
-		ImGui::PushFont(AppFontIndex::RobotoBold_Normal);
-
-		ImGui::Text("Start:");
-		ImGui::NextColumn();
-		ImGui::Text("End:");
-		ImGui::NextColumn();
-
-		ImGui::PopFont();
-
-		static Selected selectedStartTime;
-		selectedStartTime.PeriodIndex(_viewModel->SelectedStartTimePeriodIndex());
-		selectedStartTime.TimeIndex(_viewModel->SelectedStartTimeTimeIndex());
-
-		static Selected selectedEndTime;
-		selectedEndTime.PeriodIndex(_viewModel->SelectedEndTimePeriodIndex());
-		selectedEndTime.TimeIndex(_viewModel->SelectedEndTimeTimeIndex());
-
-		static bool canAdd;
-
-		int freePeriodIndex = 0;
-		for (FreeTime& freeTimePeriod : _viewModel->FreeTimePeriods())
+		if (_viewModel->FreeTimePeriods().size() == 0)
 		{
-			vector<Time> expandedTimePeriod = freeTimePeriod.ExpandedTimePeriod();
-			vector<string> expandedTimePeriodStrings = freeTimePeriod.ExpandedTimePeriodStrings();
-
-			RenderStartTimeList(freePeriodIndex, selectedStartTime, selectedEndTime, canAdd, expandedTimePeriodStrings, expandedTimePeriod);
-			ImGui::NextColumn();
-			RenderEndTimeList(freePeriodIndex, selectedStartTime, selectedEndTime, canAdd, expandedTimePeriodStrings, expandedTimePeriod);
-
-			freePeriodIndex++;
-
-			canAdd = !selectedStartTime.IsEmpty() && !selectedEndTime.IsEmpty();
+			RenderNoFreeTimePeriodsAvailable();
 		}
-
-		ImGui::Columns(1);
-		if (canAdd)
+		else
 		{
-			RenderSelectedTimeInfo(selectedStartTime, selectedEndTime);
-			RenderAddTimeButton(_viewModel->LabId(), selectedStartTime.FormattedTime(), selectedEndTime.FormattedTime());
+			RenderFreeTimePeriods();
 		}
 	}
 	else
@@ -98,6 +57,67 @@ void SelectTimeView::RenderDateInvalid()
 	ImGui::PopFont();
 
 	ImGui::HorizontallyCenteredText("pssst.. Today is " + Today());
+}
+
+void SelectTimeView::RenderNoFreeTimePeriodsAvailable()
+{
+	ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
+
+	ImGui::CenteredTexts({ICON_MD_PREGNANT_WOMAN, "I'm full..."});
+	ImGui::PopFont();
+}
+
+void SelectTimeView::RenderFreeTimePeriods()
+{
+	ImGui::Spacing();
+	ImGui::PushFont(AppFontIndex::RobotoLight_Title1);
+	ImGui::Text(_viewModel->SelectedDateFormatted().c_str());
+	ImGui::PopFont();
+	ImGui::Spacing();
+	ImGui::Separator();
+
+	ImGui::Columns(2);
+
+	ImGui::PushFont(AppFontIndex::RobotoBold_Normal);
+
+	ImGui::Text("Start:");
+	ImGui::NextColumn();
+	ImGui::Text("End:");
+	ImGui::NextColumn();
+
+	ImGui::PopFont();
+
+	static Selected selectedStartTime;
+	selectedStartTime.PeriodIndex(_viewModel->SelectedStartTimePeriodIndex());
+	selectedStartTime.TimeIndex(_viewModel->SelectedStartTimeTimeIndex());
+
+	static Selected selectedEndTime;
+	selectedEndTime.PeriodIndex(_viewModel->SelectedEndTimePeriodIndex());
+	selectedEndTime.TimeIndex(_viewModel->SelectedEndTimeTimeIndex());
+
+	static bool canAdd;
+
+	int freePeriodIndex = 0;
+	for (FreeTime& freeTimePeriod : _viewModel->FreeTimePeriods())
+	{
+		vector<Time> expandedTimePeriod = freeTimePeriod.ExpandedTimePeriod();
+		vector<string> expandedTimePeriodStrings = freeTimePeriod.ExpandedTimePeriodStrings();
+
+		RenderStartTimeList(freePeriodIndex, selectedStartTime, selectedEndTime, canAdd, expandedTimePeriodStrings, expandedTimePeriod);
+		ImGui::NextColumn();
+		RenderEndTimeList(freePeriodIndex, selectedStartTime, selectedEndTime, canAdd, expandedTimePeriodStrings, expandedTimePeriod);
+
+		freePeriodIndex++;
+
+		canAdd = !selectedStartTime.IsEmpty() && !selectedEndTime.IsEmpty();
+	}
+
+	ImGui::Columns(1);
+	if (canAdd)
+	{
+		RenderSelectedTimeInfo(selectedStartTime, selectedEndTime);
+		RenderAddTimeButton(_viewModel->LabId(), selectedStartTime.FormattedTime(), selectedEndTime.FormattedTime());
+	}
 }
 
 void SelectTimeView::RenderStartTimeList(const int& freePeriodIndex, Selected& selectedStartTime, Selected& selectedEndTime, const bool& canAdd,

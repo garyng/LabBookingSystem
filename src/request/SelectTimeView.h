@@ -50,6 +50,8 @@ public:
 
 	void Render() override;
 	void RenderDateInvalid();
+	void RenderNoFreeTimePeriodsAvailable();
+	void RenderFreeTimePeriods();
 	void RenderStartTimeList(const int& freePeriodIndex, Selected& selectedStartTime, Selected& selectedEndTime, const bool& canAdd,
 	                         std::vector<std::string>& expandedTimePeriodStrings, std::vector<Poco::Data::Time> expandedTimePeriod);
 	void RenderEndTimeList(const int& freePeriodIndex, Selected& selectedStartTime, Selected& selectedEndTime, const bool& canAdd,
