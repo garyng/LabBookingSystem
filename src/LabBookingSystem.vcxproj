@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -97,9 +98,11 @@
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\poco\lib;$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
+      <Command>XCOPY "$(SolutionDir)fonts" "$(SolutionDir)..\bin\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\bin\" /s /i /y /d</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -135,7 +138,8 @@
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
+      <Command>XCOPY "$(SolutionDir)fonts" "$(SolutionDir)..\bin\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\bin\" /s /i /y /d</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
