@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{AA3B52F8-6886-4AA6-9046-E70996CFC83D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>LabBookingSystem</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <ProjectName>LabBookingSystem-OpenGL2</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)-OpenGL2\</OutDir>
+    <IntDir>$(Configuration)-OpenGL2\</IntDir>
+    <TargetName>$(ProjectName)-d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)-OpenGL2\</OutDir>
+    <IntDir>$(Configuration)-OpenGL2\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\poco\include\Data;$(SolutionDir)\..\libs\poco\include\Foundation;$(SolutionDir)\..\libs\date;$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CppLanguageStandard>Default</CppLanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\poco\lib;$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "$(SolutionDir)fonts" "$(SolutionDir)..\bin\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\bin\" /s /i /y /d</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\poco\include\Data;$(SolutionDir)\..\libs\poco\include\Foundation;$(SolutionDir)\..\libs\date;$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\poco\lib;$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "$(SolutionDir)fonts" "$(SolutionDir)..\bin\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\bin\" /s /i /y /d</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_custom.cpp" />
+    <ClCompile Include="..\libs\imgui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_impl_glfw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="admin\AdminView.cpp" />
+    <ClCompile Include="admin\AdminViewModel.cpp" />
+    <ClCompile Include="AppColors.cpp" />
+    <ClCompile Include="AppFontIndex.cpp" />
+    <ClCompile Include="App_opengl2.cpp" />
+    <ClCompile Include="logger\Logger.cpp" />
+    <ClCompile Include="login\LoginView.cpp" />
+    <ClCompile Include="login\LoginViewModel.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="models\Lab.cpp" />
+    <ClCompile Include="models\Request.cpp" />
+    <ClCompile Include="models\User.cpp" />
+    <ClCompile Include="request\RequestView.cpp" />
+    <ClCompile Include="request\RequestViewModel.cpp" />
+    <ClCompile Include="request\SelectLabView.cpp" />
+    <ClCompile Include="request\SelectLabViewModel.cpp" />
+    <ClCompile Include="request\SelectTimeView.cpp" />
+    <ClCompile Include="request\SelectTimeViewModel.cpp" />
+    <ClCompile Include="review\ReviewView.cpp" />
+    <ClCompile Include="review\ReviewViewModel.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="storage\LabStorage.cpp" />
+    <ClCompile Include="storage\RequestStorage.cpp" />
+    <ClCompile Include="storage\UserStorage.cpp" />
+    <ClCompile Include="user\UserView.cpp" />
+    <ClCompile Include="user\UserViewModel.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\libs\gl3w\GL\gl3w.h" />
+    <ClInclude Include="..\libs\gl3w\GL\glcorearb.h" />
+    <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h" />
+    <ClInclude Include="..\libs\imgui\imconfig.h" />
+    <ClInclude Include="..\libs\imgui\imgui.h" />
+    <ClInclude Include="..\libs\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="..\libs\imgui\imgui_internal.h" />
+    <ClInclude Include="admin\AdminView.h" />
+    <ClInclude Include="admin\AdminViewModel.h" />
+    <ClInclude Include="App.h" />
+    <ClInclude Include="AppColors.h" />
+    <ClInclude Include="AppFontIndex.h" />
+    <ClInclude Include="command\AcceptAllPendingRequestsCommand.h" />
+    <ClInclude Include="command\AcceptRequestByIdCommand.h" />
+    <ClInclude Include="command\AddRequestCommand.h" />
+    <ClInclude Include="command\CancelRequestByIdCommand.h" />
+    <ClInclude Include="command\ICommand.h" />
+    <ClInclude Include="command\RejectAllPendingRequestsCommand.h" />
+    <ClInclude Include="command\RejectRequestByIdCommand.h" />
+    <ClInclude Include="command\UserLoginCommand.h" />
+    <ClInclude Include="query\GetAllLabsQuery.h" />
+    <ClInclude Include="query\GetAllRequestByLabIdQuery.h" />
+    <ClInclude Include="query\GetAllRequestsQuery.h" />
+    <ClInclude Include="query\GetUserIdFromUserNameQuery.h" />
+    <ClInclude Include="query\GetRequestsByUserIdQuery.h" />
+    <ClInclude Include="query\IQuery.h" />
+    <ClInclude Include="request\SelectLabView.h" />
+    <ClInclude Include="request\SelectLabViewModel.h" />
+    <ClInclude Include="request\SelectTimeView.h" />
+    <ClInclude Include="request\SelectTimeViewModel.h" />
+    <ClInclude Include="request\TimePeriod.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="review\ReviewView.h" />
+    <ClInclude Include="review\ReviewViewModel.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="test\DataStorageTestsView.h" />
+    <ClInclude Include="test\DateLibraryTestsView.h" />
+    <ClInclude Include="test\ImGuiDateChooserTestView.h" />
+    <ClInclude Include="test\ImGuiMetricsView.h" />
+    <ClInclude Include="test\ImGuiStyleEditorView.h" />
+    <ClInclude Include="test\PocoDateTestView.h" />
+    <ClInclude Include="test\TimeRangeCalculationTestsView.h" />
+    <ClInclude Include="ViewsRenderer.h" />
+    <ClInclude Include="imgui\imgui_extra.h" />
+    <ClInclude Include="IView.h" />
+    <ClInclude Include="IViewModel.h" />
+    <ClInclude Include="logger\ConsoleLogger.h" />
+    <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="logger\Logger.h" />
+    <ClInclude Include="login\LoginView.h" />
+    <ClInclude Include="login\LoginViewModel.h" />
+    <ClInclude Include="models\Lab.h" />
+    <ClInclude Include="models\Request.h" />
+    <ClInclude Include="models\User.h" />
+    <ClInclude Include="query\GetUserByUserNameQuery.h" />
+    <ClInclude Include="request\RequestView.h" />
+    <ClInclude Include="request\RequestViewModel.h" />
+    <ClInclude Include="services\NavigationService.h" />
+    <ClInclude Include="storage\IStorage.h" />
+    <ClInclude Include="storage\JsonStorage.h" />
+    <ClInclude Include="storage\LabStorage.h" />
+    <ClInclude Include="storage\RequestStorage.h" />
+    <ClInclude Include="storage\UserStorage.h" />
+    <ClInclude Include="test\AppColorsTestView.h" />
+    <ClInclude Include="test\AppFontsTestView.h" />
+    <ClInclude Include="user\UserView.h" />
+    <ClInclude Include="user\UserViewModel.h" />
+    <ClInclude Include="ViewBase.h" />
+    <ClInclude Include="ViewModelBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\docs\All.cd" />
+    <None Include="..\docs\Commands.cd" />
+    <None Include="..\docs\DataStorages.cd" />
+    <None Include="..\docs\Loggers.cd" />
+    <None Include="..\docs\Queries.cd" />
+    <None Include="..\docs\ViewModels.cd" />
+    <None Include="..\docs\Views.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LabBookingSystem.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

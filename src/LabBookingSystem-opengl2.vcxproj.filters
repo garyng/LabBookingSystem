@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\gl3w">
+      <UniqueIdentifier>{e5d3bdcd-ef43-4c65-98da-cfe89c0f048b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\imgui">
+      <UniqueIdentifier>{6961be51-70c3-4997-ab26-6bf0bab960a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\services">
+      <UniqueIdentifier>{b62240f0-a563-4a30-9fcd-b3ba6db29824}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\login">
+      <UniqueIdentifier>{57f2b5d4-f3fe-44e9-be8e-402532fad6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\user">
+      <UniqueIdentifier>{cbbdd038-fc15-42cd-bde6-f560902a8472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\admin">
+      <UniqueIdentifier>{64042e3c-3bd0-4c0d-addf-60f03a82a1e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\request">
+      <UniqueIdentifier>{dea76ca0-eddb-499f-b5a4-2f49fa211a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models">
+      <UniqueIdentifier>{009f70a7-4d09-4392-bbb9-20709277dd50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\storage">
+      <UniqueIdentifier>{4c6c61af-fac0-4e44-8dcc-73d6bb28a3e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logger">
+      <UniqueIdentifier>{237d1815-414b-43f5-8849-25c7efb2751e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\test">
+      <UniqueIdentifier>{c38f8bfb-8bbd-4bb2-b81a-30248a1a8868}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\command">
+      <UniqueIdentifier>{410b7a79-9e07-4670-b849-d034c2376510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\query">
+      <UniqueIdentifier>{ed16b66c-d5d2-4c46-8f9f-7fc218d8113f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\review">
+      <UniqueIdentifier>{263933c6-f152-4927-83c6-0efca3bce62c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Docs">
+      <UniqueIdentifier>{94811281-6ca0-40b4-bbbf-3b99ebfd12c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
+      <Filter>Source Files\gl3w</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_demo.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_draw.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_custom.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="login\LoginView.cpp">
+      <Filter>Source Files\login</Filter>
+    </ClCompile>
+    <ClCompile Include="login\LoginViewModel.cpp">
+      <Filter>Source Files\login</Filter>
+    </ClCompile>
+    <ClCompile Include="admin\AdminViewModel.cpp">
+      <Filter>Source Files\admin</Filter>
+    </ClCompile>
+    <ClCompile Include="admin\AdminView.cpp">
+      <Filter>Source Files\admin</Filter>
+    </ClCompile>
+    <ClCompile Include="request\RequestView.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\RequestViewModel.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="user\UserView.cpp">
+      <Filter>Source Files\user</Filter>
+    </ClCompile>
+    <ClCompile Include="user\UserViewModel.cpp">
+      <Filter>Source Files\user</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Lab.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Request.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\User.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\UserStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="logger\Logger.cpp">
+      <Filter>Source Files\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\LabStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\RequestStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="AppColors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppFontIndex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="request\SelectLabView.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\SelectLabViewModel.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\SelectTimeView.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="request\SelectTimeViewModel.cpp">
+      <Filter>Source Files\request</Filter>
+    </ClCompile>
+    <ClCompile Include="review\ReviewView.cpp">
+      <Filter>Source Files\review</Filter>
+    </ClCompile>
+    <ClCompile Include="review\ReviewViewModel.cpp">
+      <Filter>Source Files\review</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_impl_glfw.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="App_opengl2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\gl3w\GL\glcorearb.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imconfig.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imgui.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imgui_internal.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="services\NavigationService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="login\LoginView.h">
+      <Filter>Source Files\login</Filter>
+    </ClInclude>
+    <ClInclude Include="login\LoginViewModel.h">
+      <Filter>Source Files\login</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModelBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="admin\AdminViewModel.h">
+      <Filter>Source Files\admin</Filter>
+    </ClInclude>
+    <ClInclude Include="admin\AdminView.h">
+      <Filter>Source Files\admin</Filter>
+    </ClInclude>
+    <ClInclude Include="request\RequestView.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="request\RequestViewModel.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserView.h">
+      <Filter>Source Files\user</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserViewModel.h">
+      <Filter>Source Files\user</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\JsonStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Lab.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Request.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\User.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\UserStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\ILogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\ConsoleLogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\Logger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\IStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\LabStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\RequestStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="test\AppColorsTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="AppColors.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppFontIndex.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UserLoginCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetUserByUserNameQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="test\AppFontsTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_extra.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="IView.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewsRenderer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IViewModel.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ImGuiDateChooserTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\DataStorageTestsView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ImGuiStyleEditorView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\TimeRangeCalculationTestsView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="request\SelectLabView.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="request\SelectLabViewModel.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetRequestsByUserIdQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetUserIdFromUserNameQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CancelRequestByIdCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ImGuiMetricsView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\DateLibraryTestsView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="request\SelectTimeView.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="request\SelectTimeViewModel.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllLabsQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="test\PocoDateTestView.h">
+      <Filter>Source Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllRequestByLabIdQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AddRequestCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="request\TimePeriod.h">
+      <Filter>Source Files\request</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllRequestsQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AcceptAllPendingRequestsCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\RejectAllPendingRequestsCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AcceptRequestByIdCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\RejectRequestByIdCommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="review\ReviewView.h">
+      <Filter>Source Files\review</Filter>
+    </ClInclude>
+    <ClInclude Include="review\ReviewViewModel.h">
+      <Filter>Source Files\review</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="command\ICommand.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="query\IQuery.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imgui_impl_glfw.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LabBookingSystem.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\docs\All.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\ViewModels.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Views.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\DataStorages.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Loggers.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Queries.cd">
+      <Filter>Docs</Filter>
+    </None>
+    <None Include="..\docs\Commands.cd">
+      <Filter>Docs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

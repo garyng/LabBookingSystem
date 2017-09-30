@@ -315,3 +315,7 @@ obj/
 src/imgui\.ini
 
 src/data/
+
+src/Debug-OpenGL2/
+
+src/Release-OpenGL2/
