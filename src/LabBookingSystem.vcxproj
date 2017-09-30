@@ -91,15 +91,15 @@
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\poco\include\Data;$(SolutionDir)\..\libs\poco\include\Foundation;$(SolutionDir)\..\libs\date;$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CppLanguageStandard>Default</CppLanguageStandard>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\poco\lib;$(SolutionDir)\..\libs\glfw\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\poco\lib;$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>XCOPY "$(SolutionDir)\..\libs\poco\bin" "$(TargetDir)" /s /i /y /d
-XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
+      <Command>XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -117,18 +117,26 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\poco\include\Data;$(SolutionDir)\..\libs\poco\include\Foundation;$(SolutionDir)\..\libs\date;$(SolutionDir)\..\libs\PicoSHA2;$(SolutionDir)\..\libs\linq;$(SolutionDir)\..\libs\json;$(SolutionDir)\..\libs\better-enums;$(SolutionDir)\..\libs\IconFontCppHeaders;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\poco\lib;$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -149,22 +157,28 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
   <ItemGroup>
     <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\libs\imgui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\libs\imgui\imgui_custom.cpp" />
     <ClCompile Include="..\libs\imgui\imgui_demo.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\libs\imgui\imgui_draw.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\libs\imgui\imgui_impl_glfw_gl3.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="admin\AdminView.cpp" />
     <ClCompile Include="admin\AdminViewModel.cpp" />
@@ -188,6 +202,7 @@ XCOPY "$(SolutionDir)\fonts" "$(TargetDir)\fonts" /s /i /y /d</Command>
     <ClCompile Include="review\ReviewViewModel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="storage\LabStorage.cpp" />
     <ClCompile Include="storage\RequestStorage.cpp" />
