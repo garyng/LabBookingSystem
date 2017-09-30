@@ -1,6 +1,9 @@
 ﻿# Lab Booking System
 A simple lab booking system implemented in C++.
 
+# Building
+The `Visual Studio 2017` project file is located under `src/`. Open it with Visual Studio and build with either `Debug-Static` or `Release-Static` configuration. The compiled binaries, along with some others files will be copied to the `bin/` folder.
+
 # Libraries
 [ImGui](https://github.com/ocornut/imgui): Bloat-free Immediate Mode Graphical User interface for C++ with minimal dependencies 
 
