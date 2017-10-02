@@ -87,7 +87,7 @@ void ReviewView::RenderRequestList()
 
 void ReviewView::RenderFilterByComboBox()
 {
-	const char* filterByItems[] = {"Pending", "Accepted", "Rejected", "All"};
+	const char* filterByItems[] = {"Pending", "Accepted", "Rejected", "Cancelled", "All"};
 	int filterByCurrentItemIndex = _viewModel->SelectedFilterIndex();
 
 	if (ImGui::Combo(ICON_MD_FILTER_LIST " Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems)))

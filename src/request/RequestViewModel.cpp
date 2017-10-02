@@ -50,7 +50,7 @@ void RequestViewModel::AddRequestCommand()
 
 void RequestViewModel::FilterRequestsCommand()
 {
-	// {"All", "Accepted", "Pending", "Rejected"}
+	// {"All", "Accepted", "Pending", "Rejected", "Cancelled"}
 	SelectedIndex(-1);
 	switch (_selectedFilterIndex)
 	{
@@ -70,6 +70,11 @@ void RequestViewModel::FilterRequestsCommand()
 		case 3:
 			_requests = _allRequests
 				| where([](Request r) { return r.Status() == +RequestStatus::Rejected; })
+				| to_vector();
+			break;
+		case 4:
+			_requests = _allRequests
+				| where([](Request r) { return r.Status() == +RequestStatus::Cancelled; })
 				| to_vector();
 			break;
 	}

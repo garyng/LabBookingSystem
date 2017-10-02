@@ -93,7 +93,7 @@ void RequestView::RenderRequestList() const
 
 void RequestView::RenderFilterByComboBox() const
 {
-	const char* filterByItems[] = {"All", "Accepted", "Pending", "Rejected"};
+	const char* filterByItems[] = {"All", "Accepted", "Pending", "Rejected", "Cancelled"};
 	int filterByCurrentItemIndex = _viewModel->SelectedFilterIndex();
 
 	if (ImGui::Combo(ICON_MD_FILTER_LIST " Filter By", &filterByCurrentItemIndex, filterByItems, IM_ARRAYSIZE(filterByItems)))

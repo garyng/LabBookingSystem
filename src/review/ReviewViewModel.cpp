@@ -23,7 +23,7 @@ void ReviewViewModel::LoadAllRequestCommand()
 
 void ReviewViewModel::FilterRequestsCommand()
 {
-	// {"Pending", "Accepted", "Rejected", "All"};
+	// {"Pending", "Accepted", "Rejected", "Cancelled", "All"};
 	using namespace coveo::linq;
 
 	SelectedIndex(-1);
@@ -45,6 +45,11 @@ void ReviewViewModel::FilterRequestsCommand()
 				| to_vector();
 			break;
 		case 3:
+			_requests = _allRequests
+				| where([](Request r) { return r.Status() == +RequestStatus::Cancelled; })
+				| to_vector();
+			break;
+		case 4:
 			_requests = _allRequests;
 			break;
 	}
