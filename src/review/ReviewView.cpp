@@ -185,7 +185,7 @@ void ReviewView::RenderRejectButton(int requestId) const
 {
 	if (SelectableStyleButton(ICON_MD_REMOVE " Reject"))
 	{
-		ImGui::OpenPopup("Are you sure?##Accept");
+		ImGui::OpenPopup("Are you sure?##Reject");
 	}
 	ImGui::OkCancelPopupModal("Are you sure?##Reject", ICON_MD_INFO_OUTLINE, {
 		                          "Reject request #" + std::to_string(requestId) + "?"}, [&]()
